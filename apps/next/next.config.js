@@ -59,7 +59,14 @@ module.exports = function () {
       'expo-modules-core',
       'expo-image-picker',
       'react-native-gesture-handler',
+      'victory-native',
     ],
+
+    webpack(config) {
+      config.resolve.alias['victory-native'] = 'victory';
+      return config
+    },
+
     experimental: {
       /*
        A few notes before enabling app directory:

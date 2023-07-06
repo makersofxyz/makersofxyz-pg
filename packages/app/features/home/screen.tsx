@@ -1,7 +1,6 @@
 import {
   AchievementCard,
   Button,
-  EnsureFlexed,
   EventCard,
   FeedCard,
   H2,
@@ -16,8 +15,19 @@ import {
 } from '@my/ui'
 import { ArrowRight, DollarSign, Edit2, User, Users } from '@tamagui/lucide-icons'
 import { useUser } from 'app/utils/useUser'
+import { useVictoryTheme } from 'app/utils/useVictoryTheme'
 import React from 'react'
 import { useLink } from 'solito/link'
+import {
+  Bar,
+  VictoryAxis,
+  VictoryBar,
+  VictoryChart,
+  VictoryContainer,
+  VictoryStack,
+  VictoryTheme,
+  VictoryTooltip,
+} from 'victory-native'
 
 const defaultAuthors = [
   {
@@ -122,9 +132,9 @@ const AchievementsSection = () => {
       <XStack px="$4" ai="center" gap="$2" jc="space-between" mb="$4">
         <H4 fontWeight="400">Achievements</H4>
         <Theme name="alt2">
-        <Button  size="$2" chromeless {...useLink({ href: '/' })} iconAfter={ArrowRight}>
-          All Achievements
-        </Button>
+          <Button size="$2" chromeless {...useLink({ href: '/' })} iconAfter={ArrowRight}>
+            All Achievements
+          </Button>
         </Theme>
       </XStack>
 
@@ -210,9 +220,9 @@ const OverviewSection = () => {
       <XStack px="$4" ai="center" gap="$2" jc="space-between" mb="$4">
         <H4 fontWeight="400">Overview</H4>
         <Theme name="alt2">
-        <Button  size="$2" chromeless {...useLink({ href: '/' })} iconAfter={ArrowRight}>
-          View All Stats
-        </Button>
+          <Button size="$2" chromeless {...useLink({ href: '/' })} iconAfter={ArrowRight}>
+            View All Stats
+          </Button>
         </Theme>
       </XStack>
 
@@ -273,6 +283,12 @@ const OverviewSection = () => {
           />
         </XStack>
       </ScrollAdapt>
+
+      <XStack>
+        <RevenueChart />
+        <NewMembersChart />
+        <PostViewsChart />
+      </XStack>
     </YStack>
   )
 }
@@ -283,9 +299,9 @@ const PostsSection = () => {
       <XStack px="$4" ai="center" gap="$2" jc="space-between" mb="$4">
         <H4 fontWeight="400">Latest Posts</H4>
         <Theme name="alt2">
-        <Button  size="$2" chromeless {...useLink({ href: '/' })} iconAfter={ArrowRight}>
-          View All Posts
-        </Button>
+          <Button size="$2" chromeless {...useLink({ href: '/' })} iconAfter={ArrowRight}>
+            View All Posts
+          </Button>
         </Theme>
       </XStack>
       <ScrollAdapt>
@@ -362,5 +378,133 @@ function ScrollAdapt({ children }: { children: React.ReactNode }) {
     </ScrollView>
   ) : (
     <>{children}</>
+  )
+}
+
+const RevenueChart = () => {
+  const victoryTheme = useVictoryTheme()
+
+  return (
+    <VictoryChart theme={victoryTheme} domainPadding={{ x: 40, y: 40 }}>
+      <VictoryAxis
+        gridComponent={<></>}
+        tickValues={[1, 2, 3]}
+        tickFormat={[
+          'January',
+          'February',
+          'March',
+          'April',
+          'May',
+          'June',
+          'July',
+          'August',
+          'September',
+          'October',
+          'November',
+          'December',
+        ]}
+      />
+      <VictoryAxis
+        style={{
+          axis: {
+            stroke: 'transparent',
+          },
+          ticks: {
+            stroke: 'transparent'
+          }
+        }}
+        dependentAxis
+        gridComponent={<></>}
+        tickFormat={(x) => `${x.toLocaleString()}`}
+      />
+      <VictoryBar
+        data={[
+          { x: 1, y: 10 },
+          { x: 2, y: 34 },
+          { x: 3, y: 40 },
+        ]}
+        labels={({ datum }) => `New Members: ${datum.y.toLocaleString()}`}
+        labelComponent={<VictoryTooltip />}
+        dataComponent={<Bar tabIndex={0} ariaLabel={({ datum }) => `x: ${datum.x}`} />}
+      />
+    </VictoryChart>
+  )
+}
+
+const NewMembersChart = () => {
+  const victoryTheme = useVictoryTheme()
+
+  return (
+    <VictoryChart theme={victoryTheme} domainPadding={{ x: 40, y: 40 }}>
+      <VictoryAxis
+        gridComponent={<></>}
+        tickValues={[1, 2, 3]}
+        tickFormat={[
+          'January',
+          'February',
+          'March',
+          'April',
+          'May',
+          'June',
+          'July',
+          'August',
+          'September',
+          'October',
+          'November',
+          'December',
+        ]}
+      />
+      <VictoryAxis dependentAxis gridComponent={<></>} tickFormat={(x) => `$${x / 1000}k`} />
+      <VictoryBar
+        data={[
+          { x: 1, y: 10000 },
+          { x: 2, y: 42300 },
+          { x: 3, y: 24000 },
+        ]}
+        labels={({ datum }) => `Revenue: $${datum.y.toLocaleString()}`}
+        labelComponent={<VictoryTooltip />}
+        dataComponent={<Bar tabIndex={0} ariaLabel={({ datum }) => `x: ${datum.x}`} />}
+      />
+    </VictoryChart>
+  )
+}
+
+const PostViewsChart = () => {
+  const victoryTheme = useVictoryTheme()
+
+  return (
+    <VictoryChart theme={victoryTheme} domainPadding={{ x: 40, y: 40 }}>
+      <VictoryAxis
+        gridComponent={<></>}
+        tickValues={[1, 2, 3]}
+        tickFormat={[
+          'January',
+          'February',
+          'March',
+          'April',
+          'May',
+          'June',
+          'July',
+          'August',
+          'September',
+          'October',
+          'November',
+          'December',
+        ]}
+      />
+      <VictoryAxis dependentAxis gridComponent={<></>} tickFormat={(x) => `${x}`} />
+      <VictoryStack colorScale="warm">
+        <VictoryBar
+          data={[
+            { x: 1, y: 200 },
+            { x: 2, y: 350 },
+            { x: 3, y: 190 },
+          ]}
+          labels={({ datum }) => `Views: ${datum.y.toLocaleString()}`}
+          labelComponent={<VictoryTooltip />}
+          dataComponent={<Bar tabIndex={0} ariaLabel={({ datum }) => `x: ${datum.x}`} />}
+        />
+      </VictoryStack>
+    </VictoryChart>
   )
 }
