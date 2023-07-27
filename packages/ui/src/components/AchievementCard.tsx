@@ -6,7 +6,7 @@ import { useLink } from 'solito/link'
 
 import { Button, Card, CardProps, Circle, H4, H6, Progress, SizableText, YStack } from 'tamagui'
 
-export type AchievementCardTypes = {
+export type AchievementCardProps = {
   icon: React.FC<IconProps>
   title?: string
   subtitle?: string
@@ -28,7 +28,7 @@ export const AchievementCard = ({
   progress,
   action,
   ...props
-}: AchievementCardTypes) => {
+}: AchievementCardProps) => {
   return (
     <Card borderRadius="$0" chromeless {...props}>
       <Card.Header my="auto" padded f={1} gap="$3">

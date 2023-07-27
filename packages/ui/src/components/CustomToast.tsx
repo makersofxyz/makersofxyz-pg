@@ -1,6 +1,5 @@
-import { X } from '@tamagui/lucide-icons'
 import { Toast, useToastState } from '@tamagui/toast'
-import { Button, Theme, XStack, YStack, isWeb } from 'tamagui'
+import { XStack, YStack } from 'tamagui'
 
 export const CustomToast = () => {
   const currentToast = useToastState()

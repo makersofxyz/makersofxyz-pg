@@ -6,6 +6,7 @@ const useIsSubmitting = () => {
   try {
     return useFormState().isSubmitting
   } catch (error) {
+    console.log(error)
     return false
   }
 }
@@ -15,6 +16,7 @@ const useIsSubmitting = () => {
  */
 export const SubmitButton = (props: ButtonProps) => {
   const isSubmitting = useIsSubmitting()
+
   return (
     <Button
       iconAfter={

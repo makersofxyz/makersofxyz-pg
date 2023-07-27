@@ -22,12 +22,12 @@ export const TodoCard = ({
                   <Check />
                 </Checkbox.Indicator>
               </Checkbox>
-              <YStack>
+              <YStack f={1}>
                 <Paragraph textDecorationLine={props.checked ? 'line-through' : 'none'} size="$3">
                   {label}
                 </Paragraph>
                 <Paragraph size="$1" theme="alt2">
-                  {props.checked ? "Completed" : "To do"}
+                  {props.checked ? 'Completed' : 'To do'}
                 </Paragraph>
               </YStack>
             </XStack>
