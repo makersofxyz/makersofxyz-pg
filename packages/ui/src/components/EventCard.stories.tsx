@@ -13,7 +13,7 @@ export const Basic: Story = {
   args: {
     title: 'Event Title',
     description: 'Lorem ipsum dolor sit, amet.',
-    width: 400,
+    $gtMd: { width: 320 },
     action: {
       text: 'Show Event',
       props: { href: '', accessibilityRole: 'link', onPress: () => {} },

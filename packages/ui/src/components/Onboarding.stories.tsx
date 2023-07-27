@@ -1,15 +1,15 @@
 import { Meta, StoryObj } from '@storybook/react'
 import { Star } from '@tamagui/lucide-icons'
-import { H4, Paragraph, Theme, YStack } from 'tamagui'
+import { YStack } from 'tamagui'
 import { Onboarding } from './Onboarding'
 import { StepContent } from './OnboardingStepContent'
 
 const meta: Meta<typeof Onboarding> = {
   title: 'ui/Onboarding',
-  parameters: { layout: 'fullscreen' },
+  parameters: { layout: 'padded' },
   component: Onboarding,
   render: (props) => (
-    <YStack height='60vh' f={1}>
+    <YStack height="60vh" f={1}>
       <Onboarding {...props} />
     </YStack>
   ),

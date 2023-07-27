@@ -31,7 +31,7 @@ export const AchievementCard = ({
 }: AchievementCardProps) => {
   return (
     <Card borderRadius="$0" chromeless {...props}>
-      <Card.Header my="auto" padded f={1} gap="$3">
+      <Card.Header my="auto" padded gap="$3">
         <Icon size="$2" opacity={0.6} />
         <YStack gap="$2">
           {/* <H6 theme="alt2">{subtitle}</H6> */}

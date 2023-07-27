@@ -3,7 +3,7 @@ import { Preview } from '@storybook/react'
 import '@tamagui/core/reset.css'
 import '@tamagui/font-inter/css/400.css'
 import '@tamagui/font-inter/css/700.css'
-import 'raf/polyfill' // const OriginalNextImage = NextImage.default
+import 'raf/polyfill' 
 import { StorybookDecorator } from './decorator'
 
 const themeData = [

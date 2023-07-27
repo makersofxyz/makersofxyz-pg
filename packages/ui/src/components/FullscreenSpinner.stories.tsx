@@ -7,7 +7,7 @@ const meta: Meta<typeof FullscreenSpinner> = {
   parameters: { layout: 'fullscreen' },
   component: FullscreenSpinner,
   render: (props) => (
-    <YStack height="100vh">
+    <YStack height="100%">
       <FullscreenSpinner {...props} />
     </YStack>
   ),

@@ -9,7 +9,7 @@ const meta: Meta<typeof CustomToast> = {
   component: () => {
     const toastController = useToastController()
     return (
-      <XStack gap="$2">
+      <XStack gap="$2" jc="center" my="$20">
         <Button
           onPress={() =>
             toastController.show('Toast!', {

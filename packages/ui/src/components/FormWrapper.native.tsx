@@ -1,4 +1,4 @@
-import { useHeaderHeight } from '@react-navigation/elements'
+import { useHeaderHeight as useHeaderHeightOG } from '@react-navigation/elements'
 import { createContext, forwardRef, useContext, useState } from 'react'
 import { KeyboardAvoidingView, Platform } from 'react-native'
 import {
@@ -9,6 +9,14 @@ import {
   useWindowDimensions,
   withStaticProperties,
 } from 'tamagui'
+
+const useHeaderHeight = () => {
+  try {
+    return useHeaderHeightOG()
+  } catch (error) {
+    return 0
+  }
+}
 
 const FormWrapperContext = createContext<{ height: number } | null>(null)
 /**

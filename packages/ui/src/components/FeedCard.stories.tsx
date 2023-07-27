@@ -13,7 +13,7 @@ export const Basic: Story = {
   args: {
     withImages: true,
     title: 'Why you should use Tamagui',
-    width: 400,
+    $gtMd: { width: 340 },
     description:
       'Tamagui is the best way to develop performant cross-platform apps with one codebase...',
     tag: 'React',

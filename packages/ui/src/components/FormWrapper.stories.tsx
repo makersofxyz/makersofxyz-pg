@@ -13,10 +13,10 @@ type Story = StoryObj<typeof FormWrapper>
 export const Basic: Story = {
   render: () => {
     return (
-      <YStack height="100vh" width={500}>
+      <YStack flex={1} $gtMd={{ width: 300 }}>
         <FormWrapper>
           <FormWrapper.Body>
-            <Fieldset>
+            <Fieldset gap="$2">
               <Label htmlFor="title">Title</Label>
               <Input id="title" />
             </Fieldset>
