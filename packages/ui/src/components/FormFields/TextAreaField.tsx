@@ -4,14 +4,16 @@ import { Label, TextArea, TextAreaProps, Theme, Fieldset } from 'tamagui'
 import { FieldError } from '../FieldError'
 import { Shake } from '../Shake'
 
-export const TextAreaField = (props: Pick<TextAreaProps, 'size' | 'autoFocus'>) => {
+export const TextAreaField = (props: Pick<TextAreaProps, 'size' | 'autoFocus' | 'id'>) => {
   const {
     field,
     error,
     formState: { isSubmitting },
   } = useTsController<string>()
   const { label, isOptional, placeholder } = useFieldInfo()
-  const id = useId()
+  const generatedId = useId()
+  const id = props.id ?? generatedId
+
   const disabled = isSubmitting
 
   return (

@@ -4,14 +4,17 @@ import { Fieldset, Input, InputProps, Label, Theme } from 'tamagui'
 import { FieldError } from '../FieldError'
 import { Shake } from '../Shake'
 
-export const TextField = (props: Pick<InputProps, 'size' | 'autoFocus' | 'secureTextEntry'>) => {
+export const TextField = (
+  props: Pick<InputProps, 'size' | 'autoFocus' | 'secureTextEntry' | 'id'>
+) => {
   const {
     field,
     error,
     formState: { isSubmitting },
   } = useTsController<string>()
   const { label, placeholder, isOptional, maxLength, isEmail } = useStringFieldInfo()
-  const id = useId()
+  const generatedId = useId()
+  const id = props.id ?? generatedId
   const disabled = isSubmitting
 
   return (

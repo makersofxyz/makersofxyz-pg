@@ -1,4 +1,4 @@
-import { Button, FormWrapper, H2, Paragraph, SubmitButton, Text, Theme, YStack } from '@my/ui'
+import { Button, FormWrapper, H2, Paragraph, SubmitButton, Text, Theme, YStack, useToastController } from '@my/ui'
 import { ChevronLeft } from '@tamagui/lucide-icons'
 import { SchemaForm, formFields } from 'app/utils/SchemaForm'
 import { useSupabase } from 'app/utils/supabase/useSupabase'
@@ -22,6 +22,7 @@ const usesEmailConfirm = false
 export const SignUpScreen = () => {
   const supabase = useSupabase()
   const router = useRouter()
+  const toastController = useToastController()
   const updateParams = useUpdateParams()
   const { params } = useParams()
 
@@ -57,6 +58,7 @@ export const SignUpScreen = () => {
       }
     } else {
       router.replace('/')
+      toastController.show("Successfully signed up. Welcome!")
       // do this instead if you're doing email confirms:
       // setShowSuccess(true)
     }
@@ -75,7 +77,11 @@ export const SignUpScreen = () => {
             password: '',
           }}
           props={{
+            email: {
+              id: 'email',
+            },
             password: {
+              id: 'password',
               secureTextEntry: true,
             },
           }}

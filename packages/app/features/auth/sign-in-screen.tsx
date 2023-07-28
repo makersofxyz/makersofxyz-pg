@@ -1,4 +1,4 @@
-import { H2, Paragraph, SubmitButton, Text, Theme, YStack } from '@my/ui'
+import { H2, Paragraph, SubmitButton, Text, Theme, YStack, useToastController } from '@my/ui'
 import { Link } from 'solito/link'
 import { SchemaForm, formFields } from 'app/utils/SchemaForm'
 import { useSupabase } from 'app/utils/supabase/useSupabase'
@@ -18,6 +18,7 @@ const SignInSchema = z.object({
 export const SignInScreen = () => {
   const supabase = useSupabase()
   const router = useRouter()
+  const toastController = useToastController()
   const { params } = useParams()
   const updateParams = useUpdateParams()
   useEffect(() => {
@@ -44,6 +45,7 @@ export const SignInScreen = () => {
         form.setError('password', { type: 'custom', message: errorMessage })
       }
     } else {
+      toastController.show("Successfully logged in. Welcome!")
       router.replace('/')
     }
   }

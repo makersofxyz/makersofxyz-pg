@@ -1,0 +1,19 @@
+appId: "http://localhost:3000/sign-in"
+---
+- launchApp
+- tapOn: 
+    id: "email"
+- inputText: "maestrotester@acme.com"
+- tapOn: 
+    id: "password"
+- inputText: "1234"
+- tapOn: "Sign Up"
+- assertVisible: "String must contain at least .*"
+- tapOn: 
+    id: "password"
+- inputText: "1234567890"
+- assertNotVisible: "String must contain at least .*"
+- tapOn: "Sign Up"
+- assertVisible: "Success.*"
+- assertVisible: "Getting Started"
+
