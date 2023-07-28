@@ -6,10 +6,10 @@ import { StepContent } from './OnboardingStepContent'
 
 const meta: Meta<typeof Onboarding> = {
   title: 'ui/Onboarding',
-  parameters: { layout: 'padded' },
+  parameters: { layout: 'fullscreen' },
   component: Onboarding,
   render: (props) => (
-    <YStack height="60vh" f={1}>
+    <YStack $platform-web={{ height: '80vh' }} f={1}>
       <Onboarding {...props} />
     </YStack>
   ),

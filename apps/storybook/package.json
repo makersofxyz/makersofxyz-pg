@@ -6,7 +6,7 @@
   "scripts": {
     "build-storybook": "TAMAGUI_TARGET=web storybook build -s public -o public-storybook",
     "dev": "TAMAGUI_TARGET=web storybook dev -p 6006 -s ./public",
-    "chromatic": "npx chromatic --project-token=<ENTER_CHROMATIC_TOKEN>",
+    "chromatic": "npx chromatic --project-token=<YOUR_CHROMATIC_TOKEN>",
     "serve-sb": "npx serve ./public-storybook"
   },
   "dependencies": {

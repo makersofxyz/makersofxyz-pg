@@ -93,7 +93,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/core@npm:^7.11.6, @babel/core@npm:^7.12.10, @babel/core@npm:^7.12.3, @babel/core@npm:^7.19.3, @babel/core@npm:^7.22.9, @babel/core@npm:^7.7.5":
+"@babel/core@npm:^7.11.6, @babel/core@npm:^7.12.10, @babel/core@npm:^7.12.3, @babel/core@npm:^7.22.9, @babel/core@npm:^7.7.5":
   version: 7.22.9
   resolution: "@babel/core@npm:7.22.9"
   dependencies:
@@ -5486,17 +5486,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-native-async-storage/async-storage@npm:^1.18.2":
-  version: 1.19.1
-  resolution: "@react-native-async-storage/async-storage@npm:1.19.1"
-  dependencies:
-    merge-options: ^3.0.4
-  peerDependencies:
-    react-native: ^0.0.0-0 || 0.60 - 0.72 || 1000.0.0
-  checksum: 7367210e16f788999ca8ff96bd04bbd345f44c186cec7c50903d55637f572c73b8a79f9c948a549329ad489c08d77dd49367971691ed54dbc3839285e0194431
-  languageName: node
-  linkType: hard
-
 "@react-native-community/cli-clean@npm:11.3.5":
   version: 11.3.5
   resolution: "@react-native-community/cli-clean@npm:11.3.5"
@@ -5687,12 +5676,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-native-community/datetimepicker@npm:^7.2.0":
-  version: 7.4.1
-  resolution: "@react-native-community/datetimepicker@npm:7.4.1"
+"@react-native-community/datetimepicker@npm:7.2.0":
+  version: 7.2.0
+  resolution: "@react-native-community/datetimepicker@npm:7.2.0"
   dependencies:
     invariant: ^2.2.4
-  checksum: bf1b2591ca4413a6ca1e074150940578b8d6d6c6063a740895e359088fe31cbf0cefb65f829a3d29e2f861b72d9d8fdf4f835942566f8953e7410068dfe37ea1
+  checksum: 4ec9de24573d654a2632818de15a1b7c6f41febbaa52aa543e7ef133f507b8b4fe8c0a08a0af34907c283b7be3cb9d5a52db216a2925c8eb96f52bf49a9f2b33
   languageName: node
   linkType: hard
 
@@ -27904,11 +27893,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "storybook-rn-app@workspace:apps/storybook-rn"
   dependencies:
-    "@babel/core": ^7.19.3
+    "@babel/core": ^7.17.9
     "@expo/vector-icons": ^13.0.0
     "@my/ui": "*"
-    "@react-native-async-storage/async-storage": ^1.18.2
-    "@react-native-community/datetimepicker": ^7.2.0
+    "@react-native-async-storage/async-storage": 1.18.2
+    "@react-native-community/datetimepicker": 7.2.0
     "@react-native-community/slider": ^4.4.2
     "@storybook/addon-actions": ^6.5.14
     "@storybook/addon-controls": ^6.5.14

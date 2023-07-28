@@ -8,7 +8,11 @@ const path = require('path')
 const projectRoot = __dirname
 const workspaceRoot = path.resolve(__dirname, '../..')
 
-const config = getDefaultConfig(projectRoot)
+const config = getDefaultConfig(__dirname);
+
+config.resolver.resolverMainFields.unshift('sbmodern');
+
+module.exports = config;
 
 config.watchFolders = [workspaceRoot]
 config.resolver.nodeModulesPaths = [
