@@ -9,7 +9,8 @@
     "start": "yarn with-env next start",
     "serve": "NODE_ENV=production yarn with-env next start --port 8151",
     "lint": "yarn with-env next lint",
-    "with-env": "TAMAGUI_TARGET=web dotenv -e ../../.env -c --"
+    "with-env": "TAMAGUI_TARGET=web dotenv -e ../../.env -c --",
+    "vercel-build": "yarn build"
   },
   "dependencies": {
     "@supabase/auth-helpers-nextjs": "^0.6.1",
