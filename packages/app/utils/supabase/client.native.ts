@@ -1,10 +1,12 @@
 import { Database } from '@my/supabase/types'
 import { createClient } from '@supabase/supabase-js'
 import * as SecureStore from 'expo-secure-store'
-import { NativeModules } from 'react-native'
+import { replaceLocalhost } from '../getLocalhost.native'
 
 if (!process.env.NEXT_PUBLIC_SUPABASE_URL) {
-  throw new Error(`NEXT_PUBLIC_SUPABASE_URL is not set. Please update the root .env.local and restart the server.`)
+  throw new Error(
+    `NEXT_PUBLIC_SUPABASE_URL is not set. Please update the root .env.local and restart the server.`
+  )
 }
 
 if (!process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
@@ -13,16 +15,7 @@ if (!process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
   )
 }
 
-const hostname = NativeModules.SourceCode.scriptURL
-  .split('://')[1] // Remove the scheme
-  .split('/')[0] // Remove the path
-  .split(':')[0] // Remove the port
-
-// replace localhost with the hostname - this will not do anything if using a production / remote URL, as they don't contain `localhost`
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL.replace(
-  '://localhost:',
-  `://${hostname}:`
-)
+const supabaseUrl = replaceLocalhost(process.env.NEXT_PUBLIC_SUPABASE_URL)
 
 const ExpoSecureStoreAdapter = {
   getItem: (key: string) => {

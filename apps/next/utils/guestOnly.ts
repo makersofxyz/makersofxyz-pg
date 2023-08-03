@@ -1,4 +1,5 @@
 import { createServerSupabaseClient } from '@supabase/auth-helpers-nextjs'
+import { AUTH_COOKIE_NAME } from 'app/utils/auth'
 import { GetServerSideProps, PreviewData } from 'next'
 import { ParsedUrlQuery } from 'querystring'
 
@@ -13,7 +14,7 @@ export function guestOnlyGetSSP<
   getServerSideProps?: GetServerSideProps<Props, Params, Preview>
 ): GetServerSideProps<Props, Params, Preview> {
   return async (ctx) => {
-    const supabase = createServerSupabaseClient(ctx)
+    const supabase = createServerSupabaseClient(ctx, { cookieOptions: { name: AUTH_COOKIE_NAME } })
 
     const {
       data: { session },

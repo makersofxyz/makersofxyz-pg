@@ -2,11 +2,11 @@ import { Paragraph, ScrollView, Settings, YStack, isWeb, useMedia } from '@my/ui
 import { Book, Cog, Info, Lock, LogOut, Mail, Moon, Twitter } from '@tamagui/lucide-icons'
 import { useThemeSetting } from 'app/provider/theme'
 import { redirect } from 'app/utils/redirect'
-import { useUser } from 'app/utils/useUser'
+import { useSupabase } from 'app/utils/supabase/useSupabase'
+import { usePathname } from 'app/utils/usePathname'
+import { useLink } from 'solito/link'
 import rootPackageJson from '../../../../package.json'
 import packageJson from '../../package.json'
-import { useLink } from 'solito/link'
-import { usePathname } from 'app/utils/usePathname'
 
 const brandColors = {
   twitter: '#1DA1F2',
@@ -129,10 +129,10 @@ const SettingsThemeAction = () => {
 }
 
 const SettingsItemLogoutAction = () => {
-  const { logOut } = useUser()
+  const supabase = useSupabase()
 
   return (
-    <Settings.Item icon={LogOut} accentColor="$red9" onPress={() => logOut()}>
+    <Settings.Item icon={LogOut} accentColor="$red9" onPress={() => supabase.auth.signOut()}>
       Log Out
     </Settings.Item>
   )

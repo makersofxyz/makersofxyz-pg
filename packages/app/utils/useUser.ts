@@ -1,5 +1,4 @@
 import { useQuery } from '@tanstack/react-query'
-import { useRouter } from 'solito/router'
 import { useSessionContext } from './supabase/useSessionContext'
 import { useSupabase } from './supabase/useSupabase'
 
@@ -16,9 +15,9 @@ export const useUser = () => {
       if (!user?.id) return null
       const { data, error } = await supabase.from('profiles').select('*').eq('id', user.id).single()
       if (error) {
+        // no rows - edge case of user being deleted
         if (error.code === 'PGRST116') {
           await supabase.auth.signOut()
-          router.replace('/onboarding')
           return null
         }
         throw new Error(error.message)
@@ -26,7 +25,6 @@ export const useUser = () => {
       return data
     },
   })
-  const router = useRouter()
 
   const avatarUrl = (function () {
     if (profile?.avatar_url) return profile.avatar_url
@@ -48,11 +46,5 @@ export const useUser = () => {
     isLoadingSession,
     isLoadingProfile,
     isLoading: isLoadingSession || isLoadingProfile,
-    logOut: async () => {
-      if (session) {
-        await supabase.auth.signOut()
-        router.replace('/onboarding')
-      }
-    },
   }
 }
