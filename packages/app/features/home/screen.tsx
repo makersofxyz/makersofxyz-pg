@@ -18,7 +18,7 @@ import {
   useMedia,
 } from '@my/ui'
 import { ArrowRight, DollarSign, Edit2, User, Users } from '@tamagui/lucide-icons'
-import { useUser } from 'app/utils/useUser'
+import { api } from 'app/utils/api'
 import React from 'react'
 import { useLink } from 'solito/link'
 
@@ -40,7 +40,7 @@ export function HomeScreen() {
     <XStack maw={1480} als="center" f={1}>
       <ScrollView f={3} fb={0}>
         <YStack gap="$6" pt="$5" pb="$8">
-          {!isWeb && <Greetings />}
+          <Greetings />
           <YStack gap="$8">
             <AchievementsSection />
             <OverviewSection />
@@ -372,28 +372,11 @@ function ScrollAdapt({ children }: { children: React.ReactNode }) {
 }
 
 const Greetings = () => {
-  const { profile } = useUser()
-
-  function getTimeOfDay() {
-    var today = new Date()
-    var curHr = today.getHours()
-
-    if (curHr < 4) {
-      return 'night'
-    } else if (curHr < 12) {
-      return 'morning'
-    } else if (curHr < 18) {
-      return 'afternoon'
-    } else {
-      return 'night'
-    }
-  }
-
+  const greetingQuery = api.greeting.greet.useQuery()
   return (
     <YStack gap="$2">
       <H2 px="$4" my="$2">
-        Good {getTimeOfDay()}
-        {profile?.name ? `, ${profile?.name}!` : '!'}
+        {greetingQuery.data}
       </H2>
     </YStack>
   )

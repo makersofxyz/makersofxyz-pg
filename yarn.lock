@@ -5054,6 +5054,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@my/api@workspace:packages/api":
+  version: 0.0.0-use.local
+  resolution: "@my/api@workspace:packages/api"
+  dependencies:
+    "@my/supabase": "*"
+    "@tanstack/react-query": 4.18.0
+    "@trpc/client": ^10.36.0
+    "@trpc/next": ^10.36.0
+    "@trpc/react-query": ^10.36.0
+    "@trpc/server": ^10.36.0
+    app: "*"
+    superjson: ^1.13.1
+    zod: ^3.21.4
+  languageName: unknown
+  linkType: soft
+
 "@my/supabase@*, @my/supabase@workspace:supabase":
   version: 0.0.0-use.local
   resolution: "@my/supabase@workspace:supabase"
@@ -9445,18 +9461,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tanstack/query-core@npm:4.29.5":
-  version: 4.29.5
-  resolution: "@tanstack/query-core@npm:4.29.5"
-  checksum: 367176beccd78e959c74e69e96497b626dd1c139398501eb7a04cf92215edf262665c3e7bb59df68320779d49893d3153a3b41e750b9046655b45cfe44691b36
+"@tanstack/query-core@npm:4.18.0":
+  version: 4.18.0
+  resolution: "@tanstack/query-core@npm:4.18.0"
+  checksum: 2d3f253809e2fc0927bbab25e7a61cf1fa957c993006f219a8dcc615acfe68003629e612c7d914198457d0b1bfd2b6d5738093fc45a82369b1d3beee14395a28
   languageName: node
   linkType: hard
 
-"@tanstack/react-query@npm:^4.29.5":
-  version: 4.29.5
-  resolution: "@tanstack/react-query@npm:4.29.5"
+"@tanstack/react-query@npm:4.18.0":
+  version: 4.18.0
+  resolution: "@tanstack/react-query@npm:4.18.0"
   dependencies:
-    "@tanstack/query-core": 4.29.5
+    "@tanstack/query-core": 4.18.0
     use-sync-external-store: ^1.2.0
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -9467,7 +9483,7 @@ __metadata:
       optional: true
     react-native:
       optional: true
-  checksum: de45573900810b37216aa8d6599cae5ea43602eaada9fd2224f57ff7ab1de10b3f2e681e7fdb993ee1519ed8ffc7e6e07d6bf3ad1b9da4136b1ae78ca19f31f6
+  checksum: 2fbb3e664fdc70650dfaaa63e56a1b97dddb50a46f6d3e0a0361c1fe9a0d711c1bb3b0f2e7ba5362269124405eb7a4f232a755b3e901b815d62008ddeedbd889
   languageName: node
   linkType: hard
 
@@ -9531,6 +9547,52 @@ __metadata:
   version: 0.23.0
   resolution: "@tootallnate/quickjs-emscripten@npm:0.23.0"
   checksum: c350a2947ffb80b22e14ff35099fd582d1340d65723384a0fd0515e905e2534459ad2f301a43279a37308a27c99273c932e64649abd57d0bb3ca8c557150eccc
+  languageName: node
+  linkType: hard
+
+"@trpc/client@npm:^10.36.0":
+  version: 10.36.0
+  resolution: "@trpc/client@npm:10.36.0"
+  peerDependencies:
+    "@trpc/server": 10.36.0
+  checksum: 161271d9d5ede59a29daa2c974452945fb1b8bc0613a7d26d2cf6e7686faef4a421eefcdae75d28b8b68f6584b4e7cb0583de80b3635419ae74ea17c04bb6b90
+  languageName: node
+  linkType: hard
+
+"@trpc/next@npm:^10.36.0":
+  version: 10.36.0
+  resolution: "@trpc/next@npm:10.36.0"
+  dependencies:
+    react-ssr-prepass: ^1.5.0
+  peerDependencies:
+    "@tanstack/react-query": ^4.18.0
+    "@trpc/client": 10.36.0
+    "@trpc/react-query": 10.36.0
+    "@trpc/server": 10.36.0
+    next: "*"
+    react: ">=16.8.0"
+    react-dom: ">=16.8.0"
+  checksum: e62feec77ac86e3c403f6a67c8183ea0c56deb7ba46a09a0eb03b36a04f64eadf5aa3f93047047b1d3fb158b2b2439f1e060c34db928592708c1d54f6edaeb30
+  languageName: node
+  linkType: hard
+
+"@trpc/react-query@npm:^10.36.0":
+  version: 10.36.0
+  resolution: "@trpc/react-query@npm:10.36.0"
+  peerDependencies:
+    "@tanstack/react-query": ^4.18.0
+    "@trpc/client": 10.36.0
+    "@trpc/server": 10.36.0
+    react: ">=16.8.0"
+    react-dom: ">=16.8.0"
+  checksum: 1756488d02ba409bd441f8be27188186a3d5690432f943eb8e4b57c3db3f362e92a6d61be03a32073fd0b9ede0e0656b65aed082949c675c56a81b6ec88f83da
+  languageName: node
+  linkType: hard
+
+"@trpc/server@npm:^10.36.0":
+  version: 10.36.0
+  resolution: "@trpc/server@npm:10.36.0"
+  checksum: 0ced75a537986a35d8a69e5a3c7d0c8198a6042db210200536ddc1765f61302169861c39d4364507ef7845b62c88a2266cb93998b92aaeb8cead292af520546a
   languageName: node
   linkType: hard
 
@@ -11588,7 +11650,8 @@ __metadata:
     "@tamagui/lucide-icons": latest
     "@tamagui/shorthands": latest
     "@tamagui/themes": latest
-    "@tanstack/react-query": ^4.29.5
+    "@tanstack/react-query": 4.18.0
+    "@trpc/client": ^10.36.0
     "@types/react": ^18.0.27
     "@types/react-native": ^0.71.3
     base64-arraybuffer: ^1.0.2
@@ -11600,6 +11663,7 @@ __metadata:
     react-hook-form: ^7.44.3
     react-native-safe-area-context: 4.6.3
     solito: ^4.0.1
+    superjson: ^1.13.1
     zod: ^3.21.4
   languageName: unknown
   linkType: soft
@@ -14007,6 +14071,15 @@ __metadata:
   version: 0.4.2
   resolution: "cookie@npm:0.4.2"
   checksum: a00833c998bedf8e787b4c342defe5fa419abd96b32f4464f718b91022586b8f1bafbddd499288e75c037642493c83083da426c6a9080d309e3bd90fd11baa9b
+  languageName: node
+  linkType: hard
+
+"copy-anything@npm:^3.0.2":
+  version: 3.0.5
+  resolution: "copy-anything@npm:3.0.5"
+  dependencies:
+    is-what: ^4.1.8
+  checksum: d39f6601c16b7cbd81cdb1c1f40f2bf0f2ca0297601cf7bfbb4ef1d85374a6a89c559502329f5bada36604464df17623e111fe19a9bb0c3f6b1c92fe2cbe972f
   languageName: node
   linkType: hard
 
@@ -20384,6 +20457,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"is-what@npm:^4.1.8":
+  version: 4.1.15
+  resolution: "is-what@npm:4.1.15"
+  checksum: fe27f6cd4af41be59a60caf46ec09e3071bcc69b9b12a7c871c90f54360edb6d0bc7240cb944a251fb0afa3d35635d1cecea9e70709876b368a8285128d70a89
+  languageName: node
+  linkType: hard
+
 "is-window@npm:^1.0.2":
   version: 1.0.2
   resolution: "is-window@npm:1.0.2"
@@ -23404,6 +23484,11 @@ __metadata:
     "@supabase/auth-helpers-nextjs": ^0.6.1
     "@tamagui/next-plugin": latest
     "@tamagui/next-theme": latest
+    "@tanstack/react-query": 4.18.0
+    "@trpc/client": ^10.36.0
+    "@trpc/next": ^10.36.0
+    "@trpc/react-query": ^10.36.0
+    "@trpc/server": ^10.36.0
     "@types/node": ^18.6.4
     app: "*"
     dotenv-cli: ^6.0.0
@@ -23417,6 +23502,7 @@ __metadata:
     react-native-web: ~0.19.6
     react-native-web-lite: latest
     vercel: latest
+    zod: ^3.21.4
   languageName: unknown
   linkType: soft
 
@@ -26185,6 +26271,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-ssr-prepass@npm:^1.5.0":
+  version: 1.5.0
+  resolution: "react-ssr-prepass@npm:1.5.0"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+  checksum: efe89b9f8b2053474613f56dfdbeb41d8ee2e572bf819a39377d95d3e4a9acf8a4a16e28d8d8034cb9ac2b316d11dc9e62217743e4322046d08175eb3b4fed3e
+  languageName: node
+  linkType: hard
+
 "react-style-singleton@npm:^2.2.1":
   version: 2.2.1
   resolution: "react-style-singleton@npm:2.2.1"
@@ -28670,6 +28765,15 @@ __metadata:
   bin:
     supabase: bin/supabase
   checksum: 5ad6bb2f8deeaf3924569dedfc0ef16a371e074d9cf88c81b3beb0b78324e640c22d280ca7868eb083d96879731d5311cde51d2690dcd110709da40d718a4208
+  languageName: node
+  linkType: hard
+
+"superjson@npm:^1.13.1":
+  version: 1.13.1
+  resolution: "superjson@npm:1.13.1"
+  dependencies:
+    copy-anything: ^3.0.2
+  checksum: 9c8c664a924ce097250112428805ccc8b500018b31a91042e953d955108b8481c156005d836b413940c9fa5f124a3195f55f3a518fe76510a254a59f9151a204
   languageName: node
   linkType: hard
 

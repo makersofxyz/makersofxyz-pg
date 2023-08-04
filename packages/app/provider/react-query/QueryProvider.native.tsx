@@ -2,10 +2,10 @@ import NetInfo from '@react-native-community/netinfo'
 import {
   QueryClient,
   QueryClientProvider as QueryClientProviderOG,
-  QueryClientProviderProps,
   focusManager,
   onlineManager,
 } from '@tanstack/react-query'
+import { api, createTrpcClient } from 'app/utils/api.native'
 import { useEffect, useState } from 'react'
 import type { AppStateStatus } from 'react-native'
 import { AppState, Platform } from 'react-native'
@@ -34,5 +34,12 @@ export const QueryClientProvider = ({ children }: { children: React.ReactNode })
       // native query config
     })
   )
-  return <QueryClientProviderOG client={queryClient}>{children}</QueryClientProviderOG>
+
+  const [trpcClient] = useState(createTrpcClient())
+
+  return (
+    <api.Provider client={trpcClient} queryClient={queryClient}>
+      <QueryClientProviderOG client={queryClient}>{children}</QueryClientProviderOG>
+    </api.Provider>
+  )
 }

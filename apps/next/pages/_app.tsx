@@ -4,6 +4,7 @@ import '@tamagui/font-inter/css/700.css'
 import { NextThemeProvider, useRootTheme } from '@tamagui/next-theme'
 import { Provider } from 'app/provider'
 import { AuthProviderProps } from 'app/provider/auth'
+import { api } from 'app/utils/api'
 import { NextPage } from 'next'
 import Head from 'next/head'
 import 'raf/polyfill'
@@ -46,4 +47,4 @@ function MyApp({
   )
 }
 
-export default MyApp
+export default api.withTRPC(MyApp)
