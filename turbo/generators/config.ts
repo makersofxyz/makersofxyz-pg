@@ -84,7 +84,7 @@ export default function generator(plop: PlopTypes.NodePlopAPI): void {
         },
       })
       const { featureName } = await inquirer.prompt({
-        default: path.split('/')[0],
+        default: path.split('/')[1],
         type: 'input',
         name: 'featureName',
         message:
