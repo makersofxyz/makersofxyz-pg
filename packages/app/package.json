@@ -6,6 +6,10 @@
   "sideEffects": [
     "*.css"
   ],
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
   "dependencies": {
     "@my/supabase": "*",
     "@my/ui": "*",
@@ -36,6 +40,8 @@
   },
   "devDependencies": {
     "@types/react": "^18.0.27",
-    "@types/react-native": "^0.71.3"
+    "@types/react-native": "^0.71.3",
+    "eslint": "^8.46.0",
+    "eslint-config-custom": "*"
   }
 }

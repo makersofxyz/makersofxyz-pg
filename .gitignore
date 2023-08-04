@@ -47,3 +47,6 @@ thumbs.db
 
 # intellij
 .idea
+
+# Turborepo
+.turbo

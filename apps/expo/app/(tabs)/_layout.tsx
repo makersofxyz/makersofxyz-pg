@@ -1,4 +1,5 @@
 import { Avatar, Circle, Theme, YStack, useThemeName } from '@my/ui'
+import { BottomTabNavigationOptions } from '@react-navigation/bottom-tabs'
 import { LinearGradient } from '@tamagui/linear-gradient'
 import { Home, Plus } from '@tamagui/lucide-icons'
 import { useUser } from 'app/utils/useUser'
@@ -19,7 +20,7 @@ export default function Layout() {
           name="index"
           options={{
             title: 'Home',
-            tabBarIcon: ({ color, size }) => <Home color={color} size={size} />,
+            tabBarIcon: ({ size, color }) => <Home color={color} size={size} />,
           }}
         />
         <Tabs.Screen
@@ -32,27 +33,14 @@ export default function Layout() {
           })}
           options={{
             title: 'New',
-            tabBarIcon: ({ size }) => (
-              <Theme inverse>
-                <PlusButton size={size} />
-              </Theme>
-            ),
+            tabBarIcon: PlusButton,
           }}
         />
         <Tabs.Screen
           name="profile"
           options={{
             title: 'Profile',
-            tabBarIcon: ({ color, size }) => {
-              const { avatarUrl } = useUser()
-              return (
-                <YStack borderWidth="$1" borderColor={color} borderRadius="$10">
-                  <Avatar circular p="$1" size={size}>
-                    <SolitoImage src={avatarUrl} alt="your avatar" width={size} height={size} />
-                  </Avatar>
-                </YStack>
-              )
-            },
+            tabBarIcon: ProfileTabIcon,
           }}
         />
       </Tabs>
@@ -60,13 +48,26 @@ export default function Layout() {
   )
 }
 
-const PlusButton = ({ size }: { size: number }) => {
+type TabBarIconProps = Parameters<Exclude<BottomTabNavigationOptions['tabBarIcon'], undefined>>[0]
+
+const ProfileTabIcon = ({ color, size }: TabBarIconProps) => {
+  const { avatarUrl } = useUser()
+  return (
+    <YStack borderWidth="$1" borderColor={color} borderRadius="$10">
+      <Avatar circular p="$1" size={size}>
+        <SolitoImage src={avatarUrl} alt="your avatar" width={size} height={size} />
+      </Avatar>
+    </YStack>
+  )
+}
+
+const PlusButton = ({ size }: TabBarIconProps) => {
   const router = useRouter()
   const theme = useThemeName()
   const isDark = theme.startsWith('dark')
 
   return (
-    <>
+    <Theme inverse>
       <Circle
         pos="absolute"
         bottom={5}
@@ -106,6 +107,6 @@ const PlusButton = ({ size }: { size: number }) => {
       >
         <Plus color="$color" size={size + 20} />
       </YStack>
-    </>
+    </Theme>
   )
 }

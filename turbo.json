@@ -4,6 +4,8 @@
       "extends": "",
       "dependsOn": ["^build"],
       "outputs": [".next/**"]
-    }
+    },
+    "lint": {},
+    "lint:fix": {}
   }
 }

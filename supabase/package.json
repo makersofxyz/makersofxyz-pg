@@ -1,6 +1,6 @@
 {
   "name": "@my/supabase",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "files": [
     "./types.ts"
   ],
@@ -17,7 +17,6 @@
     "stop": "npx supabase stop",
     "reset": "npx supabase db reset && npx supabase start",
     "status": "npx supabase status",
-    "lint": "npx supabase db lint --workdir ../",
     "_deploy": "yarn link-project && npx supabase db push",
     "deploy": "yarn _with-env yarn _deploy"
   },

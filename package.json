@@ -30,6 +30,8 @@
     "upgrade:tamagui:canary": "yarn up '*tamagui*'@canary '@tamagui/*'@canary react-native-web-lite@canary",
     "check-deps": "check-dependency-version-consistency .",
     "supa": "yarn workspace @my/supabase",
+    "lint": "yarn turbo lint",
+    "lint:fix": "yarn turbo lint:fix",
     "setup": "yarn create tamagui --template takeout-starter --skip-cloning",
     "generate": "yarn turbo gen",
     "gen": "yarn generate"
@@ -51,7 +53,7 @@
     "check-dependency-version-consistency": "^3.0.3",
     "dotenv": "^16.0.3",
     "dotenv-cli": "^6.0.0",
-    "eslint": "^8.21.0",
+    "eslint": "^8.46.0",
     "node-gyp": "^9.3.1",
     "prettier": "^2.7.1",
     "turbo": "latest",
