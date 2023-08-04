@@ -30,7 +30,9 @@
     "upgrade:tamagui:canary": "yarn up '*tamagui*'@canary '@tamagui/*'@canary react-native-web-lite@canary",
     "check-deps": "check-dependency-version-consistency .",
     "supa": "yarn workspace @my/supabase",
-    "setup": "yarn create tamagui --template takeout-starter --skip-cloning"
+    "setup": "yarn create tamagui --template takeout-starter --skip-cloning",
+    "generate": "yarn turbo gen",
+    "gen": "yarn generate"
   },
   "resolutions": {
     "@types/react-native": "^0.71.3",
