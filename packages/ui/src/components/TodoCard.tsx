@@ -33,7 +33,7 @@ export const TodoCard = ({
                   <Check />
                 </Checkbox.Indicator>
               </Checkbox>
-              <YStack f={1}>
+              <YStack>
                 <Paragraph textDecorationLine={props.checked ? 'line-through' : 'none'} size="$3">
                   {label}
                 </Paragraph>

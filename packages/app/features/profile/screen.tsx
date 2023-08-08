@@ -9,7 +9,7 @@ import {
   YStack,
   getTokens,
 } from '@my/ui'
-import { Box, Cog, Milestone, ShoppingCart, Users } from '@tamagui/lucide-icons'
+import { Box, Check, Cog, Milestone, ShoppingCart, Users } from '@tamagui/lucide-icons'
 import { useSafeAreaInsets } from 'app/utils/useSafeAreaInsets'
 import { useUser } from 'app/utils/useUser'
 import React from 'react'
@@ -69,6 +69,9 @@ export function ProfileScreen() {
         <Settings>
           <Settings.Items>
             <Settings.Group>
+              <Settings.Item {...useLink({ href: '/todos' })} icon={Check} accentColor="$green9">
+                My Todos
+              </Settings.Item>
               {/* dummy item - doesn't lead anywhere */}
               <Settings.Item icon={Box} accentColor="$green9">
                 My Items

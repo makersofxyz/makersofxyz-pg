@@ -4922,6 +4922,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@legendapp/state@npm:^1.8.1":
+  version: 1.8.1
+  resolution: "@legendapp/state@npm:1.8.1"
+  dependencies:
+    use-sync-external-store: ^1.2.0
+  checksum: 04b351a017b5d34cbc6b58278c896b959336f7e8217b0d78db4550b50999538cea9eebb91d45130e3dedde4b1a0abe3ee3e31af1b934aa1959ab0f3436223b13
+  languageName: node
+  linkType: hard
+
 "@manypkg/cli@npm:^0.19.1":
   version: 0.19.2
   resolution: "@manypkg/cli@npm:0.19.2"
@@ -11905,6 +11914,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "app@workspace:packages/app"
   dependencies:
+    "@legendapp/state": ^1.8.1
     "@my/supabase": "*"
     "@my/ui": "*"
     "@react-native-async-storage/async-storage": 1.18.2
