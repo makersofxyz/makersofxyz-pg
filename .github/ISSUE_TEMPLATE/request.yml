@@ -1,0 +1,10 @@
+name: Reproducible Bug Report
+description: Get much faster response time by **forking this repo, reproducing the bug, and then submitting it was a PR with the title "[Issue] ..."**
+labels: [Bug]
+body:
+  - type: textarea
+    attributes:
+      label: The Feature
+      description: Describe the feature you want to get added to the project and how it'd be useful for you
+    validations:
+      required: true
