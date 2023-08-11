@@ -131,7 +131,7 @@ type Theme = {
 }
 
 function t(a) {
-  const res = {}
+  let res = {}
   for (const [ki, vi] of a) {
     res[ks[ki]] = vs[vi]
   }
