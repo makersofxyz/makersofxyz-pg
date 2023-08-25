@@ -17,7 +17,7 @@ import {
   TextField,
   Theme,
 } from '@my/ui'
-import { forwardRef } from 'react'
+import { ComponentProps, forwardRef } from 'react'
 import { useFormContext } from 'react-hook-form'
 import { z } from 'zod'
 
@@ -77,30 +77,21 @@ const _SchemaForm = createTsForm(mapping, {
   FormComponent: FormComponent,
 })
 
-export const SchemaForm = forwardRef<TamaguiComponent, React.ComponentProps<typeof _SchemaForm>>(
-  function SchemaFormComponent({ schema, renderAfter, ...props }) {
-    return (
-      <_SchemaForm
-        formProps={{
-          ...props.formProps,
-        }}
-        schema={schema}
-        renderAfter={
-          renderAfter
-            ? (vars) => <FormWrapper.Footer>{renderAfter(vars)}</FormWrapper.Footer>
-            : undefined
-        }
-        {...props}
-      >
-        {(fields, context) => (
-          <FormWrapper.Body>
-            {props.children ? props.children(fields, context) : Object.values(fields)}
-          </FormWrapper.Body>
-        )}
-      </_SchemaForm>
-    )
-  }
-) as typeof _SchemaForm
+export const SchemaForm: typeof _SchemaForm = ({ ...props }) => {
+  const renderAfter: ComponentProps<typeof _SchemaForm>['renderAfter'] = props.renderAfter
+    ? (vars) => <FormWrapper.Footer>{props.renderAfter?.(vars)}</FormWrapper.Footer>
+    : undefined
+
+  return (
+    <_SchemaForm {...props} renderAfter={renderAfter}>
+      {(fields, context) => (
+        <FormWrapper.Body>
+          {props.children ? props.children(fields, context) : Object.values(fields)}
+        </FormWrapper.Body>
+      )}
+    </_SchemaForm>
+  )
+}
 
 // handle manual errors (most commonly coming from a server) for cases where it's not for a specific field - make sure to wrap inside a provider first
 // stopped using it cause of state issues it introduced - set the errors to specific fields instead of root for now
