@@ -34,6 +34,8 @@ Development scripts:
 - iOS: `yarn ios`
 - Android: `yarn android`
 
+NOTE: When using tRPC, even if you just want to develop on native, you need to have the web server running to be able to make tRPC requests.
+
 Storybook scripts:
 
 - Storybook Web: `yarn storybook:web`
