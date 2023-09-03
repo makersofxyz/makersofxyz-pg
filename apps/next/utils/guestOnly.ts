@@ -1,3 +1,4 @@
+import { Database } from '@my/supabase/types'
 import { createPagesServerClient } from '@supabase/auth-helpers-nextjs'
 import { AUTH_COOKIE_NAME } from 'app/utils/auth'
 import { GetServerSideProps, PreviewData } from 'next'
@@ -14,7 +15,15 @@ export function guestOnlyGetSSP<
   getServerSideProps?: GetServerSideProps<Props, Params, Preview>
 ): GetServerSideProps<Props, Params, Preview> {
   return async (ctx) => {
-    const supabase = createPagesServerClient(ctx, { cookieOptions: { name: AUTH_COOKIE_NAME } })
+    const supabase = createPagesServerClient<Database>(ctx, {
+      cookieOptions: {
+        name: AUTH_COOKIE_NAME,
+        maxAge: 60 * 60 * 24 * 365 * 10, // 10 years
+        sameSite: 'lax',
+        path: '/',
+        domain: process.env.NEXT_PUBLIC_SUPABASE_URL,
+      }
+    })
 
     const {
       data: { session },

@@ -1,20 +1,28 @@
 import { Database } from '@my/supabase/types'
-import { createServerSupabaseClient } from '@supabase/auth-helpers-nextjs'
 import { TRPCError, initTRPC } from '@trpc/server'
 import { type CreateNextContextOptions } from '@trpc/server/adapters/next'
-import { AUTH_COOKIE_NAME } from 'app/utils/auth'
 import superJson from 'superjson'
+import { createPagesServerClient } from '@supabase/auth-helpers-nextjs';
+import { AUTH_COOKIE_NAME } from 'app/utils/auth';
 
 export const createTRPCContext = async (opts: CreateNextContextOptions) => {
   // if there's auth cookie it'll be authenticated by this helper
-  const supabase = createServerSupabaseClient<Database>(opts, {
-    cookieOptions: { name: AUTH_COOKIE_NAME },
-    options: {},
+  const supabase = createPagesServerClient<Database>(opts, {
+    cookieOptions: {
+      name: AUTH_COOKIE_NAME,
+      maxAge: 60 * 60 * 24 * 365 * 10, // 10 years
+      sameSite: 'lax',
+      path: '/',
+      domain: process.env.NEXT_PUBLIC_SUPABASE_URL,
+    }
   })
+
+
 
   // native sends these instead of cookie auth
   if (opts.req.headers.authorization && opts.req.headers['refresh-token']) {
     const accessToken = opts.req.headers.authorization.split('Bearer ').pop()
+    console.log(accessToken, 'bbbbbb')
     const refreshToken = opts.req.headers['refresh-token']
     if (accessToken && typeof refreshToken === 'string') {
       await supabase.auth.setSession({
@@ -27,6 +35,7 @@ export const createTRPCContext = async (opts: CreateNextContextOptions) => {
   const {
     data: { session },
   } = await supabase.auth.getSession()
+  console.log(session, 'cccccc')
 
   return {
     requestOrigin: opts.req.headers.origin,
@@ -69,6 +78,7 @@ export const publicProcedure = t.procedure
 
 /** Reusable middleware that enforces users are logged in before running the procedure. */
 const enforceUserIsAuthed = t.middleware(({ ctx, next }) => {
+  console.log(ctx.session, 'aaaaaaa')
   if (!ctx.session || !ctx.session.user) {
     throw new TRPCError({ code: 'UNAUTHORIZED' })
   }

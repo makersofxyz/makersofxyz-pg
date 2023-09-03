@@ -12,7 +12,15 @@ export type AuthProviderProps = {
 export const AuthProvider = ({ initialSession, children }: AuthProviderProps) => {
   // Create a new supabase browser client on every first render.
   const [supabaseClient] = useState(() =>
-    createPagesBrowserClient({ cookieOptions: { name: AUTH_COOKIE_NAME } })
+    createPagesBrowserClient({
+      cookieOptions: {
+        name: AUTH_COOKIE_NAME,
+        maxAge: 60 * 60 * 24 * 365 * 10, // 10 years
+        sameSite: 'lax',
+        path: '/',
+        domain: process.env.NEXT_PUBLIC_SUPABASE_URL,
+      },
+    })
   )
 
   return (

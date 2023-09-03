@@ -1,7 +1,9 @@
-import { createServerSupabaseClient } from '@supabase/auth-helpers-nextjs'
+import { Database } from '@my/supabase/types'
+import { createPagesServerClient } from '@supabase/auth-helpers-nextjs'
 import { AUTH_COOKIE_NAME } from 'app/utils/auth'
 import { GetServerSideProps, PreviewData } from 'next'
 import { ParsedUrlQuery } from 'querystring'
+
 
 /**
  * getServerSideProps for auth pages - will redirect authenticated users - pass your own function as the only arg
@@ -14,11 +16,22 @@ export function userProtectedGetSSP<
   getServerSideProps?: GetServerSideProps<Props, Params, Preview>
 ): GetServerSideProps<Props, Params, Preview> {
   return async (ctx) => {
-    const supabase = createServerSupabaseClient(ctx, { cookieOptions: { name: AUTH_COOKIE_NAME } })
+    const supabase = createPagesServerClient<Database>(ctx, {
+      cookieOptions: {
+        name: AUTH_COOKIE_NAME,
+        maxAge: 60 * 60 * 24 * 365 * 10, // 10 years
+        sameSite: 'lax',
+        path: '/',
+        domain: process.env.NEXT_PUBLIC_SUPABASE_URL,
+      }
+    })
 
     const {
-      data: { session },
+      data: {
+        session,
+      },
     } = await supabase.auth.getSession()
+    console.log(session)
 
     if (!session) {
       return {
@@ -32,7 +45,7 @@ export function userProtectedGetSSP<
     const getSSRResult = getServerSideProps ? await getServerSideProps(ctx) : { props: {} as Props }
     if ('props' in getSSRResult) {
       // add the initialSession to page's getServerSideProps
-      ;(getSSRResult.props as any).initialSession = session
+      (getSSRResult.props as any).initialSession = session
     }
     return getSSRResult
   }

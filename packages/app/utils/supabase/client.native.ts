@@ -38,6 +38,9 @@ export const supabase = createClient<Database>(
       autoRefreshToken: true,
       persistSession: true,
       detectSessionInUrl: false,
+      // OAuth flow to use - defaults to implicit flow. PKCE is recommended for mobile and server-side applications.
+      // https://github.com/supabase/auth-helpers/issues/569
+      flowType: 'pkce'
     },
   }
 )
