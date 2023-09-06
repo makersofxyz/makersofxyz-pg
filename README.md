@@ -49,6 +49,14 @@ Code generation script:
 - Screen: `yarn gen screen`
 - tRPC Router: `yarn gen router`
 
+### Signup Flow
+
+Supabase PKCE flow requires email confirmation on sign up. You accept an email locally:
+
+- `http://localhost:54324`
+- Find the email account you signed up with
+- Click the confirm link
+
 ## Folder layout
 
 The main apps are:
