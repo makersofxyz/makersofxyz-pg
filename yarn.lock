@@ -5286,7 +5286,7 @@ __metadata:
     "@tamagui/theme-builder": latest
     "@tamagui/themes": latest
     "@tamagui/toast": latest
-    "@ts-react/form": ^1.6.4
+    "@ts-react/form": 1.6.4
     eslint: ^8.46.0
     eslint-config-custom: "*"
     moti: ^0.25.3
@@ -9973,7 +9973,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ts-react/form@npm:^1.6.4":
+"@ts-react/form@npm:1.6.4":
   version: 1.6.4
   resolution: "@ts-react/form@npm:1.6.4"
   peerDependencies:
