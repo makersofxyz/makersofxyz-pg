@@ -17792,7 +17792,6 @@ __metadata:
     expo-secure-store: ~12.3.1
     expo-splash-screen: ~0.20.4
     expo-status-bar: ~1.6.0
-    expo-updates: ~0.18.10
     metro-minify-terser: ^0.74.1
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -17892,13 +17891,6 @@ __metadata:
   peerDependencies:
     expo: "*"
   checksum: 1387115c48602aa2ee08d6b48b3338e962fb4e359e4c574eab14baf892149d1e73b46908537edab9bc425216c2304ccacff3b750399c0224584032b6677800bc
-  languageName: node
-  linkType: hard
-
-"expo-eas-client@npm:~0.6.0":
-  version: 0.6.0
-  resolution: "expo-eas-client@npm:0.6.0"
-  checksum: 0ba3c102c18c1fdfa834cbfb7a17daba4cbf2d37bf50a471a6a41b31dce2e15614ebe2a376ac76186ee731f9ecca798f3886ab17bd78b3ac5725b20ecbfbb533
   languageName: node
   linkType: hard
 
@@ -18105,42 +18097,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"expo-structured-headers@npm:~3.3.0":
-  version: 3.3.0
-  resolution: "expo-structured-headers@npm:3.3.0"
-  checksum: f7416c20fb36039ceda93666a42a57533753db9102dc04b601ee0aff76b39d77a19cded988ef5f56ff2d1b0498330506c2cbb3699aec485dcc42c7ad505b2a69
-  languageName: node
-  linkType: hard
-
 "expo-updates-interface@npm:~0.10.0":
   version: 0.10.1
   resolution: "expo-updates-interface@npm:0.10.1"
   peerDependencies:
     expo: "*"
   checksum: 7fe5ac9d651f59b37e51d52fff16b5046636e5c3a3ea72110103d1745615276d8c97839e89f7c66fafc6de7749d3772195d0830815e1056f7a989badada6ded2
-  languageName: node
-  linkType: hard
-
-"expo-updates@npm:~0.18.10":
-  version: 0.18.10
-  resolution: "expo-updates@npm:0.18.10"
-  dependencies:
-    "@expo/code-signing-certificates": 0.0.5
-    "@expo/config": ~8.1.0
-    "@expo/config-plugins": ~7.2.0
-    arg: 4.1.0
-    chalk: ^4.1.2
-    expo-eas-client: ~0.6.0
-    expo-manifests: ~0.7.0
-    expo-structured-headers: ~3.3.0
-    expo-updates-interface: ~0.10.0
-    fbemitter: ^3.0.0
-    resolve-from: ^5.0.0
-  peerDependencies:
-    expo: "*"
-  bin:
-    expo-updates: bin/cli.js
-  checksum: 3d413b1f3a9087d5bcf2bd476e879aa5b8e1540ebf4a2407fba0f0ce197a37b2e9e70423ac1d62bf0a25c0f7ce6e54a34f0b53161c42221c533cd3390ebb5e14
   languageName: node
   linkType: hard
 
