@@ -3432,10 +3432,10 @@ __metadata:
   dependencies:
     "@my/supabase": "*"
     "@tanstack/react-query": 4.18.0
-    "@trpc/client": ^10.36.0
-    "@trpc/next": ^10.36.0
-    "@trpc/react-query": ^10.36.0
-    "@trpc/server": ^10.36.0
+    "@trpc/client": ^10.38.2
+    "@trpc/next": ^10.38.2
+    "@trpc/react-query": ^10.38.2
+    "@trpc/server": ^10.38.2
     app: "*"
     superjson: ^1.13.1
     zod: ^3.21.4
@@ -3447,7 +3447,7 @@ __metadata:
   resolution: "@my/supabase@workspace:supabase"
   dependencies:
     dotenv-cli: ^6.0.0
-    supabase: ^1.95.1
+    supabase: ^1.99.0
   languageName: unknown
   linkType: soft
 
@@ -3472,7 +3472,7 @@ __metadata:
     eslint: ^8.46.0
     eslint-config-custom: "*"
     moti: ^0.25.3
-    react-hook-form: ^7.44.3
+    react-hook-form: ^7.46.1
     tamagui: latest
     zod: ^3.21.4
   languageName: unknown
@@ -8314,7 +8314,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@trpc/client@npm:^10.36.0":
+"@trpc/client@npm:^10.38.2":
   version: 10.38.2
   resolution: "@trpc/client@npm:10.38.2"
   peerDependencies:
@@ -8323,7 +8323,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@trpc/next@npm:^10.36.0":
+"@trpc/next@npm:^10.38.2":
   version: 10.38.2
   resolution: "@trpc/next@npm:10.38.2"
   dependencies:
@@ -8340,7 +8340,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@trpc/react-query@npm:^10.36.0":
+"@trpc/react-query@npm:^10.38.2":
   version: 10.38.2
   resolution: "@trpc/react-query@npm:10.38.2"
   peerDependencies:
@@ -8353,7 +8353,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@trpc/server@npm:^10.36.0":
+"@trpc/server@npm:^10.38.2":
   version: 10.38.2
   resolution: "@trpc/server@npm:10.38.2"
   checksum: b8b3ec6d087a354678fcbe10b73e1b3e2493de88e79759edae59f76f45b4e35487144095117d2ebea97b5090267de2894be77f75f12112428937bf81a94bf5de
@@ -10490,17 +10490,17 @@ __metadata:
     "@tamagui/shorthands": latest
     "@tamagui/themes": latest
     "@tanstack/react-query": 4.18.0
-    "@trpc/client": ^10.36.0
+    "@trpc/client": ^10.38.2
     "@types/react": ^18.0.27
     base64-arraybuffer: ^1.0.2
-    burnt: ^0.10.0
+    burnt: ^0.11.7
     eslint: ^8.46.0
     eslint-config-custom: "*"
     expo-constants: ~14.4.2
     expo-image-picker: ~14.3.1
     expo-linking: ~5.0.2
     expo-secure-store: ~12.3.1
-    react-hook-form: ^7.44.3
+    react-hook-form: ^7.46.1
     react-native-safe-area-context: 4.6.3
     solito: ^4.0.1
     superjson: ^1.13.1
@@ -11752,16 +11752,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"burnt@npm:^0.10.0":
-  version: 0.10.0
-  resolution: "burnt@npm:0.10.0"
+"burnt@npm:^0.11.7":
+  version: 0.11.7
+  resolution: "burnt@npm:0.11.7"
   dependencies:
     sf-symbols-typescript: ^1.0.0
+    sonner: ^0.3.5
   peerDependencies:
     expo: "*"
     react: "*"
     react-native: "*"
-  checksum: b33a84b0a57be34cc37d18f50710d46fb72e8d8eb2c5d5ae687a22dad41a1c6a42a49d507a71065480b5286729c887e3ee281f47af1325321f63fdc15e3af913
+  checksum: 4b7d74e0400a2a81712ec0d11d2e41175304d95dae425fe5bbc1fa560103d1d51455a53c33f8b7196c28506c853c8b4b0c303ea04a34cbb1009079a35ae37c35
   languageName: node
   linkType: hard
 
@@ -15497,7 +15498,7 @@ __metadata:
     app: "*"
     babel-plugin-module-resolver: ^4.1.0
     babel-plugin-transform-inline-environment-variables: ^0.4.4
-    burnt: ^0.10.0
+    burnt: ^0.11.7
     eslint: ^8.46.0
     eslint-config-universe: ^11.3.0
     eslint-plugin-import: ^2.28.0
@@ -21257,10 +21258,10 @@ __metadata:
     "@tamagui/next-plugin": latest
     "@tamagui/next-theme": latest
     "@tanstack/react-query": 4.18.0
-    "@trpc/client": ^10.36.0
-    "@trpc/next": ^10.36.0
-    "@trpc/react-query": ^10.36.0
-    "@trpc/server": ^10.36.0
+    "@trpc/client": ^10.38.2
+    "@trpc/next": ^10.38.2
+    "@trpc/react-query": ^10.38.2
+    "@trpc/server": ^10.38.2
     "@types/node": ^18.6.4
     app: "*"
     dotenv-cli: ^6.0.0
@@ -23448,7 +23449,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-hook-form@npm:^7.44.3":
+"react-hook-form@npm:^7.46.1":
   version: 7.46.1
   resolution: "react-hook-form@npm:7.46.1"
   peerDependencies:
@@ -25336,6 +25337,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"sonner@npm:^0.3.5":
+  version: 0.3.5
+  resolution: "sonner@npm:0.3.5"
+  peerDependencies:
+    react: ^18.0.0
+    react-dom: ^18.0.0
+  checksum: c0c564eddef03edb61d5a9ba4993d2a2d05a1e24e7ac9bdd4fa461e8b1fceeef69b99d4da0ffa23b3e8cbffdb660eb54327d583a9131aca34eb436a88a063691
+  languageName: node
+  linkType: hard
+
 "source-list-map@npm:^2.0.0":
   version: 2.0.1
   resolution: "source-list-map@npm:2.0.1"
@@ -26045,7 +26056,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"supabase@npm:^1.95.1":
+"supabase@npm:^1.99.0":
   version: 1.99.0
   resolution: "supabase@npm:1.99.0"
   dependencies:
@@ -26928,7 +26939,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"turbo@npm:latest":
+"turbo@npm:^1.10.13":
   version: 1.10.13
   resolution: "turbo@npm:1.10.13"
   dependencies:
@@ -27367,7 +27378,7 @@ __metadata:
     eslint: ^8.46.0
     node-gyp: ^9.3.1
     prettier: ^2.7.1
-    turbo: latest
+    turbo: ^1.10.13
     typescript: ^5.1.3
   languageName: unknown
   linkType: soft

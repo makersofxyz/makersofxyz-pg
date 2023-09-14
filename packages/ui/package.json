@@ -34,7 +34,7 @@
     "@tamagui/toast": "latest",
     "@ts-react/form": "1.6.4",
     "moti": "^0.25.3",
-    "react-hook-form": "^7.44.3",
+    "react-hook-form": "^7.46.1",
     "tamagui": "latest",
     "zod": "^3.21.4"
   },
