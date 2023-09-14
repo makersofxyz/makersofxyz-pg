@@ -5,7 +5,7 @@ import { AuthStateChangeHandler } from './AuthStateChangeHandler'
 import { Database } from '@my/supabase/types'
 
 export type AuthProviderProps = {
-  initialSession?: Session
+  initialSession?: Session | null
   children?: React.ReactNode
 }
 
