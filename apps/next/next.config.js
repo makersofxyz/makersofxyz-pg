@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const { withTamagui } = require('@tamagui/next-plugin')
+const withBundleAnalyzer = require('@next/bundle-analyzer')
 const { join } = require('path')
 
 const boolVals = {
@@ -10,12 +11,15 @@ const boolVals = {
 const disableExtraction =
   boolVals[process.env.DISABLE_EXTRACTION] ?? process.env.NODE_ENV === 'development'
 
-
 const plugins = [
+  withBundleAnalyzer({
+    enabled: process.env.ANALYZE === 'true',
+    openAnalyzer: process.env.ANALYZE === 'true',
+  }),
   withTamagui({
     themeBuilder: {
-      input: "../../packages/ui/src/themes/theme.ts",
-      output: "../../packages/ui/src/themes/theme-generated.ts",
+      input: '../../packages/ui/src/themes/theme.ts',
+      output: '../../packages/ui/src/themes/theme-generated.ts',
     },
     config: './tamagui.config.ts',
     components: ['tamagui', '@my/ui'],
@@ -30,7 +34,17 @@ const plugins = [
         return true
       }
     },
-    excludeReactNativeWebExports: ['Switch', 'ProgressBar', 'Picker', 'CheckBox'],
+    excludeReactNativeWebExports: [
+      'VirtualizedList',
+      'Switch',
+      'ProgressBar',
+      'Picker',
+      'CheckBox',
+      'Touchable',
+      'Animated',
+      'FlatList',
+      'Modal',
+    ],
   }),
 ]
 
@@ -40,15 +54,15 @@ module.exports = function () {
     images: {
       remotePatterns: [
         {
-          hostname: "ui-avatars.com"
+          hostname: 'ui-avatars.com',
         },
         {
-          hostname: 'localhost'
+          hostname: 'localhost',
         },
         {
           hostname: '192.168.0.23',
-        }
-      ]
+        },
+      ],
     },
     // typescript: {
     //   ignoreBuildErrors: true,
