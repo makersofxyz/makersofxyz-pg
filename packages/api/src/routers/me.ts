@@ -4,6 +4,19 @@ import { z } from 'zod'
 
 
 export const meRouter = createTRPCRouter({
+  read: protectedProcedure.query(async ({ ctx: { supabase, session } }) => {
+    if (!session.user?.id) return null
+    const { data, error } = await supabase.from('profiles').select('*').eq('id', session.user.id).single()
+    if (error) {
+      // no rows - edge case of user being deleted
+      if (error.code === 'PGRST116') {
+        await supabase.auth.signOut()
+        return null
+      }
+      throw new Error(error.message)
+    }
+    return data
+  }),
   update: protectedProcedure.input(z.object({
     name: z.string().optional(),
     about: z.string().optional(),
