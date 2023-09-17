@@ -7,9 +7,6 @@ import { FormProvider, useForm, useWatch } from 'react-hook-form'
 import { createParam } from 'solito'
 import { useRouter } from 'solito/router'
 import { z } from 'zod'
-import * as AppleAuthentication from 'expo-apple-authentication';
-import { initiateAppleSignIn } from 'app/utils/auth/initiateAppleSignIn'
-import { Platform } from 'react-native';
 
 const { useParams, useUpdateParams } = createParam<{ email?: string }>()
 
@@ -51,29 +48,6 @@ export const SignInScreen = () => {
     }
   }
 
-  async function signInWithApple() {
-    try {
-      const { token, nonce } = await initiateAppleSignIn();
-      const { error } = await supabase.auth.signInWithIdToken({
-        provider: "apple",
-        token,
-        nonce,
-      });
-      if (!error) router.replace("/");
-      if (error) throw error;
-    } catch (e) {
-      if (e instanceof Error && "code" in e) {
-        if (e.code === "ERR_REQUEST_CANCELED") {
-          // handle if the user canceled the sign-in flow
-        } else {
-          // handle any other errors
-        }
-      } else {
-        console.error("Unexpected error from Apple SignIn: ", e);
-      }
-    }
-  }
-
   return (
     <FormProvider {...form}>
       <SchemaForm
@@ -99,17 +73,6 @@ export const SignInScreen = () => {
                 </SubmitButton>
               </Theme>
               <SignUpLink />
-              <YStack>
-                {Platform.OS === 'ios' && (
-                  <AppleAuthentication.AppleAuthenticationButton
-                    buttonType={AppleAuthentication.AppleAuthenticationButtonType.SIGN_IN}
-                    buttonStyle={AppleAuthentication.AppleAuthenticationButtonStyle.BLACK}
-                    cornerRadius={5}
-                    style={{ width: "100%", height: 44 }}
-                    onPress={signInWithApple}
-                  />
-                )}
-              </YStack>
               {/* <YStack>
             <Button disabled={loading} onPress={() => signInWithProvider('github')}>
               GitHub Login

@@ -1,4 +1,4 @@
-import { Button, FormWrapper, H2, Paragraph, SubmitButton, Text, Theme, YStack,  } from '@my/ui'
+import { Button, FormWrapper, H2, Paragraph, SubmitButton, Text, Theme, YStack } from '@my/ui'
 import { ChevronLeft } from '@tamagui/lucide-icons'
 import { SchemaForm, formFields } from 'app/utils/SchemaForm'
 import { useSupabase } from 'app/utils/supabase/useSupabase'
@@ -8,9 +8,6 @@ import { createParam } from 'solito'
 import { Link } from 'solito/link'
 import { useRouter } from 'solito/router'
 import { z } from 'zod'
-import * as AppleAuthentication from 'expo-apple-authentication';
-import { initiateAppleSignIn } from 'app/utils/auth/initiateAppleSignIn'
-import { Platform } from 'react-native';
 
 const { useParams, useUpdateParams } = createParam<{ email?: string }>()
 
@@ -65,29 +62,6 @@ export const SignUpScreen = () => {
     }
   }
 
-  async function signInWithApple() {
-    try {
-      const { token, nonce } = await initiateAppleSignIn();
-      const { error } = await supabase.auth.signInWithIdToken({
-        provider: "apple",
-        token,
-        nonce,
-      });
-      if (!error) router.replace("/");
-      if (error) throw error;
-    } catch (e) {
-      if (e instanceof Error && "code" in e) {
-        if (e.code === "ERR_REQUEST_CANCELED") {
-          // handle if the user canceled the sign-in flow
-        } else {
-          // handle any other errors
-        }
-      } else {
-        console.error("Unexpected error from Apple SignIn: ", e);
-      }
-    }
-  }
-
   return (
     <FormProvider {...form}>
       {form.formState.isSubmitSuccessful && usesEmailConfirm ? (
@@ -114,17 +88,6 @@ export const SignUpScreen = () => {
                 </SubmitButton>
               </Theme>
               <SignInLink />
-              <YStack>
-                {Platform.OS === 'ios' && (
-                  <AppleAuthentication.AppleAuthenticationButton
-                    buttonType={AppleAuthentication.AppleAuthenticationButtonType.SIGN_IN}
-                    buttonStyle={AppleAuthentication.AppleAuthenticationButtonStyle.BLACK}
-                    cornerRadius={5}
-                    style={{ width: "100%", height: 44 }}
-                    onPress={signInWithApple}
-                  />
-                )}
-              </YStack>
               {/* <YStack>
             <Button disabled={loading} onPress={() => signInWithProvider('github')}>
               GitHub Login
