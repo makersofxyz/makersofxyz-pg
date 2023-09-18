@@ -1,19 +1,17 @@
-import { createBrowserSupabaseClient } from '@supabase/auth-helpers-nextjs'
-import { SessionContextProvider, SessionContextProviderProps } from '@supabase/auth-helpers-react'
-import { AUTH_COOKIE_NAME } from 'app/utils/auth'
+import { Session, createPagesBrowserClient } from '@supabase/auth-helpers-nextjs'
+import { SessionContextProvider } from '@supabase/auth-helpers-react'
 import { useState } from 'react'
 import { AuthStateChangeHandler } from './AuthStateChangeHandler'
+import { Database } from '@my/supabase/types'
 
 export type AuthProviderProps = {
-  initialSession?: SessionContextProviderProps['initialSession']
+  initialSession?: Session | null
   children?: React.ReactNode
 }
 
 export const AuthProvider = ({ initialSession, children }: AuthProviderProps) => {
   // Create a new supabase browser client on every first render.
-  const [supabaseClient] = useState(() =>
-    createBrowserSupabaseClient({ cookieOptions: { name: AUTH_COOKIE_NAME } })
-  )
+  const [supabaseClient] = useState(() => createPagesBrowserClient<Database>())
 
   return (
     <SessionContextProvider supabaseClient={supabaseClient} initialSession={initialSession}>
