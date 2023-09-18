@@ -1,13 +1,13 @@
 import { Avatar, FullscreenSpinner, SubmitButton, Theme, YStack, useToastController } from '@my/ui'
-import { useQueryClient } from '@tanstack/react-query'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { SchemaForm, formFields } from 'app/utils/SchemaForm'
+import { useSupabase } from 'app/utils/supabase/useSupabase'
 import { useUser } from 'app/utils/useUser'
 import { createParam } from 'solito'
 import { SolitoImage } from 'solito/image'
 import { useRouter } from 'solito/router'
 import { z } from 'zod'
 import { UploadAvatar } from '../settings/components/upload-avatar'
-import { api } from '../../utils/api'
 
 const { useParams } = createParam<{ edit_name?: '1'; edit_about?: '1' }>()
 export const EditProfileScreen = () => {
@@ -16,7 +16,7 @@ export const EditProfileScreen = () => {
   if (!profile || !user?.id) {
     return <FullscreenSpinner />
   }
-  return <EditProfileForm initial={{ name: profile.name, about: profile.about }} />
+  return <EditProfileForm userId={user.id} initial={{ name: profile.name, about: profile.about }} />
 }
 
 const ProfileSchema = z.object({
@@ -26,30 +26,34 @@ const ProfileSchema = z.object({
 
 type EditProfileFormProps = {
   initial: { name: string | null; about: string | null }
+  userId: string
 }
 
-const EditProfileForm = ({ initial }: EditProfileFormProps) => {
+const EditProfileForm = ({ initial, userId }: EditProfileFormProps) => {
   const { params } = useParams()
+  const supabase = useSupabase()
   const toast = useToastController()
   const queryClient = useQueryClient()
   const router = useRouter()
-  const mutation = api.me.update.useMutation()
 
-  // ======== Example without TRPC =========
-  // const mutation = useMutation({
-  //   async mutationFn(data: z.infer<typeof ProfileSchema>) {
-  //     await supabase
-  //       .from('profiles')
-  //       .update({ name: data.name, about: data.about })
-  //       .eq('id', userId)
-  //   },
-  //   async onSuccess() {
-  //     toast.show('Successfully updated!')
-  //     await queryClient.invalidateQueries(['profile'])
-  //     router.back()
-  //   },
-  // })
-  // ======== Example without TRPC =========
+  // ================== Example TRPC mutation ==================
+  // const mutation = api.me.update.useMutation()
+  // ==========================================================
+
+  const mutation = useMutation({
+    async mutationFn(data: z.infer<typeof ProfileSchema>) {
+      await supabase
+        .from('profiles')
+        .update({ name: data.name, about: data.about })
+        .eq('id', userId)
+    },
+    async onSuccess() {
+      toast.show('Successfully updated!')
+      await queryClient.invalidateQueries(['profile'])
+      router.back()
+    },
+  })
+
   return (
     <SchemaForm
       schema={ProfileSchema}
@@ -65,15 +69,18 @@ const EditProfileForm = ({ initial }: EditProfileFormProps) => {
         name: initial.name ?? '',
         about: initial.about ?? '',
       }}
-      onSubmit={(values) =>
-        mutation.mutate(values, {
-          async onSuccess() {
-            toast.show('Successfully updated!')
-            await queryClient.invalidateQueries(['profile'])
-            router.back()
-          },
-        })
-      }
+      onSubmit={(values) => {
+        // ================== Example TRPC mutation ==================
+        // mutation.mutate(values, {
+        //   async onSuccess() {
+        //     toast.show('Successfully updated!')
+        //     await queryClient.invalidateQueries(['profile'])
+        //     router.back()
+        //   },
+        // })
+        // ==========================================================
+        mutation.mutate(values)
+      }}
       renderAfter={({ submit }) => (
         <Theme inverse>
           <SubmitButton onPress={() => submit()}>Update Profile</SubmitButton>
@@ -100,7 +107,7 @@ const UserAvatar = () => {
     <Avatar circular size={128}>
       <SolitoImage
         src={avatarUrl}
-        alt={`image of ${user?.user_metadata.name}`}
+        alt={`image of ${user?.user_metadata.name ?? user?.email}`}
         width={128}
         height={128}
       />
