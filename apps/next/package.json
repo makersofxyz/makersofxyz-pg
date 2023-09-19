@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@supabase/auth-helpers-nextjs": "^0.6.1",
-    "@tamagui/next-theme": "latest",
+    "@tamagui/next-theme": "^1.68.2",
     "@tanstack/react-query": "4.18.0",
     "@trpc/client": "^10.36.0",
     "@trpc/next": "^10.36.0",
@@ -28,12 +28,12 @@
     "react-native": "0.72.3",
     "react-native-reanimated": "~3.3.0",
     "react-native-web": "~0.19.6",
-    "react-native-web-lite": "latest",
+    "react-native-web-lite": "^1.68.2",
     "vercel": "latest",
     "zod": "^3.21.4"
   },
   "devDependencies": {
-    "@tamagui/next-plugin": "latest",
+    "@tamagui/next-plugin": "^1.68.2",
     "@types/node": "^18.6.4",
     "dotenv-cli": "^6.0.0",
     "eslint": "^8.46.0",

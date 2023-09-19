@@ -49,7 +49,7 @@
   "dependencies": {
     "@babel/runtime": "^7.18.9",
     "@manypkg/cli": "^0.19.1",
-    "@tamagui/cli": "latest",
+    "@tamagui/cli": "^1.68.2",
     "check-dependency-version-consistency": "^3.0.3",
     "dotenv": "^16.0.3",
     "dotenv-cli": "^6.0.0",
