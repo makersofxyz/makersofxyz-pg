@@ -35,6 +35,7 @@
     "zod": "^3.21.4"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^13.4.19",
     "@tamagui/next-plugin": "^1.68.2",
     "@types/node": "^18.6.4",
     "dotenv-cli": "^6.0.0",
