@@ -36,6 +36,8 @@ Development scripts:
 - iOS: `yarn ios`
 - Android: `yarn android`
 
+NOTE: When using tRPC, even if you just want to develop on native, you need to have the web server running to be able to make tRPC requests.
+
 Storybook scripts:
 
 - Storybook Web: `yarn storybook:web`
@@ -48,6 +50,14 @@ Code generation script:
 - Component: `yarn gen component`
 - Screen: `yarn gen screen`
 - tRPC Router: `yarn gen router`
+
+### Signup Flow
+
+Supabase PKCE flow requires email confirmation on sign up. You accept an email locally:
+
+- `http://localhost:54324`
+- Find the email account you signed up with
+- Click the confirm link
 
 ## Folder layout
 
