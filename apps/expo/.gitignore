@@ -125,3 +125,10 @@ web-build/
 dist/
 
 # @end expo-cli
+
+ios
+android
+
+credentials.json
+*jks
+*.pem

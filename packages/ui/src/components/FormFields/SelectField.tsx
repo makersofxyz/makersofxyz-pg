@@ -98,7 +98,7 @@ export const SelectField = ({
                     {/* <Select.Label>{label}</Select.Label> */}
                     {options.map((item, i) => {
                       return (
-                        <Select.Item index={i} key={item.name} value={item.name.toLowerCase()}>
+                        <Select.Item index={i} key={item.name} value={item.value}>
                           <Select.ItemText>{item.name}</Select.ItemText>
                           <Select.ItemIndicator marginLeft="auto">
                             <Check size={16} />

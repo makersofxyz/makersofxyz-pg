@@ -7,7 +7,7 @@ export function getLocalhost() {
   const debuggerHost = Constants.expoConfig?.hostUri
   localhost = debuggerHost?.split(':')[0]
   if (!localhost) {
-    throw new Error('Failed to get localhost. Please point to your production server.')
+    localhost = 'localhost'
   }
   return localhost
   // alternative:

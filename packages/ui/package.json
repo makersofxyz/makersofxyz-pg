@@ -32,9 +32,9 @@
     "@tamagui/theme-builder": "^1.68.2",
     "@tamagui/themes": "^1.68.2",
     "@tamagui/toast": "^1.68.2",
-    "@ts-react/form": "^1.6.4",
+    "@ts-react/form": "1.6.4",
     "moti": "^0.25.3",
-    "react-hook-form": "^7.44.3",
+    "react-hook-form": "^7.46.1",
     "tamagui": "^1.68.2",
     "zod": "^3.21.4"
   },

@@ -69,7 +69,7 @@ export const ResetPasswordScreen = () => {
               <YStack gap="$3" mb="$4">
                 <H2 $sm={{ size: '$8' }}>Reset your password</H2>
                 <Paragraph theme="alt1">
-                  Type in your email and we&aps;ll send you a link to reset your password
+                  Type in your email and we&apos;ll send you a link to reset your password
                 </Paragraph>
               </YStack>
               {Object.values(fields)}
