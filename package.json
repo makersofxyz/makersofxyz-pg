@@ -15,6 +15,7 @@
     "web": "yarn build && cd apps/next && yarn dev",
     "web:extract": "DISABLE_EXTRACTION=false yarn workspace next-app dev",
     "web:prod": "yarn workspace next-app build",
+    "web:prod:analyze": "ANALYZE=true yarn web:prod",
     "web:prod:serve": "yarn workspace next-app serve",
     "fix": "manypkg fix",
     "postinstall": "yarn check-deps && yarn build",
