@@ -108,6 +108,22 @@ export default Page
 
 ### Native
 
+## Navite Builds
+
+To run a [native build](https://docs.expo.dev/develop/development-builds/introduction):
+
+- `npx expo install expo-dev-client`
+- in `apps/expo/package.json` update script `"start": "TAMAGUI_ENV=dev expo start --dev-client"`
+- `yarn ios` or `yarn android`
+
+## Expo Go
+
+To run an expo app on your machine locally, create an expo account and create an expo project.
+
+- add your project id to `apps/expo/app.json` where it says `your-project-id`
+
+![expo project id](https://github.com/tamagui/unistack/assets/2502947/8a4d3663-9eb2-4cb1-926f-0476a00ab078)
+
 ## Expo EAS Update
 
 [EAS update](https://docs.expo.dev/eas-update/getting-started) makes updating and publishing your app's runtime js easy.
@@ -218,3 +234,7 @@ EAS has already been configured for you, but you still need to do the following:
 - `npm install --global eas-cli`
 - `cd apps/expo`
 - `eas build` - This will also add your EAS project ID to app.json
+
+## Expo EAS Update
+
+[EAS update](https://docs.expo.dev/eas-update/getting-started) makes updating and publishing your app's runtime js easy.
