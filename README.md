@@ -108,21 +108,27 @@ export default Page
 
 ### Native
 
-## Navite Builds
-
-To run a [native build](https://docs.expo.dev/develop/development-builds/introduction):
-
-- `npx expo install expo-dev-client`
-- in `apps/expo/package.json` update script `"start": "TAMAGUI_ENV=dev expo start --dev-client"`
-- `yarn ios` or `yarn android`
-
 ## Expo Go
+
+The easiest way to get a project running on native devices is to use [Expo Go](https://expo.dev/client). You can download it from the App Store or Google Play.
 
 To run an expo app on your machine locally, create an expo account and create an expo project.
 
 - add your project id to `apps/expo/app.json` where it says `your-project-id`
 
 ![expo project id](https://github.com/tamagui/unistack/assets/2502947/8a4d3663-9eb2-4cb1-926f-0476a00ab078)
+
+- `yarn native` from the root of the project
+
+## Native Builds
+
+Native builds are needed if you're using custom native code in your project. More documentation can be found here in Expo's docs: [Building Standalone Apps](https://docs.expo.dev/workflow/customizing/#adding-custom-native-code-with-development-builds)
+
+To run a [native build](https://docs.expo.dev/develop/development-builds/introduction):
+
+- `npx expo install expo-dev-client`
+- in `apps/expo/package.json` update script `"start": "TAMAGUI_ENV=dev expo start --dev-client"`
+- `yarn ios` or `yarn android`
 
 ## Expo EAS Update
 
