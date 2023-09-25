@@ -3447,24 +3447,24 @@ __metadata:
   resolution: "@my/ui@workspace:packages/ui"
   dependencies:
     "@hookform/resolvers": ^3.1.0
-    "@tamagui/animations-moti": ^1.68.5
-    "@tamagui/animations-react-native": ^1.68.5
-    "@tamagui/build": ^1.68.5
-    "@tamagui/cli": ^1.68.5
-    "@tamagui/create-theme": ^1.68.5
-    "@tamagui/font-inter": ^1.68.5
-    "@tamagui/helpers-icon": ^1.68.5
-    "@tamagui/react-native-media-driver": ^1.68.5
-    "@tamagui/shorthands": ^1.68.5
-    "@tamagui/theme-builder": ^1.68.5
-    "@tamagui/themes": ^1.68.5
-    "@tamagui/toast": ^1.68.5
+    "@tamagui/animations-moti": ^1.71.0
+    "@tamagui/animations-react-native": ^1.71.0
+    "@tamagui/build": ^1.71.0
+    "@tamagui/cli": ^1.71.0
+    "@tamagui/create-theme": ^1.71.0
+    "@tamagui/font-inter": ^1.71.0
+    "@tamagui/helpers-icon": ^1.71.0
+    "@tamagui/react-native-media-driver": ^1.71.0
+    "@tamagui/shorthands": ^1.71.0
+    "@tamagui/theme-builder": ^1.71.0
+    "@tamagui/themes": ^1.71.0
+    "@tamagui/toast": ^1.71.0
     "@ts-react/form": 1.6.4
     eslint: ^8.46.0
     eslint-config-custom: "*"
     moti: ^0.25.3
     react-hook-form: ^7.46.1
-    tamagui: ^1.68.5
+    tamagui: ^1.71.0
     zod: ^3.21.4
   languageName: unknown
   linkType: soft
@@ -6663,90 +6663,90 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@swc/core-darwin-arm64@npm:1.3.88":
-  version: 1.3.88
-  resolution: "@swc/core-darwin-arm64@npm:1.3.88"
+"@swc/core-darwin-arm64@npm:1.3.89":
+  version: 1.3.89
+  resolution: "@swc/core-darwin-arm64@npm:1.3.89"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"@swc/core-darwin-x64@npm:1.3.88":
-  version: 1.3.88
-  resolution: "@swc/core-darwin-x64@npm:1.3.88"
+"@swc/core-darwin-x64@npm:1.3.89":
+  version: 1.3.89
+  resolution: "@swc/core-darwin-x64@npm:1.3.89"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"@swc/core-linux-arm-gnueabihf@npm:1.3.88":
-  version: 1.3.88
-  resolution: "@swc/core-linux-arm-gnueabihf@npm:1.3.88"
+"@swc/core-linux-arm-gnueabihf@npm:1.3.89":
+  version: 1.3.89
+  resolution: "@swc/core-linux-arm-gnueabihf@npm:1.3.89"
   conditions: os=linux & cpu=arm
   languageName: node
   linkType: hard
 
-"@swc/core-linux-arm64-gnu@npm:1.3.88":
-  version: 1.3.88
-  resolution: "@swc/core-linux-arm64-gnu@npm:1.3.88"
+"@swc/core-linux-arm64-gnu@npm:1.3.89":
+  version: 1.3.89
+  resolution: "@swc/core-linux-arm64-gnu@npm:1.3.89"
   conditions: os=linux & cpu=arm64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@swc/core-linux-arm64-musl@npm:1.3.88":
-  version: 1.3.88
-  resolution: "@swc/core-linux-arm64-musl@npm:1.3.88"
+"@swc/core-linux-arm64-musl@npm:1.3.89":
+  version: 1.3.89
+  resolution: "@swc/core-linux-arm64-musl@npm:1.3.89"
   conditions: os=linux & cpu=arm64 & libc=musl
   languageName: node
   linkType: hard
 
-"@swc/core-linux-x64-gnu@npm:1.3.88":
-  version: 1.3.88
-  resolution: "@swc/core-linux-x64-gnu@npm:1.3.88"
+"@swc/core-linux-x64-gnu@npm:1.3.89":
+  version: 1.3.89
+  resolution: "@swc/core-linux-x64-gnu@npm:1.3.89"
   conditions: os=linux & cpu=x64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@swc/core-linux-x64-musl@npm:1.3.88":
-  version: 1.3.88
-  resolution: "@swc/core-linux-x64-musl@npm:1.3.88"
+"@swc/core-linux-x64-musl@npm:1.3.89":
+  version: 1.3.89
+  resolution: "@swc/core-linux-x64-musl@npm:1.3.89"
   conditions: os=linux & cpu=x64 & libc=musl
   languageName: node
   linkType: hard
 
-"@swc/core-win32-arm64-msvc@npm:1.3.88":
-  version: 1.3.88
-  resolution: "@swc/core-win32-arm64-msvc@npm:1.3.88"
+"@swc/core-win32-arm64-msvc@npm:1.3.89":
+  version: 1.3.89
+  resolution: "@swc/core-win32-arm64-msvc@npm:1.3.89"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
 
-"@swc/core-win32-ia32-msvc@npm:1.3.88":
-  version: 1.3.88
-  resolution: "@swc/core-win32-ia32-msvc@npm:1.3.88"
+"@swc/core-win32-ia32-msvc@npm:1.3.89":
+  version: 1.3.89
+  resolution: "@swc/core-win32-ia32-msvc@npm:1.3.89"
   conditions: os=win32 & cpu=ia32
   languageName: node
   linkType: hard
 
-"@swc/core-win32-x64-msvc@npm:1.3.88":
-  version: 1.3.88
-  resolution: "@swc/core-win32-x64-msvc@npm:1.3.88"
+"@swc/core-win32-x64-msvc@npm:1.3.89":
+  version: 1.3.89
+  resolution: "@swc/core-win32-x64-msvc@npm:1.3.89"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
 
 "@swc/core@npm:^1.3.49, @swc/core@npm:^1.3.78, @swc/core@npm:^1.3.85":
-  version: 1.3.88
-  resolution: "@swc/core@npm:1.3.88"
+  version: 1.3.89
+  resolution: "@swc/core@npm:1.3.89"
   dependencies:
-    "@swc/core-darwin-arm64": 1.3.88
-    "@swc/core-darwin-x64": 1.3.88
-    "@swc/core-linux-arm-gnueabihf": 1.3.88
-    "@swc/core-linux-arm64-gnu": 1.3.88
-    "@swc/core-linux-arm64-musl": 1.3.88
-    "@swc/core-linux-x64-gnu": 1.3.88
-    "@swc/core-linux-x64-musl": 1.3.88
-    "@swc/core-win32-arm64-msvc": 1.3.88
-    "@swc/core-win32-ia32-msvc": 1.3.88
-    "@swc/core-win32-x64-msvc": 1.3.88
+    "@swc/core-darwin-arm64": 1.3.89
+    "@swc/core-darwin-x64": 1.3.89
+    "@swc/core-linux-arm-gnueabihf": 1.3.89
+    "@swc/core-linux-arm64-gnu": 1.3.89
+    "@swc/core-linux-arm64-musl": 1.3.89
+    "@swc/core-linux-x64-gnu": 1.3.89
+    "@swc/core-linux-x64-musl": 1.3.89
+    "@swc/core-win32-arm64-msvc": 1.3.89
+    "@swc/core-win32-ia32-msvc": 1.3.89
+    "@swc/core-win32-x64-msvc": 1.3.89
     "@swc/counter": ^0.1.1
     "@swc/types": ^0.1.5
   peerDependencies:
@@ -6775,7 +6775,7 @@ __metadata:
   peerDependenciesMeta:
     "@swc/helpers":
       optional: true
-  checksum: caaf06fc1f4d472b20d825cf84139306777d03d599b6a2a7cddc01e2edc176479992166acb94034989222a8f662662f05ec48bb16d6262a471b9be45c1a7d9cd
+  checksum: bb1db572f17f05a44edf07dccd620a3a86b9c0e93d98b13042cc067b0b26496252fd9d2783ab9f3db9053bcd6fe1486ef28ad1c5fecb8350a9e461d1962cfb24
   languageName: node
   linkType: hard
 
@@ -6884,7 +6884,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tamagui/animations-moti@npm:^1.68.5":
+"@tamagui/animations-moti@npm:^1.71.0":
   version: 1.71.0
   resolution: "@tamagui/animations-moti@npm:1.71.0"
   dependencies:
@@ -6895,7 +6895,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tamagui/animations-react-native@npm:1.71.0, @tamagui/animations-react-native@npm:^1.68.5":
+"@tamagui/animations-react-native@npm:1.71.0, @tamagui/animations-react-native@npm:^1.71.0":
   version: 1.71.0
   resolution: "@tamagui/animations-react-native@npm:1.71.0"
   dependencies:
@@ -6934,7 +6934,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tamagui/babel-plugin@npm:^1.68.5":
+"@tamagui/babel-plugin@npm:^1.71.0":
   version: 1.71.0
   resolution: "@tamagui/babel-plugin@npm:1.71.0"
   dependencies:
@@ -6948,7 +6948,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tamagui/build@npm:1.71.0, @tamagui/build@npm:^1.68.5":
+"@tamagui/build@npm:1.71.0, @tamagui/build@npm:^1.71.0":
   version: 1.71.0
   resolution: "@tamagui/build@npm:1.71.0"
   dependencies:
@@ -7023,7 +7023,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tamagui/cli@npm:^1.68.5":
+"@tamagui/cli@npm:^1.71.0":
   version: 1.71.0
   resolution: "@tamagui/cli@npm:1.71.0"
   dependencies:
@@ -7126,7 +7126,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tamagui/colors@npm:1.71.0, @tamagui/colors@npm:^1.68.5":
+"@tamagui/colors@npm:1.71.0, @tamagui/colors@npm:^1.71.0":
   version: 1.71.0
   resolution: "@tamagui/colors@npm:1.71.0"
   checksum: 89a8b75ff760a48559a3697544fd8aad8c3b049ce06a92b4e189c4e0bb0439918f81c92edf995a1f76f362e108717bb5c905fa90f3b05e880211635a1f04920c
@@ -7184,7 +7184,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tamagui/create-theme@npm:1.71.0, @tamagui/create-theme@npm:^1.68.5":
+"@tamagui/create-theme@npm:1.71.0, @tamagui/create-theme@npm:^1.71.0":
   version: 1.71.0
   resolution: "@tamagui/create-theme@npm:1.71.0"
   dependencies:
@@ -7278,7 +7278,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tamagui/font-inter@npm:^1.68.5":
+"@tamagui/font-inter@npm:^1.71.0":
   version: 1.71.0
   resolution: "@tamagui/font-inter@npm:1.71.0"
   dependencies:
@@ -7377,7 +7377,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tamagui/helpers-icon@npm:1.71.0, @tamagui/helpers-icon@npm:^1.68.5":
+"@tamagui/helpers-icon@npm:1.71.0, @tamagui/helpers-icon@npm:^1.71.0":
   version: 1.71.0
   resolution: "@tamagui/helpers-icon@npm:1.71.0"
   dependencies:
@@ -7479,7 +7479,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tamagui/lucide-icons@npm:^1.68.5":
+"@tamagui/lucide-icons@npm:^1.71.0":
   version: 1.71.0
   resolution: "@tamagui/lucide-icons@npm:1.71.0"
   dependencies:
@@ -7492,7 +7492,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tamagui/next-plugin@npm:^1.68.5":
+"@tamagui/next-plugin@npm:^1.71.0":
   version: 1.71.0
   resolution: "@tamagui/next-plugin@npm:1.71.0"
   dependencies:
@@ -7516,7 +7516,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tamagui/next-theme@npm:^1.68.5":
+"@tamagui/next-theme@npm:^1.71.0":
   version: 1.71.0
   resolution: "@tamagui/next-theme@npm:1.71.0"
   dependencies:
@@ -7645,7 +7645,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tamagui/react-native-media-driver@npm:1.71.0, @tamagui/react-native-media-driver@npm:^1.68.5":
+"@tamagui/react-native-media-driver@npm:1.71.0, @tamagui/react-native-media-driver@npm:^1.71.0":
   version: 1.71.0
   resolution: "@tamagui/react-native-media-driver@npm:1.71.0"
   dependencies:
@@ -7807,7 +7807,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tamagui/shorthands@npm:1.71.0, @tamagui/shorthands@npm:^1.68.5":
+"@tamagui/shorthands@npm:1.71.0, @tamagui/shorthands@npm:^1.71.0":
   version: 1.71.0
   resolution: "@tamagui/shorthands@npm:1.71.0"
   checksum: 124864794fd07821e5c671cfc7d7144bf11b01ff979985608f76eba498ef3f36058daa4175252ed44a8de9c18fd21dd63a3d18392e315809de6d2305c3d6e2e8
@@ -7942,7 +7942,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tamagui/theme-builder@npm:^1.68.5":
+"@tamagui/theme-builder@npm:^1.71.0":
   version: 1.71.0
   resolution: "@tamagui/theme-builder@npm:1.71.0"
   dependencies:
@@ -7963,7 +7963,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tamagui/themes@npm:^1.68.5":
+"@tamagui/themes@npm:^1.71.0":
   version: 1.71.0
   resolution: "@tamagui/themes@npm:1.71.0"
   dependencies:
@@ -7981,7 +7981,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tamagui/toast@npm:^1.68.5":
+"@tamagui/toast@npm:^1.71.0":
   version: 1.71.0
   resolution: "@tamagui/toast@npm:1.71.0"
   dependencies:
@@ -10538,13 +10538,13 @@ __metadata:
     "@supabase/auth-helpers-nextjs": ^0.7.4
     "@supabase/auth-helpers-react": ^0.4.2
     "@supabase/supabase-js": ^2.33.1
-    "@tamagui/animations-react-native": ^1.68.5
-    "@tamagui/colors": ^1.68.5
-    "@tamagui/font-inter": ^1.68.5
-    "@tamagui/helpers-icon": ^1.68.5
-    "@tamagui/lucide-icons": ^1.68.5
-    "@tamagui/shorthands": ^1.68.5
-    "@tamagui/themes": ^1.68.5
+    "@tamagui/animations-react-native": ^1.71.0
+    "@tamagui/colors": ^1.71.0
+    "@tamagui/font-inter": ^1.71.0
+    "@tamagui/helpers-icon": ^1.71.0
+    "@tamagui/lucide-icons": ^1.71.0
+    "@tamagui/shorthands": ^1.71.0
+    "@tamagui/themes": ^1.71.0
     "@tanstack/react-query": 4.18.0
     "@trpc/client": ^10.38.2
     "@types/react": ^18.0.27
@@ -15633,7 +15633,7 @@ __metadata:
     "@my/ui": "*"
     "@react-native-async-storage/async-storage": 1.18.2
     "@react-native-community/netinfo": ^9.3.10
-    "@tamagui/babel-plugin": ^1.68.5
+    "@tamagui/babel-plugin": ^1.71.0
     app: "*"
     babel-plugin-module-resolver: ^4.1.0
     babel-plugin-transform-inline-environment-variables: ^0.4.4
@@ -21560,8 +21560,8 @@ __metadata:
     "@supabase/auth-helpers-nextjs": ^0.7.4
     "@supabase/auth-helpers-react": ^0.4.2
     "@supabase/supabase-js": ^2.33.1
-    "@tamagui/next-plugin": ^1.68.5
-    "@tamagui/next-theme": ^1.68.5
+    "@tamagui/next-plugin": ^1.71.0
+    "@tamagui/next-theme": ^1.71.0
     "@tanstack/react-query": 4.18.0
     "@trpc/client": ^10.38.2
     "@trpc/next": ^10.38.2
@@ -21579,7 +21579,7 @@ __metadata:
     react-native: 0.72.3
     react-native-reanimated: ~3.3.0
     react-native-web: ~0.19.6
-    react-native-web-lite: ^1.68.5
+    react-native-web-lite: ^1.71.0
     vercel: latest
     zod: ^3.21.4
   languageName: unknown
@@ -24044,7 +24044,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-web-lite@npm:1.71.0, react-native-web-lite@npm:^1.68.5":
+"react-native-web-lite@npm:1.71.0, react-native-web-lite@npm:^1.71.0":
   version: 1.71.0
   resolution: "react-native-web-lite@npm:1.71.0"
   dependencies:
@@ -26650,7 +26650,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tamagui@npm:^1.68.5":
+"tamagui@npm:^1.71.0":
   version: 1.71.0
   resolution: "tamagui@npm:1.71.0"
   dependencies:
@@ -27868,7 +27868,7 @@ __metadata:
     "@babel/runtime": ^7.18.9
     "@manypkg/cli": ^0.19.1
     "@nderscore/tamagui-typescript-plugin": ^0.5.1
-    "@tamagui/cli": ^1.68.5
+    "@tamagui/cli": ^1.71.0
     "@turbo/gen": ^1.10.12
     change-case: ^4.1.2
     check-dependency-version-consistency: ^3.0.3
