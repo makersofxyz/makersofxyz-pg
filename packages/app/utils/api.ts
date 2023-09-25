@@ -1,12 +1,15 @@
+import type { AppRouter } from '@my/api'
 import { httpBatchLink } from '@trpc/client'
 import { createTRPCNext } from '@trpc/next'
-import type { AppRouter } from '@my/api'
 import SuperJSON from 'superjson'
 import { getBaseUrl } from './getBaseUrl'
 
 export const api = createTRPCNext<AppRouter>({
   config() {
     return {
+      queryClientConfig: {
+        // web query config
+      },
       transformer: SuperJSON,
       links: [
         httpBatchLink({

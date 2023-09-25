@@ -36,6 +36,8 @@ Development scripts:
 - iOS: `yarn ios`
 - Android: `yarn android`
 
+NOTE: When using tRPC, even if you just want to develop on native, you need to have the web server running to be able to make tRPC requests.
+
 Storybook scripts:
 
 - Storybook Web: `yarn storybook:web`
@@ -48,6 +50,14 @@ Code generation script:
 - Component: `yarn gen component`
 - Screen: `yarn gen screen`
 - tRPC Router: `yarn gen router`
+
+### Signup Flow
+
+Supabase PKCE flow requires email confirmation on sign up. You accept an email locally:
+
+- `http://localhost:54324`
+- Find the email account you signed up with
+- Click the confirm link
 
 ## Folder layout
 
@@ -98,6 +108,10 @@ export default Page
 
 ### Native
 
+## Expo EAS Update
+
+[EAS update](https://docs.expo.dev/eas-update/getting-started) makes updating and publishing your app's runtime js easy.
+
 We use `expo-router` for the native side, so simply create `_layout.tsx` files inside `apps/expo` like you would normally do with an `expo-router` project.
 
 ## How Authentication is Handled
@@ -124,8 +138,12 @@ You can use Supabase's [Row-Level Security (RLS)](https://supabase.com/docs/guid
 
 Follows [how Next.js handles env variables](https://nextjs.org/docs/pages/building-your-application/configuring/environment-variables) - In general only a `.env.local` file is needed.
 
-- Put the secrets inside `.env.local` - env files ending with .local will NOT be committed to git.
-- Do NOT put your secrets inside `.env` as it will get committed to git
+- `.env.local` is where secrets can be safely stored since this file isn't committed to git
+- Do NOT put your sensitive environment variables inside `.env` as it will get committed to git
+
+[Next Environment Defaults](https://nextjs.org/docs/pages/building-your-application/configuring/environment-variables#default-environment-variables)
+
+> Good to know: .env, .env.development, and .env.production files should be included in your repository as they define defaults. .env\*.local should be added to .gitignore, as those files are intended to be ignored. .env.local is where secrets can be stored.
 
 ## Installing icons and fonts
 

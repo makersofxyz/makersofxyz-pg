@@ -13,7 +13,8 @@
       "backgroundColor": "#ffffff"
     },
     "updates": {
-      "fallbackToCacheTimeout": 0
+      "fallbackToCacheTimeout": 0,
+      "url": "https://u.expo.dev/your-project-id"
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
@@ -21,11 +22,13 @@
       "bundleIdentifier": "com.acme.myapp"
     },
     "android": {
+      "softwareKeyboardLayoutMode": "pan",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.acme.myapp"
+      "package": "com.acme.myapp",
+      "permissions": ["android.permission.RECORD_AUDIO"]
     },
     "web": {
       "favicon": "./assets/favicon.png",
@@ -38,8 +41,21 @@
           "photosPermission": "The app accesses your photos to let you share them with your friends."
         }
       ],
-      "expo-router",
       "expo-apple-authentication"
     ]
+      "expo-router"
+    ],
+    "extra": {
+      "router": {
+        "origin": false
+      }
+      // "eas": {
+      //   TODO: Add your project ID here
+      //   "projectId": "your-project-id"
+      // }
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    }
   }
 }

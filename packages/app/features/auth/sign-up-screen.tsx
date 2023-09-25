@@ -6,7 +6,6 @@ import React, { useEffect } from 'react'
 import { FormProvider, useForm, useFormContext, useWatch } from 'react-hook-form'
 import { createParam } from 'solito'
 import { Link } from 'solito/link'
-import { useRouter } from 'solito/router'
 import { z } from 'zod'
 import * as AppleAuthentication from 'expo-apple-authentication';
 import { initiateAppleSignIn } from 'app/utils/auth/initiateAppleSignIn'
@@ -19,12 +18,8 @@ const SignUpSchema = z.object({
   password: formFields.text.min(6).describe('Password // Choose a password'),
 })
 
-// change it to true if you're doing email confirms
-const usesEmailConfirm = false
-
 export const SignUpScreen = () => {
   const supabase = useSupabase()
-  const router = useRouter()
   const updateParams = useUpdateParams()
   const { params } = useParams()
 
@@ -58,10 +53,6 @@ export const SignUpScreen = () => {
       } else {
         form.setError('password', { type: 'custom', message: errorMessage })
       }
-    } else {
-      router.replace('/')
-      // do this instead if you're doing email confirms:
-      // setShowSuccess(true)
     }
   }
 
@@ -90,7 +81,7 @@ export const SignUpScreen = () => {
 
   return (
     <FormProvider {...form}>
-      {form.formState.isSubmitSuccessful && usesEmailConfirm ? (
+      {form.formState.isSubmitSuccessful ? (
         <CheckYourEmail />
       ) : (
         <SchemaForm
