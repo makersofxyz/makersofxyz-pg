@@ -1,5 +1,5 @@
 import { Paragraph, ScrollView, Settings, YStack, isWeb, useMedia } from '@my/ui'
-import { Book, Cog, Info, Lock, LogOut, Mail, Moon, Twitter } from '@tamagui/lucide-icons'
+import { Bell, Book, Cog, Info, Lock, LogOut, Mail, Moon, Twitter } from '@tamagui/lucide-icons'
 import { useThemeSetting } from 'app/provider/theme'
 import { redirect } from 'app/utils/redirect'
 import { useSupabase } from 'app/utils/supabase/useSupabase'
@@ -46,14 +46,14 @@ export const SettingsScreen = () => {
               >
                 Change Email
               </Settings.Item>
-              {/* <Settings.Item
+              <Settings.Item
                 icon={Bell}
                 isActive={pathname === '/settings/notifications'}
                 {...useLink({ href: '/settings/notifications' })}
                 accentColor="$orange9"
               >
                 Notifications
-              </Settings.Item> */}
+              </Settings.Item>
             </Settings.Group>
             <Settings.Group>
               <Settings.Item
@@ -97,7 +97,7 @@ export const SettingsScreen = () => {
           </Settings.Items>
         </Settings>
       </ScrollView>
-      {/* 
+      {/*
       NOTE: you should probably get the actual native version here using https://www.npmjs.com/package/react-native-version-info
       we just did a simple package.json read since we want to keep things simple for the starter
        */}
