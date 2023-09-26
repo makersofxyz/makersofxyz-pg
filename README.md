@@ -122,7 +122,7 @@ To run an expo app on your machine locally, create an expo account and create an
 
 ## Native Builds
 
-Native builds are needed if you're using custom native code in your project. More documentation can be found here in Expo's docs: [Building Standalone Apps](https://docs.expo.dev/workflow/customizing/#adding-custom-native-code-with-development-builds)
+Native builds are needed if you're using custom native code in your project. More documentation can be found here in Expo's docs: [Adding Custom Native Code](https://docs.expo.dev/workflow/customizing/#adding-custom-native-code-with-development-builds)
 
 To run a [native build](https://docs.expo.dev/develop/development-builds/introduction):
 
