@@ -1,8 +1,6 @@
 # Tamagui's Takeout Starter
 
-A good tutorial showing building a real app using Tamagui Takeout can be seen on the [notjust.dev YouTube stream](https://www.youtube.com/watch?v=d32F7crxXsY).
-
-Please remember that Takeout is closed source and you should not make this code available in any public form!
+Tamagui's Premium Universal Starter
 
 ## Getting Started
 
