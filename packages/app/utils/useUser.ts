@@ -39,7 +39,6 @@ export const useUser = () => {
 
   return {
     session,
-    user,
     profile,
     avatarUrl,
     updateProfile: () => refetch(),
