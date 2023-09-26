@@ -50,7 +50,7 @@
     "@babel/runtime": "^7.18.9",
     "@manypkg/cli": "^0.19.1",
     "@nderscore/tamagui-typescript-plugin": "^0.5.1",
-    "@tamagui/cli": "^1.68.5",
+    "@tamagui/cli": "^1.72.1",
     "check-dependency-version-consistency": "^3.0.3",
     "dotenv": "^16.0.3",
     "dotenv-cli": "^6.0.0",
