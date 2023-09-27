@@ -2,8 +2,8 @@ import { TRPCError } from '@trpc/server'
 import { createTRPCRouter, protectedProcedure } from '../trpc'
 
 function getTimeOfDay() {
-  var today = new Date()
-  var curHr = today.getHours()
+  const today = new Date()
+  const curHr = today.getHours()
 
   if (curHr < 4) {
     return 'night'
