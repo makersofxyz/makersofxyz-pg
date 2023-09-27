@@ -242,7 +242,3 @@ EAS has already been configured for you, but you still need to do the following:
 - `npm install --global eas-cli`
 - `cd apps/expo`
 - `eas build` - This will also add your EAS project ID to app.json
-
-## Expo EAS Update
-
-[EAS update](https://docs.expo.dev/eas-update/getting-started) makes updating and publishing your app's runtime js easy.
