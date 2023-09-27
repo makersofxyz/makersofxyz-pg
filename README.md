@@ -112,11 +112,7 @@ export default Page
 
 The easiest way to get a project running on native devices is to use [Expo Go](https://expo.dev/client). You can download it from the App Store or Google Play.
 
-To run an expo app on your machine locally, create an expo account and create an expo project.
-
-- add your project id to `apps/expo/app.json` where it says `your-project-id`
-
-![expo project id](https://github.com/tamagui/unistack/assets/2502947/8a4d3663-9eb2-4cb1-926f-0476a00ab078)
+To run an expo app on your machine locally:
 
 - `yarn native` from the root of the project
 
@@ -135,6 +131,12 @@ To run a [native build](https://docs.expo.dev/develop/development-builds/introdu
 [EAS update](https://docs.expo.dev/eas-update/getting-started) makes updating and publishing your app's runtime js easy.
 
 We use `expo-router` for the native side, so simply create `_layout.tsx` files inside `apps/expo` like you would normally do with an `expo-router` project.
+
+- create an expo account and create an expo project.
+
+- add your project id to `apps/expo/app.json` where it says `your-project-id`
+
+![expo project id](https://github.com/tamagui/unistack/assets/2502947/8a4d3663-9eb2-4cb1-926f-0476a00ab078)
 
 ## How Authentication is Handled
 
