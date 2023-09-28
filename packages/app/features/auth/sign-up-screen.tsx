@@ -84,6 +84,7 @@ export const SignUpScreen = () => {
   }
 
   async function signInWithGoogle() {
+    let authSuccessful = false;
       /**
        * Google One Tap
        * This is the method for Google One Tap. It is not available on iOS
@@ -130,6 +131,7 @@ export const SignUpScreen = () => {
               access_token: accessToken,
               refresh_token: refreshToken,
             });
+            if (!error) authSuccessful = true;
             if (error) {
               // handle error
             }
@@ -139,7 +141,7 @@ export const SignUpScreen = () => {
         // handle error
       } finally {
         WebBrowser.maybeCompleteAuthSession();
-        router.replace("/");
+        if (authSuccessful) router.replace("/");
       }
     }
 
