@@ -12,12 +12,11 @@ import {
   FormWrapper,
   NumberField,
   SelectField,
-  TamaguiComponent,
   TextAreaField,
   TextField,
   Theme,
 } from '@my/ui'
-import { ComponentProps, forwardRef } from 'react'
+import { ComponentProps } from 'react'
 import { useFormContext } from 'react-hook-form'
 import { z } from 'zod'
 
