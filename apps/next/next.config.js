@@ -80,6 +80,7 @@ module.exports = function () {
       'expo-constants',
       'expo-modules-core',
       'expo-image-picker',
+      'expo-web-browser',
       'react-native-gesture-handler',
     ],
     experimental: {
