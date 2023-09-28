@@ -1,4 +1,14 @@
-import { Button, FormWrapper, H2, Paragraph, SubmitButton, Text, Theme, YStack } from '@my/ui'
+import {
+  Button,
+  FormWrapper,
+  H2,
+  Paragraph,
+  SubmitButton,
+  Text,
+  Theme,
+  XStack,
+  YStack,
+} from '@my/ui'
 import { ChevronLeft } from '@tamagui/lucide-icons'
 import { SchemaForm, formFields } from 'app/utils/SchemaForm'
 import { useSupabase } from 'app/utils/supabase/useSupabase'
@@ -7,6 +17,9 @@ import { FormProvider, useForm, useFormContext, useWatch } from 'react-hook-form
 import { createParam } from 'solito'
 import { Link } from 'solito/link'
 import { z } from 'zod'
+import { AppleSignIn } from './components/AppleSignIn'
+import { GoogleSignIn } from './components/GoogleSignIn'
+import { SocialLogin } from './components/SocialLogin'
 
 const { useParams, useUpdateParams } = createParam<{ email?: string }>()
 
@@ -78,12 +91,9 @@ export const SignUpScreen = () => {
                   Sign Up
                 </SubmitButton>
               </Theme>
+
               <SignInLink />
-              {/* <YStack>
-            <Button disabled={loading} onPress={() => signInWithProvider('github')}>
-              GitHub Login
-            </Button>
-          </YStack> */}
+              <SocialLogin />
             </>
           )}
         >
@@ -93,6 +103,7 @@ export const SignUpScreen = () => {
                 <H2 $sm={{ size: '$8' }}>Get Started</H2>
                 <Paragraph theme="alt2">Create a new account</Paragraph>
               </YStack>
+
               {Object.values(fields)}
             </>
           )}
@@ -107,7 +118,7 @@ const SignInLink = () => {
 
   return (
     <Link href={`/sign-in?${new URLSearchParams(email ? { email } : undefined).toString()}`}>
-      <Paragraph textAlign="center" theme="alt1">
+      <Paragraph textAlign="center" theme="alt1" mt="$2">
         Already signed up? <Text textDecorationLine="underline">Sign in</Text>
       </Paragraph>
     </Link>

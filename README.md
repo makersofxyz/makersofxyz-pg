@@ -150,6 +150,13 @@ You can use standard Next.js server side functions. So far we've used getServerS
 
 We use a hook to check for auth and then redirect the user to auth pages, and also not let the authenticated users see auth pages. See `apps/expo/utils/useProtectedRoute.ts`.
 
+### Apple Sign In
+
+You can use Sign in with Apple on native for iOS. Configuration on the Supabase side is straightforward as long as you have an Apple Developer account and an app ID. See this [article](https://supabase.com/docs/guides/auth/social-login/auth-apple#configuration-native-app) for more info. If you plan to use Sign in with Apple on the web, there are a few more steps which are explained in the article.
+
+### Google Sign In
+Sign in with Google is supported on iOS via in app web browser, and on Android native with via Google One Tap. To use Google One Tap on Android, you'll need to do a few more steps (see comments in the code). See [this article](https://supabase.com/docs/guides/auth/social-login/auth-google#configuration-native-app) for more info, as well as [this issue](https://github.com/react-native-google-signin/google-signin/issues/1176#issuecomment-1674385846).
+
 ## How Authorization is Handled
 
 You can use Supabase's [Row-Level Security (RLS)](https://supabase.com/docs/guides/auth/row-level-security) to handle authorization of users.

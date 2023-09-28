@@ -1,12 +1,16 @@
-import { H2, Paragraph, SubmitButton, Text, Theme, YStack } from '@my/ui'
-import { Link } from 'solito/link'
+import { H2, Paragraph, SubmitButton, Text, Theme, XStack, YStack } from '@my/ui'
 import { SchemaForm, formFields } from 'app/utils/SchemaForm'
 import { useSupabase } from 'app/utils/supabase/useSupabase'
 import React, { useEffect } from 'react'
 import { FormProvider, useForm, useWatch } from 'react-hook-form'
 import { createParam } from 'solito'
+import { Link } from 'solito/link'
 import { useRouter } from 'solito/router'
 import { z } from 'zod'
+
+import { AppleSignIn } from './components/AppleSignIn'
+import { GoogleSignIn } from './components/GoogleSignIn'
+import { SocialLogin } from './components/SocialLogin'
 
 const { useParams, useUpdateParams } = createParam<{ email?: string }>()
 
@@ -73,11 +77,7 @@ export const SignInScreen = () => {
                 </SubmitButton>
               </Theme>
               <SignUpLink />
-              {/* <YStack>
-            <Button disabled={loading} onPress={() => signInWithProvider('github')}>
-              GitHub Login
-            </Button>
-          </YStack> */}
+              <SocialLogin />
             </>
           )
         }}
@@ -88,6 +88,7 @@ export const SignInScreen = () => {
               <H2 $sm={{ size: '$8' }}>Welcome Back</H2>
               <Paragraph theme="alt1">Sign in to your account</Paragraph>
             </YStack>
+
             {Object.values(fields)}
           </>
         )}
