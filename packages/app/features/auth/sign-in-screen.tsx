@@ -1,4 +1,4 @@
-import { H2, Paragraph, SubmitButton, Text, Theme, YStack } from '@my/ui'
+import { Button, isWeb, H2, Paragraph, SubmitButton, Text, Theme, YStack } from '@my/ui'
 import { Link } from 'solito/link'
 import { SchemaForm, formFields } from 'app/utils/SchemaForm'
 import { useSupabase } from 'app/utils/supabase/useSupabase'
@@ -7,9 +7,12 @@ import { FormProvider, useForm, useWatch } from 'react-hook-form'
 import { createParam } from 'solito'
 import { useRouter } from 'solito/router'
 import { z } from 'zod'
+import * as WebBrowser from "expo-web-browser";
 import * as AppleAuthentication from 'expo-apple-authentication';
 import { initiateAppleSignIn } from 'app/utils/auth/initiateAppleSignIn'
+
 import { Platform } from 'react-native';
+//import { initiateGoogleSignIn } from 'app/utils/auth/initiateGoogleSignIn'
 
 const { useParams, useUpdateParams } = createParam<{ email?: string }>()
 
@@ -74,6 +77,66 @@ export const SignInScreen = () => {
     }
   }
 
+  async function signInWithGoogle() {
+    /**
+     * Google One Tap
+     * This is the method for Google One Tap. It is not available on iOS
+     * and requires sponsoring the project. See more here: https://github.com/react-native-google-signin/google-signin/issues/1176#issuecomment-1674385846.
+  if (Platform.OS === "android") {
+    const { rawNonce, hashedNonce } = await initiateGoogleSignIn();
+    const userInfo = await GoogleOneTapSignIn.signIn({
+      webClientId:
+        "YOUR_WEB_CLIENT_ID",
+      nonce: hashedNonce,
+    });
+    const token = userInfo?.idToken;
+    if (!token) throw new Error("No id token");
+    const { error } = await supabase.auth.signInWithIdToken({
+      provider: "google",
+      token: token,
+      nonce: rawNonce,
+    });
+    if (!error) router.replace("/");
+    if (error) return Alert.alert("Error", error.message);
+  } else {
+    Platform.OS === "ios";
+  */
+    try {
+      // whatever route you want to deeplink to; make sure to configure in Supabase dashboard
+      const redirectUri = "myapp://";
+      const provider = "google";
+      const response = await WebBrowser.openAuthSessionAsync(
+        `${process.env.EXPO_PUBLIC_SUPABASE_URL}/auth/v1/authorize?provider=${provider}&redirect_to=${redirectUri}`,
+        redirectUri,
+      );
+
+      if (response.type === "success") {
+        const url = response.url;
+        const params = url.split("#")[1];
+        if (!params) return;
+        const paramsArray = params.split("&");
+        const accessToken = paramsArray[0]?.split("=")[1];
+        const refreshToken = paramsArray[2]?.split("=")[1];
+
+        if (accessToken && refreshToken) {
+          // handle error
+          const { error } = await supabase.auth.setSession({
+            access_token: accessToken,
+            refresh_token: refreshToken,
+          });
+          if (error) {
+            // handle error
+          }
+        }
+      }
+    } catch (error) {
+      // handle error
+    } finally {
+      WebBrowser.maybeCompleteAuthSession();
+      router.replace("/");
+    }
+  }
+
   return (
     <FormProvider {...form}>
       <SchemaForm
@@ -108,6 +171,13 @@ export const SignInScreen = () => {
                     style={{ width: "100%", height: 44 }}
                     onPress={signInWithApple}
                   />
+                )}
+              </YStack>
+              <YStack>
+                {!isWeb && (
+                  <Button theme="alt1" onPress={() => signInWithGoogle()}>
+                    Sign in with Google
+                  </Button>
                 )}
               </YStack>
               {/* <YStack>
