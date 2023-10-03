@@ -1,6 +1,6 @@
 ## Setting up Supabase
 
-To go through the supabase setup, CD to the root of the directory and run `yarn setup`.
+To go through the Supabase setup, CD to the root of the directory and run `yarn setup`.
 
 Here are some guides from the official Supabase documentation:
 
@@ -19,7 +19,7 @@ You can also run these scripts from the root by adding `supa` after yarn. So `ya
 
 #### Link Project
 
-Links your remote Supabase project. Set `NEXT_PUBLIC_SUPABASE_PROJECT_ID` in your `.env` to your Supabaes instance before running.
+Links your remote Supabase project. Set `NEXT_PUBLIC_SUPABASE_PROJECT_ID` in your `.env` to your Supabase's instance before running.
 
 ```shell
 yarn link-project
@@ -38,7 +38,7 @@ yarn g #alias
 
 #### Generate Remote
 
-Generates types from your remote Supabase instance using your project ID specifid in the root env files.
+Generates types from your remote Supabase instance using your project ID specific id in the root env files.
 
 ```shell
 yarn generate:remote

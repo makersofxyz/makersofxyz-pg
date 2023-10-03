@@ -23,6 +23,7 @@
     // DONT DO THIS so jsdoc will remain
     "removeComments": false,
     "skipLibCheck": true,
+    "typeRoots": ["node_modules/@types", "environment.d.ts"],
     "sourceMap": false,
     "strictNullChecks": true,
     "target": "es2020",
