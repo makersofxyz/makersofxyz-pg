@@ -10,7 +10,7 @@ export const useUser = () => {
     data: profile,
     isLoading: isLoadingProfile,
     refetch,
-  } = useQuery(['profile'], {
+  } = useQuery(['profile', user?.id], {
     queryFn: async () => {
       if (!user?.id) return null
       const { data, error } = await supabase.from('profiles').select('*').eq('id', user.id).single()
