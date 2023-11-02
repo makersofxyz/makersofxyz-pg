@@ -1,4 +1,4 @@
-import { H2, Paragraph, SubmitButton, Text, Theme, XStack, YStack } from '@my/ui'
+import { H2, Paragraph, SubmitButton, Text, Theme, YStack } from '@my/ui'
 import { SchemaForm, formFields } from 'app/utils/SchemaForm'
 import { useSupabase } from 'app/utils/supabase/useSupabase'
 import React, { useEffect } from 'react'
@@ -8,8 +8,6 @@ import { Link } from 'solito/link'
 import { useRouter } from 'solito/router'
 import { z } from 'zod'
 
-import { AppleSignIn } from './components/AppleSignIn'
-import { GoogleSignIn } from './components/GoogleSignIn'
 import { SocialLogin } from './components/SocialLogin'
 
 const { useParams, useUpdateParams } = createParam<{ email?: string }>()

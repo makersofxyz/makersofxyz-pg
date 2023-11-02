@@ -1,16 +1,34 @@
-⚠️
-
-Please note: we've had a number of people create public repos on accident with Takeout. This isn't allowed per the license! Please be careful to keep the source private.
-
-# Tamagui's Takeout Starter
-
-A good tutorial showing building a real app using Tamagui Takeout can be seen on the [notjust.dev YouTube stream](https://www.youtube.com/watch?v=d32F7crxXsY).
+⚠⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️️
 
 Please remember that Takeout is closed source and you should not make this code available in any public form!
 
+**Please note**: we've had a number of people create public repos on accident with Takeout. This isn't allowed per the license! Please be careful to keep the source private.
+
+⚠⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️️
+
+# Tamagui's Takeout Starter
+
+A good tutorial showing building a real app using Tamagui Takeout can be seen on the [notjust.dev YouTube stream](https://www.youtube.com/watch?v=XbKkKXH-dfc).
+
+
 ## Getting Started
 
-If you want to clone this starter, you can run `yarn create tamagui --template takeout-starter`. Otherwise, ignore this section. If you're getting authentication issues with `yarn create tamagui`, clone the template (using `gh` or just `git`), cd into the project and run `yarn install`, and then `yarn setup`.
+If you want to clone this starter, you can run
+
+ ```bash 
+ yarn create tamagui --template takeout-starter
+ ``` 
+
+the `yarn create tamagui --template takeout-starter` command has a requirement on `gh`
+
+`gh` setup:
+1. [gh install](https://cli.github.com/)
+1. `gh auth login`
+1. select ` https` from the menu
+1. authenticate
+
+ 
+ Otherwise, ignore this section. If you're getting authentication issues with `yarn create tamagui`, clone the template (using `gh` or just `git`), cd into the project and run `yarn install`, and then `yarn setup`.
 
 To rename the project you can search the workspace for the word `myapp` and replace with your name.
 If you prefer, you may also run [react-native-rename](https://github.com/junedomingo/react-native-rename) from `/apps/expo` to rename the react-native references.
@@ -32,6 +50,9 @@ Note that you don't need to do this if you've already cloned this using `create 
 
 To configure the project, `cd` into the root of the project and run `yarn setup`.
 
+[Docker](https://www.docker.com) based workflow is recommended if your takeout project is using Supabase as a dependency.
+
+Please reference [Supabase's documentation](https://supabase.com/docs/guides/self-hosting/docker) for docker configuration instructions.
 ## Development
 
 Development scripts:
@@ -112,9 +133,23 @@ export default Page
 
 ### Native
 
+#### React Native Setup Expo
+The simplest way to run a native project. A iOS or Android physical device is needed
+- [Expo CLI Setup](https://docs.expo.dev/get-started/installation/)
+
+
+#### Emulator Setup Expo
+- [Android](https://docs.expo.dev/workflow/android-studio-emulator/)
+- [iOS](https://docs.expo.dev/workflow/ios-simulator/)
+
+#### First-time Takeout Setup
+
+- run a build for either native platform `yarn ios` or `yarn android`
+
 To run an expo app on your machine locally:
 
 - `yarn native` from the root of the project
+- select `development` from the cli menu
 
 ## Native Builds
 
@@ -250,3 +285,13 @@ EAS has already been configured for you, but you still need to do the following:
 - `npm install --global eas-cli`
 - `cd apps/expo`
 - `eas build` - This will also add your EAS project ID to app.json
+
+## FAQs
+
+- I get the error `network request failed` when trying to signin or signup for the app
+
+This error is likely caused my not having Supabase setup correctly and running in docker.
+
+- I'm trying to run my project with `expo go`
+
+`takeout` is not compatible with `expo go` at this time. You'll need to run the project with a local development build, outlined above.

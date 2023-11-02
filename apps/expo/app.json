@@ -2,6 +2,7 @@
   "expo": {
     "name": "myapp",
     "slug": "myapp",
+    "jsEngine": "hermes",
     "scheme": "myapp",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -48,18 +49,14 @@
           "photosPermission": "The app accesses your photos to let you share them with your friends."
         }
       ],
-      "expo-router",
       "expo-apple-authentication",
-      "@vonovak/react-native-theme-control"
+      "expo-router",
+      "expo-build-properties"
     ],
     "extra": {
       "router": {
         "origin": false
       }
-      // "eas": {
-      //   TODO: Add your project ID here
-      //   "projectId": "your-project-id"
-      // }
     },
     "runtimeVersion": {
       "policy": "appVersion"

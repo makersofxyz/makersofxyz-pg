@@ -45,7 +45,7 @@ const EditProfileForm = ({
     },
     async onSuccess() {
       toast.show('Successfully updated!')
-      await queryClient.invalidateQueries(['profile'])
+      await queryClient.invalidateQueries(['profile', userId])
       router.back()
     },
   })

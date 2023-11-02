@@ -1,14 +1,4 @@
-import {
-  Button,
-  FormWrapper,
-  H2,
-  Paragraph,
-  SubmitButton,
-  Text,
-  Theme,
-  XStack,
-  YStack,
-} from '@my/ui'
+import { Button, FormWrapper, H2, Paragraph, SubmitButton, Text, Theme, YStack } from '@my/ui'
 import { ChevronLeft } from '@tamagui/lucide-icons'
 import { SchemaForm, formFields } from 'app/utils/SchemaForm'
 import { useSupabase } from 'app/utils/supabase/useSupabase'
@@ -17,8 +7,6 @@ import { FormProvider, useForm, useFormContext, useWatch } from 'react-hook-form
 import { createParam } from 'solito'
 import { Link } from 'solito/link'
 import { z } from 'zod'
-import { AppleSignIn } from './components/AppleSignIn'
-import { GoogleSignIn } from './components/GoogleSignIn'
 import { SocialLogin } from './components/SocialLogin'
 
 const { useParams, useUpdateParams } = createParam<{ email?: string }>()
