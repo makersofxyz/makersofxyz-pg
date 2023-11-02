@@ -23,10 +23,9 @@ the `yarn create tamagui --template takeout-starter` command has a requirement o
 
 `gh` setup:
 1. [gh install](https://cli.github.com/)
-1. `gh auth login`
-1. select ` https` from the menu
-1. authenticate
-
+2. `gh auth login`
+3. select ` https` from the menu
+4. authenticate
  
  Otherwise, ignore this section. If you're getting authentication issues with `yarn create tamagui`, clone the template (using `gh` or just `git`), cd into the project and run `yarn install`, and then `yarn setup`.
 
