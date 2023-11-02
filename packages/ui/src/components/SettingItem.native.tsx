@@ -7,6 +7,8 @@ export const SettingItem = ({
   children,
   accentColor,
   rightLabel,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  isActive: _, // not used on native - destructuring to avoid passing it through props
   ...props
 }: SettingItemProps) => {
   return (

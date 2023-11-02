@@ -1,37 +1,55 @@
+import { useForceUpdate } from '@my/ui'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native'
 import { ThemeProviderProps, useThemeSetting as next_useThemeSetting } from '@tamagui/next-theme'
-import {
-  ThemePreference,
-  setThemePreference,
-  useThemePreference,
-} from '@vonovak/react-native-theme-control'
 import { StatusBar } from 'expo-status-bar'
-import { createContext, useContext, useEffect, useMemo, useState } from 'react'
+import { createContext, useContext, useEffect, useLayoutEffect, useMemo, useState } from 'react'
 import { AppState, ColorSchemeName, useColorScheme } from 'react-native'
-
 export const ThemeContext = createContext<
-  (ThemeProviderProps & { current: ThemeName | null }) | null
+  (ThemeProviderProps & { current?: string | null }) | null
 >(null)
 
 type ThemeName = 'light' | 'dark' | 'system'
 
 export const UniversalThemeProvider = ({ children }: { children: React.ReactNode }) => {
-  const current = useThemePreference()
+  const [current, setCurrent] = useState<ThemeName>('system')
   const systemTheme = useNonFlickeringColorScheme()
+
+  useLayoutEffect(() => {
+    async function main() {
+      const persistedTheme = await AsyncStorage.getItem('@preferred_theme')
+      if (persistedTheme) {
+        setCurrent(persistedTheme as ThemeName)
+      }
+    }
+    main()
+  }, [])
+
+  useEffect(() => {
+    async function main() {
+      await AsyncStorage.setItem('@preferred_theme', current)
+    }
+    main()
+  }, [current])
+
+  const forceUpdate = useForceUpdate()
 
   const themeContext = useMemo(() => {
     const set = (val: string) => {
-      setThemePreference(val as ThemePreference)
+      setCurrent(val as ThemeName)
     }
 
     return {
       set,
       themes: ['light', 'dark'],
-      onChangeTheme: set,
+      onChangeTheme: (next: ThemeName) => {
+        setCurrent(next)
+        forceUpdate()
+      },
       current,
-      systemTheme: systemTheme as string,
+      systemTheme,
     }
-  }, [current, systemTheme])
+  }, [current, forceUpdate, systemTheme])
 
   return (
     <ThemeContext.Provider value={themeContext}>

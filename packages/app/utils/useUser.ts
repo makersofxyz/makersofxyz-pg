@@ -2,15 +2,15 @@ import { useQuery } from '@tanstack/react-query'
 import { useSessionContext } from './supabase/useSessionContext'
 import { useSupabase } from './supabase/useSupabase'
 
-export const useUser = () => {
-  const { session, isLoading: isLoadingSession } = useSessionContext()
+function useProfile() {
+  const { session, } = useSessionContext()
   const user = session?.user
   const supabase = useSupabase()
   const {
-    data: profile,
-    isLoading: isLoadingProfile,
+    data,
+    isLoading,
     refetch,
-  } = useQuery(['profile'], {
+  } = useQuery(['profile', user?.id], {
     queryFn: async () => {
       if (!user?.id) return null
       const { data, error } = await supabase.from('profiles').select('*').eq('id', user.id).single()
@@ -25,6 +25,15 @@ export const useUser = () => {
       return data
     },
   })
+
+  return { data, isLoading, refetch }
+}
+
+
+export const useUser = () => {
+  const { session, isLoading: isLoadingSession } = useSessionContext()
+  const user = session?.user
+  const { data: profile, refetch, isLoading: isLoadingProfile } = useProfile()
 
   const avatarUrl = (function () {
     if (profile?.avatar_url) return profile.avatar_url

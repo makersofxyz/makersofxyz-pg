@@ -1,12 +1,15 @@
-⚠️
+⚠⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️️
 
-Please note: we've had a number of people create public repos on accident with Takeout. This isn't allowed per the license! Please be careful to keep the source private.
+Please remember that Takeout is closed source and you should not make this code available in any public form!
+
+**Please note**: we've had a number of people create public repos on accident with Takeout. This isn't allowed per the license! Please be careful to keep the source private.
+
+⚠⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️️
 
 # Tamagui's Takeout Starter
 
-A good tutorial showing building a real app using Tamagui Takeout can be seen on the [notjust.dev YouTube stream](https://www.youtube.com/watch?v=d32F7crxXsY).
+A good tutorial showing building a real app using Tamagui Takeout can be seen on the [notjust.dev YouTube stream](https://www.youtube.com/watch?v=XbKkKXH-dfc).
 
-Please remember that Takeout is closed source and you should not make this code available in any public form!
 
 ## Getting Started
 
@@ -15,6 +18,14 @@ If you want to clone this starter, you can run
  ```bash 
  yarn create tamagui --template takeout-starter
  ``` 
+
+the `yarn create tamagui --template takeout-starter` command has a requirement on `gh`
+
+`gh` setup:
+1. [gh install](https://cli.github.com/)
+2. `gh auth login`
+3. select ` https` from the menu
+4. authenticate
  
  Otherwise, ignore this section. If you're getting authentication issues with `yarn create tamagui`, clone the template (using `gh` or just `git`), cd into the project and run `yarn install`, and then `yarn setup`.
 
@@ -121,7 +132,16 @@ export default Page
 
 ### Native
 
-#### First-time Setup
+#### React Native Setup Expo
+The simplest way to run a native project. A iOS or Android physical device is needed
+- [Expo CLI Setup](https://docs.expo.dev/get-started/installation/)
+
+
+#### Emulator Setup Expo
+- [Android](https://docs.expo.dev/workflow/android-studio-emulator/)
+- [iOS](https://docs.expo.dev/workflow/ios-simulator/)
+
+#### First-time Takeout Setup
 
 - run a build for either native platform `yarn ios` or `yarn android`
 

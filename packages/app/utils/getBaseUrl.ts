@@ -8,9 +8,9 @@ export function _getBaseUrl() {
     return ''
   }
 
-  if (process.env.URL) {
+  if (process.env.EXPO_PUBLIC_URL) {
     // overwrites the rest - set this on your native app deployment
-    return `https://${process.env.URL}`
+    return `${process.env.EXPO_PUBLIC_URL}`
   }
 
   if (process.env.VERCEL_URL) {

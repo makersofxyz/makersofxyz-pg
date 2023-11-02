@@ -4,6 +4,9 @@ import { ListItem, ListItemProps, SizableText, XStack, YGroup, YStack } from 'ta
 export type SettingItemProps = {
   icon: React.FC<IconProps>
   rightLabel?: string
+  /**
+   * native only - not showing colors on native
+   */
   accentColor?: ListItemProps['backgroundColor']
   /**
    * web only - to indicate the current page
@@ -16,6 +19,8 @@ export const SettingItem = ({
   children,
   rightLabel,
   isActive,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  accentColor: _, // not used on web - destructuring to avoid passing it through props
   ...props
 }: SettingItemProps) => {
   return (

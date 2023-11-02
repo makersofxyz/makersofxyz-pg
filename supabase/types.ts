@@ -3,12 +3,34 @@ export type Json =
   | number
   | boolean
   | null
-  | { [key: string]: Json }
+  | { [key: string]: Json | undefined }
   | Json[]
 
 export interface Database {
   public: {
     Tables: {
+      installs: {
+        Row: {
+          expo_tokens: string[] | null
+          user_id: string
+        }
+        Insert: {
+          expo_tokens?: string[] | null
+          user_id: string
+        }
+        Update: {
+          expo_tokens?: string[] | null
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "installs_user_id_fkey"
+            columns: ["user_id"]
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
       profiles: {
         Row: {
           about: string | null
@@ -28,6 +50,14 @@ export interface Database {
           id?: string
           name?: string | null
         }
+        Relationships: [
+          {
+            foreignKeyName: "profiles_id_fkey"
+            columns: ["id"]
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          }
+        ]
       }
     }
     Views: {
