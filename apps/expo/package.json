@@ -57,10 +57,7 @@
     "@expo/metro-config": "~0.10.0",
     "@tamagui/babel-plugin": "^1.75.9",
     "babel-plugin-transform-inline-environment-variables": "^0.4.4",
-<<<<<<< HEAD
-=======
     "cross-env": "^7.0.3",
->>>>>>> unistack/main
     "eslint": "^8.46.0",
     "eslint-config-universe": "^11.3.0",
     "metro-minify-terser": "^0.74.1",
