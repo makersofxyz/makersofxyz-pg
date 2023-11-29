@@ -292,6 +292,12 @@ EAS has already been configured for you, but you still need to do the following:
 - `cd apps/expo`
 - `eas build` - This will also add your EAS project ID to app.json
 
+### Initial EAS Setup
+
+1. edit `apps/expo/app.json` update:
+   1. `owner`
+   1. `projectId`
+
 ## FAQs
 
 - I get the error `network request failed` when trying to signin or signup for the app
