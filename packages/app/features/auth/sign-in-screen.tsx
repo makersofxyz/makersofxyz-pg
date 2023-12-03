@@ -1,4 +1,4 @@
-import { H2, Paragraph, SubmitButton, Text, Theme, YStack } from '@my/ui'
+import { H2, Paragraph, SubmitButton, Text, Theme, YStack, isWeb } from '@my/ui'
 import { SchemaForm, formFields } from 'app/utils/SchemaForm'
 import { useSupabase } from 'app/utils/supabase/useSupabase'
 import React, { useEffect } from 'react'
@@ -75,7 +75,7 @@ export const SignInScreen = () => {
                 </SubmitButton>
               </Theme>
               <SignUpLink />
-              <SocialLogin />
+              {isWeb && <SocialLogin />}
             </>
           )
         }}
@@ -86,8 +86,12 @@ export const SignInScreen = () => {
               <H2 $sm={{ size: '$8' }}>Welcome Back</H2>
               <Paragraph theme="alt1">Sign in to your account</Paragraph>
             </YStack>
-
             {Object.values(fields)}
+            {!isWeb && (
+              <YStack mt="$4">
+                <SocialLogin />
+              </YStack>
+            )}
           </>
         )}
       </SchemaForm>
