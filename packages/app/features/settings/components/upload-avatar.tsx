@@ -76,7 +76,7 @@ export const UploadAvatar = ({ children }: { children: React.ReactNode }) => {
       alert(
         'Upload failed.' +
           (process.env.NODE_ENV !== 'production'
-            ? ' NOTE: Make sure you have created a public bucket with name `avatars` in your Supabase dashboard (http://localhost:54323/project/default/storage/buckets/avatars).'
+            ? ' NOTE: Make sure you have created a public bucket with name `avatars`. You can do it either from your Supabase dashboard (http://localhost:54323/project/default/storage/buckets/avatars) or using the seed.sql file.'
             : '')
       )
     }

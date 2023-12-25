@@ -3,7 +3,7 @@ module.exports = {
   features: {
     storyStoreV7: false,
   },
-  addons: ['@storybook/addon-ondevice-controls', '@storybook/addon-ondevice-actions'],
+  addons: ['@storybook/addon-ondevice-controls'],
   env: (config) => ({
     ...config,
     TAMAGUI_TARGET: 'native',
@@ -12,4 +12,3 @@ module.exports = {
     autodocs: true,
   },
 }
-

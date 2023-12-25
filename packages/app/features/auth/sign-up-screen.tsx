@@ -1,4 +1,4 @@
-import { Button, FormWrapper, H2, Paragraph, SubmitButton, Text, Theme, YStack } from '@my/ui'
+import { Button, FormWrapper, H2, Paragraph, SubmitButton, Text, Theme, YStack, isWeb } from '@my/ui'
 import { ChevronLeft } from '@tamagui/lucide-icons'
 import { SchemaForm, formFields } from 'app/utils/SchemaForm'
 import { useSupabase } from 'app/utils/supabase/useSupabase'
@@ -79,9 +79,8 @@ export const SignUpScreen = () => {
                   Sign Up
                 </SubmitButton>
               </Theme>
-
               <SignInLink />
-              <SocialLogin />
+              {isWeb && <SocialLogin />}
             </>
           )}
         >
@@ -91,8 +90,12 @@ export const SignUpScreen = () => {
                 <H2 $sm={{ size: '$8' }}>Get Started</H2>
                 <Paragraph theme="alt2">Create a new account</Paragraph>
               </YStack>
-
               {Object.values(fields)}
+              {!isWeb && (
+                <YStack mt="$4">
+                  <SocialLogin />
+                </YStack>
+              )}
             </>
           )}
         </SchemaForm>
