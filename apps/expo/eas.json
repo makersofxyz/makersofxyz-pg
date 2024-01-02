@@ -3,22 +3,41 @@
     "version": ">= 3.14.0"
   },
   "build": {
-    "development": {
+    "development:simulator": {
       "distribution": "internal",
-      "android": {
-        "gradleCommand": ":app:assembleDebug"
+      "developmentClient": true,
+      "channel": "development",
+      "env": {
+        "APP_ENV": "development"
       },
       "ios": {
-        "buildConfiguration": "Debug"
-      },
-      "env": {
-        "TAMAGUI_TARGET": "native"
-      },
-      "channel": "development"
+        "simulator": true,
+        "image": "latest"
+      }
     },
-    "preview": {
+    "development": {
       "distribution": "internal",
-      "channel": "preview"
+      "channel": "development",
+      "env": {
+        "APP_ENV": "development"
+      },
+      "android": {
+        "buildType": "apk"
+      },
+      "ios": {
+        "image": "latest"
+      }
+    },
+    "staging": {
+      "distribution": "store",
+      "channel": "staging",
+      "env": {
+        "APP_ENV": "staging"
+      },
+      "ios": {
+        "image": "latest"
+      },
+      "autoIncrement": true
     },
     "production": {
       "env": {
@@ -28,6 +47,7 @@
     }
   },
   "submit": {
-    "production": {}
+    "production": {},
+    "staging": {}
   }
 }

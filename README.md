@@ -173,6 +173,8 @@ We use `expo-router` for the native side, so simply create `_layout.tsx` files i
 
 - add your project id to `apps/expo/app.json` where it says `your-project-id`
 
+- ensure that the `projectId`, `slug`, and `owner` values in `apps/expo/app.json` all have the same value as the name of your project, ie the name in `apps/expo/package.json`
+
 ![expo project id](https://github.com/tamagui/unistack/assets/2502947/8a4d3663-9eb2-4cb1-926f-0476a00ab078)
 
 ## Icon Pack (Additional Purchase)
@@ -280,7 +282,13 @@ You may potentially want to have the native module transpiled for the next app. 
 ## Deploying to Vercel
 
 - Root: `apps/next`
-- Install command to be `yarn set version berry && yarn install`
+- Install command to be `yarn set version 3.6 && yarn install` in `vercel.json`.
+  Note: currently there's a bug where `takeout` Vercel builds break using `yarn 4`
+  ```json
+  {
+    "installCommand": "yarn set version 3.6 && yarn install"
+  }
+  ```
 - Build command: leave default setting
 - Output dir: leave default setting
 

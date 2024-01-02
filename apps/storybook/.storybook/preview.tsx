@@ -3,7 +3,7 @@ import { Preview } from '@storybook/react'
 import '@tamagui/core/reset.css'
 import '@tamagui/font-inter/css/400.css'
 import '@tamagui/font-inter/css/700.css'
-import 'raf/polyfill' 
+import 'raf/polyfill'
 import { StorybookDecorator } from './decorator'
 
 const themeData = [
@@ -67,6 +67,7 @@ const preview: Preview = {
         ],
       },
     },
+
     // inverseTheme: {
     //   name: 'Inverse Theme',
     //   defaultValue: false,
