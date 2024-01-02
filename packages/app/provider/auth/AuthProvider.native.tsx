@@ -23,11 +23,21 @@ export const AuthProvider = ({ children, initialSession }: AuthProviderProps) =>
     setIsLoading(true)
     supabase.auth
       .getSession()
-      .then(({ data: { session } }) => {
-        setSession(session)
+      .then(({ data: { session: newSession } }) => {
+        setSession(newSession)
       })
       .catch((error) => setError(new AuthError(error.message)))
       .finally(() => setIsLoading(false))
+  }, [])
+  useEffect(() => {
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, newSession) => {
+      setSession(newSession)
+    })
+    return () => {
+      subscription.unsubscribe()
+    }
   }, [])
 
   return (

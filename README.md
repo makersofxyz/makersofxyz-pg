@@ -21,7 +21,6 @@ yarn create tamagui --template takeout-starter
 the `yarn create tamagui --template takeout-starter` command has a requirement on `gh`
 
 `gh` setup:
-
 1. [gh install](https://cli.github.com/)
 1. `gh auth login`
 1. select ` https` from the menu
