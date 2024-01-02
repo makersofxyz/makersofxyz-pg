@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "extra": {
+      "eas": {
+        "projectId": "d77526f6-83b3-41cc-ab4e-93f4ce159c96"
+      }
+    },
+    "owner": "icode212",
+    "slug": "myapp"
+  }
+}
