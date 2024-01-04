@@ -56,7 +56,7 @@ export const UploadAvatar = ({ children }: { children: React.ReactNode }) => {
             upsert: true,
           })
         if (result.error) {
-          console.log(result.error)
+          console.error(result.error)
           throw new Error(result.error.message)
         }
 

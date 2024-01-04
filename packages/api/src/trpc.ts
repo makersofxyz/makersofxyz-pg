@@ -3,34 +3,66 @@ import { createPagesServerClient } from '@supabase/auth-helpers-nextjs'
 import { TRPCError, initTRPC } from '@trpc/server'
 import { type CreateNextContextOptions } from '@trpc/server/adapters/next'
 import superJson from 'superjson'
+import { createClient } from '@supabase/supabase-js'
+import jwt from 'jsonwebtoken'
 
 export const createTRPCContext = async (opts: CreateNextContextOptions) => {
   // if there's auth cookie it'll be authenticated by this helper
-  const supabase = createPagesServerClient<Database>(opts)
+  let supabase = createPagesServerClient<Database>(opts)
+  let userId = (await supabase.auth.getUser()).data.user?.id
 
-  // native sends these instead of cookie auth
-  if (opts.req.headers.authorization && opts.req.headers['refresh-token']) {
-    const accessToken = opts.req.headers.authorization.split('Bearer ').pop()
-    const refreshToken = opts.req.headers['refresh-token']
-    if (accessToken && typeof refreshToken === 'string') {
-      await supabase.auth.setSession({
-        access_token: accessToken,
-        refresh_token: refreshToken,
-      })
-    }
+  if (!process.env.SUPABASE_JWT_SECRET) {
+    throw new Error('the `SUPABASE_JWT_SECRET` env variable is not set.')
   }
+  if (!process.env.NEXT_PUBLIC_SUPABASE_URL) {
+    throw new Error('the `NEXT_PUBLIC_SUPABASE_URL` env variable is not set.')
+  }
+  if (!process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
+    throw new Error('the `NEXT_PUBLIC_SUPABASE_ANON_KEY` env variable is not set.')
+  }
+  // Native clients pass an access token in the authorization header
+  if (opts.req.headers.authorization) {
+    const accessToken = opts.req.headers.authorization.split('Bearer ').pop()
+    if (accessToken) {
+      try {
+        const decoded = jwt.verify(accessToken, process.env.SUPABASE_JWT_SECRET) as { sub: string }
+        userId = decoded.sub
+      } catch (error) {
+        // Leaves userId undefined, which will eventually fail the enforceUserIsAuthed check
+        // Might want to log this out for debugging, etc.
+        if (error instanceof Error) {
+          console.error('Error parsing JWT', error.message)
+        }
+      }
+    }
 
-  const {
-    data: { session },
-  } = await supabase.auth.getSession()
+    supabase = createClient<Database>(
+      process.env.NEXT_PUBLIC_SUPABASE_URL,
+      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
+      {
+        auth: {
+          autoRefreshToken: false,
+          detectSessionInUrl: false,
+          persistSession: false,
+        },
+        global: {
+          headers: {
+            // pass the authorization header through to Supabase
+            Authorization: opts.req.headers.authorization,
+          },
+        },
+      }
+    )
+  }
 
   return {
     requestOrigin: opts.req.headers.origin,
 
     /**
-     * The Supabase user session
+     * The Supabase user
+     * More claims from the JWT or Session can be added here if needed inside tRPC procedures
      */
-    session,
+    user: userId && { id: userId },
 
     /**
      * The Supabase instance with the authenticated session on it (RLS works)
@@ -65,14 +97,14 @@ export const publicProcedure = t.procedure
 
 /** Reusable middleware that enforces users are logged in before running the procedure. */
 const enforceUserIsAuthed = t.middleware(({ ctx, next }) => {
-  if (!ctx.session || !ctx.session.user) {
+  if (!ctx.user) {
     throw new TRPCError({ code: 'UNAUTHORIZED' })
   }
 
   return next({
     ctx: {
-      // infers the `session` as non-nullable
-      session: { ...ctx.session, user: ctx.session.user },
+      // infers the `user` as non-nullable
+      user: { ...ctx.user },
     },
   })
 })
