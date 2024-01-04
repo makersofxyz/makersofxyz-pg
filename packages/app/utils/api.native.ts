@@ -22,7 +22,6 @@ export const createTrpcClient = () =>
           // This allows mobile to authenticate via Supabase
           if (session?.access_token) {
             headers.set('Authorization', `Bearer ${session.access_token}`)
-            headers.set('Refresh-Token', `${session.refresh_token}`) // required cause of Supabase's setSession()
           }
           return Object.fromEntries(headers)
         },

@@ -38,15 +38,13 @@ module.exports = function (api) {
             {
               components: ['@my/ui', 'tamagui'],
               config: './tamagui.config.ts',
-              disable: true
+              disable: true,
             },
           ],
         ]),
       [
         'transform-inline-environment-variables',
-        {
-          include: 'TAMAGUI_TARGET',
-        },
+        {},
       ],
     ],
   }
