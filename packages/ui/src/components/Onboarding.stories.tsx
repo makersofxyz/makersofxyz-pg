@@ -1,15 +1,17 @@
 import { Meta, StoryObj } from '@storybook/react'
 import { Star } from '@tamagui/lucide-icons'
 import { YStack } from 'tamagui'
+
 import { Onboarding } from './Onboarding'
 import { StepContent } from './OnboardingStepContent'
+import { validToken } from '../validToken'
 
 const meta: Meta<typeof Onboarding> = {
   title: 'ui/Onboarding',
   parameters: { layout: 'fullscreen' },
   component: Onboarding,
   render: (props) => (
-    <YStack $platform-web={{ height: '80vh' }} f={1}>
+    <YStack $platform-web={{ h: validToken('80vh') }} f={1}>
       <Onboarding {...props} />
     </YStack>
   ),

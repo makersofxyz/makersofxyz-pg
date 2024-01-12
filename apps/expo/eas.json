@@ -40,9 +40,7 @@
       "autoIncrement": true
     },
     "production": {
-      "env": {
-        "TAMAGUI_TARGET": "native"
-      },
+      "env": {},
       "channel": "production"
     }
   },

@@ -1,4 +1,4 @@
-import { ColorTokens } from '@my/ui/types'
+import { ColorTokens } from '@my/ui'
 import { themed, IconProps } from '@tamagui/helpers-icon'
 import * as React from 'react'
 import { memo } from 'react'

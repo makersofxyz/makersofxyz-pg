@@ -41,10 +41,6 @@ const config: StorybookConfig = {
       },
     },
   },
-  env: (config) => ({
-    ...config,
-    TAMAGUI_TARGET: 'web',
-  }),
   docs: {
     autodocs: true,
   },
