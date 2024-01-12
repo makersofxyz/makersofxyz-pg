@@ -12,6 +12,7 @@ import {
   YStack,
   getTokens,
   useThemeName,
+  validToken,
 } from '@my/ui'
 import { Menu, Plus } from '@tamagui/lucide-icons'
 import { useUser } from 'app/utils/useUser'
@@ -19,6 +20,7 @@ import { useRouter as useNextRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { SolitoImage } from 'solito/image'
 import { Link, useLink } from 'solito/link'
+
 import { NavTabs } from './components/nav-tabs.web'
 
 export type HomeLayoutProps = {
@@ -147,7 +149,7 @@ export const MobileNavbar = ({ children }: { children: React.ReactNode }) => {
           },
         ]}
         p={0}
-        maxHeight="80vh"
+        mah={validToken("80vh")}
         elevate
         zIndex={100000000}
       >
@@ -158,7 +160,7 @@ export const MobileNavbar = ({ children }: { children: React.ReactNode }) => {
             miw={230}
             p="$3"
             ai="flex-end"
-            // display={open ? 'flex' : 'none'}
+          // display={open ? 'flex' : 'none'}
           >
             {children}
           </YStack>

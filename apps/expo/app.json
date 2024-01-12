@@ -15,7 +15,7 @@
     },
     "updates": {
       "fallbackToCacheTimeout": 0,
-      "url": "https://u.expo.dev/d77526f6-83b3-41cc-ab4e-93f4ce159c96"
+      "url": "https://u.expo.dev/your-project-id"
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {

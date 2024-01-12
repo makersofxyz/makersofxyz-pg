@@ -1,31 +1,31 @@
 import { shorthands } from '@tamagui/shorthands'
 import { createTokens } from '@tamagui/web'
 import { createTamagui } from 'tamagui'
+
 import { animations } from './config/animations'
 import { bodyFont, headingFont } from './config/fonts'
 import { media, mediaQueryDefaultActive } from './config/media'
+import * as themesIn from './themes/theme-generated'
+import { color } from './themes/token-colors'
 import { radius } from './themes/token-radius'
 import { size } from './themes/token-size'
 import { space } from './themes/token-space'
 import { zIndex } from './themes/token-z-index'
 
-import * as themesIn from './themes/theme-generated'
-import { color } from './themes/token-colors'
-
 /**
  * This avoids shipping themes as JS. Instead, Tamagui will hydrate them from CSS.
  */
 const themes =
-  process.env.TAMAGUI_IS_SERVER || process.env.NODE_ENV === 'development'
-    ? themesIn
-    : ({} as typeof themesIn)
+  process.env.TAMAGUI_IS_SERVER || process.env.STORYBOOK ? themesIn : ({} as typeof themesIn)
 
-const conf = {
+export const config = createTamagui({
   themes,
   defaultFont: 'body',
   animations,
   shouldAddPrefersColorThemes: true,
   themeClassNameOnRoot: true,
+  mediaQueryDefaultActive,
+  onlyAllowShorthands: true,
   shorthands,
   fonts: {
     heading: headingFont,
@@ -39,10 +39,9 @@ const conf = {
     size,
   }),
   media,
-} satisfies Parameters<typeof createTamagui>['0']
-
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore - passing this directly breaks TS types
-conf.mediaQueryDefaultActive = mediaQueryDefaultActive
-
-export const config = createTamagui(conf)
+  settings: {
+    allowedStyleValues: 'somewhat-strict',
+    autocompleteSpecificTokens: 'except-special',
+    fastSchemeChange: true,
+  },
+})

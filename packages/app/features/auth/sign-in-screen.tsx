@@ -32,8 +32,8 @@ export const SignInScreen = () => {
 
   async function signInWithEmail({ email, password }: z.infer<typeof SignInSchema>) {
     const { error } = await supabase.auth.signInWithPassword({
-      email: email,
-      password: password,
+      email,
+      password,
     })
 
     if (error) {
