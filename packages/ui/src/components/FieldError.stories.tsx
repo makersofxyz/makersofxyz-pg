@@ -1,6 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react'
-import { FieldError } from './FieldError'
 import { Theme } from 'tamagui'
+
+import { FieldError } from './FieldError'
 
 const meta: Meta<typeof FieldError> = {
   title: 'ui/FieldError',

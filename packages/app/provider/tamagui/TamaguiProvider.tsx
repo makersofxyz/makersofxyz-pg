@@ -1,6 +1,4 @@
-import { TamaguiProvider as TamaguiProviderOG } from '@my/ui'
-
-import config from '../../tamagui.config'
+import { config, TamaguiProvider as TamaguiProviderOG } from '@my/ui'
 import { useRootTheme } from '../theme/UniversalThemeProvider'
 
 export const TamaguiProvider = ({ children }: { children: React.ReactNode }) => {
