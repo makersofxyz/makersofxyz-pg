@@ -1,8 +1,7 @@
-import { Onboarding } from '@my/ui'
-import { useRouter } from 'solito/router'
-import { OnboardingStepInfo, StepContent } from '@my/ui'
+import { Onboarding, OnboardingStepInfo, StepContent } from '@my/ui'
 import { ArrowUp, Rocket, Sparkles } from '@tamagui/lucide-icons'
 import React from 'react'
+import { useRouter } from 'solito/router'
 
 const steps: OnboardingStepInfo[] = [
   {

@@ -1,4 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react'
+
 import { FeedCard } from './FeedCard'
 
 const meta: Meta<typeof FeedCard> = {

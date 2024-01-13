@@ -1,5 +1,6 @@
-import { Button, XStack } from 'tamagui'
 import { ChevronRight } from '@tamagui/lucide-icons'
+import { Button, XStack } from 'tamagui'
+
 import { OnboardingControlsProps } from './OnboardingControls'
 
 export const OnboardingControls = ({
