@@ -1,6 +1,6 @@
-import { H2, Paragraph, YStack } from 'tamagui'
 import { IconProps } from '@tamagui/helpers-icon'
 import React from 'react'
+import { H2, Paragraph, YStack } from 'tamagui'
 
 export const StepContent = ({
   icon: Icon,
@@ -50,7 +50,7 @@ export const StepContent = ({
         textAlign="center"
         $md={{
           size: '$10',
-          mt: "$4"
+          mt: '$4',
         }}
       >
         {title}

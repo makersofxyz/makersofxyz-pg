@@ -11,6 +11,7 @@ import {
   XStack,
   useThemeName,
 } from 'tamagui'
+
 import { FieldError } from '../FieldError'
 
 export const BooleanCheckboxField = (props: Pick<CheckboxProps, 'size' | 'native'>) => {

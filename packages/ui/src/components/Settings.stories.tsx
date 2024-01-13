@@ -1,5 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react'
 import { Box, Cog, Milestone, ShoppingCart, Users } from '@tamagui/lucide-icons'
+
 import { Settings } from './Settings'
 
 const meta: Meta<typeof Settings> = {
