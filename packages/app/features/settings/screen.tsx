@@ -1,11 +1,13 @@
-import { Paragraph, ScrollView, Separator, Settings, YStack, isWeb, useMedia } from '@my/ui'
+import { Paragraph, ScrollView, Separator, Settings, YStack, isWeb, useMedia, validToken } from '@my/ui'
 import { Book, Cog, Info, Lock, LogOut, Mail, Moon, Twitter } from '@tamagui/lucide-icons'
 import { useThemeSetting } from 'app/provider/theme'
 import { redirect } from 'app/utils/redirect'
 import { useSupabase } from 'app/utils/supabase/useSupabase'
 import { usePathname } from 'app/utils/usePathname'
 import { useLink } from 'solito/link'
+// @ts-ignore
 import rootPackageJson from '../../../../package.json'
+// @ts-ignore
 import packageJson from '../../package.json'
 
 const brandColors = {
@@ -87,7 +89,7 @@ export const SettingsScreen = () => {
               <Settings.Item
                 icon={Twitter}
                 onPress={() => redirect('https://twitter.com/tamagui_js')}
-                accentColor={brandColors.twitter}
+                accentColor={validToken(brandColors.twitter)}
               >
                 Our Twitter
               </Settings.Item>
@@ -120,13 +122,6 @@ const SettingsThemeAction = () => {
       accentColor="$blue9"
       onPress={toggle}
       rightLabel={current}
-      // <Switch
-      //   size="$4"
-      //   checked={resolvedTheme === 'dark'}
-      //   onCheckedChange={() => set(resolvedTheme === 'dark' ? 'light' : 'dark')}
-      // >
-      //   <Switch.Thumb animation="100ms" />
-      // </Switch>
     >
       Theme
     </Settings.Item>

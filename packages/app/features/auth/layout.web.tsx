@@ -1,4 +1,5 @@
 import { XStack, YStack } from '@my/ui'
+
 import { OnboardingScreen } from './onboarding-screen'
 
 export type AuthLayoutProps = {
