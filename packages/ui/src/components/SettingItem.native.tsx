@@ -1,5 +1,6 @@
 import { ChevronRight } from '@tamagui/lucide-icons'
 import { ListItem, SizableText, YGroup, YStack } from 'tamagui'
+
 import { SettingItemProps } from './SettingItem'
 
 export const SettingItem = ({

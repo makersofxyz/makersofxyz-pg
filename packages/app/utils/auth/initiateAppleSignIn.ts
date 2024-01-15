@@ -1,12 +1,5 @@
-import {
-  AppleAuthenticationScope,
-  signInAsync,
-} from "expo-apple-authentication";
-import {
-  CryptoDigestAlgorithm,
-  digestStringAsync,
-  randomUUID,
-} from "expo-crypto";
+import { AppleAuthenticationScope, signInAsync } from 'expo-apple-authentication'
+import { CryptoDigestAlgorithm, digestStringAsync, randomUUID } from 'expo-crypto'
 
 /**
  * Initiates the auth flow for the native Apple Sign In.
@@ -14,22 +7,16 @@ import {
  * to Supabase to complete the sign in.
  */
 export async function initiateAppleSignIn() {
-  const rawNonce = randomUUID();
-  const hashedNonce = await digestStringAsync(
-    CryptoDigestAlgorithm.SHA256,
-    rawNonce,
-  );
+  const rawNonce = randomUUID()
+  const hashedNonce = await digestStringAsync(CryptoDigestAlgorithm.SHA256, rawNonce)
 
   const credential = await signInAsync({
-    requestedScopes: [
-      AppleAuthenticationScope.FULL_NAME,
-      AppleAuthenticationScope.EMAIL,
-    ],
+    requestedScopes: [AppleAuthenticationScope.FULL_NAME, AppleAuthenticationScope.EMAIL],
     nonce: hashedNonce,
-  });
+  })
 
-  const token = credential.identityToken;
-  if (!token) throw new Error("Apple Sign In failed: No identity token received");
+  const token = credential.identityToken
+  if (!token) throw new Error('Apple Sign In failed: No identity token received')
 
-  return { token, nonce: rawNonce };
+  return { token, nonce: rawNonce }
 }

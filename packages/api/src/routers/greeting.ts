@@ -1,4 +1,5 @@
 import { TRPCError } from '@trpc/server'
+
 import { createTRPCRouter, protectedProcedure } from '../trpc'
 
 function getTimeOfDay() {
@@ -17,9 +18,10 @@ function getTimeOfDay() {
 }
 
 export const greetingRouter = createTRPCRouter({
-  greet: protectedProcedure.query(async ({ ctx: { supabase, session } }) => {
-    const profile = await supabase.from('profiles').select('*').eq('id', session.user.id).single()
+  greet: protectedProcedure.query(async ({ ctx: { supabase, user } }) => {
+    const profile = await supabase.from('profiles').select('*').eq('id', user.id).single()
     if (profile.error) {
+      console.error(profile.error)
       throw new TRPCError({ code: 'INTERNAL_SERVER_ERROR' })
     }
     const name = profile.data.name

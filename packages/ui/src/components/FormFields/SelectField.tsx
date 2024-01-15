@@ -16,6 +16,7 @@ import {
   isWeb,
   useThemeName,
 } from 'tamagui'
+
 import { FieldError } from '../FieldError'
 import { Shake } from '../Shake'
 
@@ -116,7 +117,7 @@ export const SelectField = ({
                       bottom={0}
                       alignItems="center"
                       justifyContent="center"
-                      width={'$4'}
+                      width="$4"
                       pointerEvents="none"
                     >
                       <ChevronDown size={getFontSize((props.size ?? '$true') as number)} />

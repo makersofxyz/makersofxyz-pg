@@ -8,6 +8,7 @@ import {
   YStack,
   isWeb,
   useToastController,
+  validToken,
 } from '@my/ui'
 import { SchemaForm, formFields } from 'app/utils/SchemaForm'
 import { useSupabase } from 'app/utils/supabase/useSupabase'
@@ -68,8 +69,8 @@ export const ChangeEmailScreen = () => {
             </Label>
             <Input
               disabled
-              opacity={0.8}
-              cursor="not-allowed"
+              o={0.8}
+              cur="not-allowed"
               id="current-email"
               autoComplete="email"
               value={user?.email}

@@ -1,6 +1,7 @@
 import { useFieldInfo, useTsController } from '@ts-react/form'
 import { useId } from 'react'
 import { Label, TextArea, TextAreaProps, Theme, Fieldset, useThemeName } from 'tamagui'
+
 import { FieldError } from '../FieldError'
 import { Shake } from '../Shake'
 
@@ -35,7 +36,7 @@ export const TextAreaField = (props: Pick<TextAreaProps, 'size' | 'autoFocus'>) 
             id={id}
             rows={5}
             // temp fix
-            height={150}
+            h={150}
             {...props}
           />
         </Shake>

@@ -1,6 +1,7 @@
 import { Database } from '@my/supabase/types'
 import { createClient } from '@supabase/supabase-js'
 import * as SecureStore from 'expo-secure-store'
+
 import { replaceLocalhost } from '../getLocalhost.native'
 
 if (!process.env.EXPO_PUBLIC_SUPABASE_URL) {
