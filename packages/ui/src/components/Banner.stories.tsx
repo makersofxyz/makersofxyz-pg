@@ -1,5 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react'
 import { H4, Paragraph } from 'tamagui'
+
 import { Banner } from './Banner'
 
 const meta: Meta<typeof Banner> = {

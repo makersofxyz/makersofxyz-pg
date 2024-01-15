@@ -16,7 +16,9 @@ import {
   YStack,
   isWeb,
   useMedia,
+  validToken,
 } from '@my/ui'
+import { Platform } from 'react-native'
 import { ArrowRight, DollarSign, Edit2, User, Users } from '@tamagui/lucide-icons'
 import { api } from 'app/utils/api'
 import React from 'react'
@@ -58,7 +60,7 @@ export function HomeScreen() {
 
 const EventCards = () => {
   return (
-    <ScrollView f={1} fb={0} $md={{ display: 'none' }}>
+    <ScrollView f={1} fb={0} $md={{ dsp: 'none' }}>
       <YStack separator={<Separator />}>
         <YStack>
           <EventCard
@@ -113,7 +115,7 @@ const EventCards = () => {
         </YStack>
         <YStack>
           <TodoCard label="Contribute to OSS" checked={false} />
-          <TodoCard label="Learn about Tamagui's latest features" checked={true} />
+          <TodoCard label="Learn about Tamagui's latest features" checked />
           <TodoCard label="Upgrade to the new Expo version" checked={false} />
           <TodoCard label="Do the dishes" checked={false} />
         </YStack>
@@ -121,6 +123,20 @@ const EventCards = () => {
     </ScrollView>
   )
 }
+
+const halfMinusSpace = validToken(
+  Platform.select({
+    web: 'calc(50% - 12px)',
+    native: '53%',
+  })
+)
+
+const quarterMinusSpace = validToken(
+  Platform.select({
+    web: 'calc(25% - 12px)',
+    native: '21%',
+  })
+)
 
 const AchievementsSection = () => {
   return (
@@ -140,10 +156,10 @@ const AchievementsSection = () => {
             <AchievementCard
               width={300}
               $gtMd={{
-                width: 'calc(50% - 12px)',
+                width: halfMinusSpace,
               }}
               $gtLg={{
-                width: 'calc(25% - 12px)',
+                width: quarterMinusSpace,
               }}
               icon={DollarSign}
               title="Make your first 100K"
@@ -158,10 +174,10 @@ const AchievementsSection = () => {
             <AchievementCard
               width={300}
               $gtMd={{
-                width: 'calc(50% - 12px)',
+                width: halfMinusSpace,
               }}
               $gtLg={{
-                width: 'calc(25% - 12px)',
+                width: quarterMinusSpace,
               }}
               icon={User}
               title="Build your community"
@@ -176,10 +192,10 @@ const AchievementsSection = () => {
             <AchievementCard
               width={300}
               $gtMd={{
-                width: 'calc(50% - 12px)',
+                width: halfMinusSpace,
               }}
               $gtLg={{
-                width: 'calc(25% - 12px)',
+                width: quarterMinusSpace,
               }}
               icon={Edit2}
               title="Set up your profile"
@@ -194,10 +210,10 @@ const AchievementsSection = () => {
             <AchievementCard
               width={300}
               $gtMd={{
-                width: 'calc(50% - 12px)',
+                width: halfMinusSpace,
               }}
               $gtLg={{
-                width: 'calc(25% - 12px)',
+                width: quarterMinusSpace,
               }}
               icon={Users}
               title="Refer 5 friends"
@@ -287,6 +303,13 @@ const OverviewSection = () => {
   )
 }
 
+const feedCardWidthMd = validToken(
+  Platform.select({
+    web: 'calc(33.33% - 12px)',
+    native: '32%',
+  })
+)
+
 const PostsSection = () => {
   return (
     <YStack gap="$4">
@@ -303,7 +326,7 @@ const PostsSection = () => {
           <FeedCard
             withImages
             width={300}
-            $gtMd={{ width: 'calc(33.33% - 12px)' }}
+            $gtMd={{ width: feedCardWidthMd }}
             title="Why lorem ipsum look bad"
             description="Maybe it's just me - I'll just write out some dummy text just ignore the text tyvm..."
             tag="Design"
@@ -313,7 +336,7 @@ const PostsSection = () => {
           <FeedCard
             withImages
             width={300}
-            $gtMd={{ width: 'calc(33.33% - 12px)' }}
+            $gtMd={{ width: feedCardWidthMd }}
             title="Why you should use Tamagui"
             description="Tamagui is the best way to develop performant cross-platform apps with one codebase..."
             tag="React"
@@ -323,7 +346,7 @@ const PostsSection = () => {
           <FeedCard
             withImages
             width={300}
-            $gtMd={{ width: 'calc(33.33% - 12px)' }}
+            $gtMd={{ width: feedCardWidthMd }}
             title="Merits of functional programming"
             description="What is FP anyways? let's talk about it and learn about it's pros and cons..."
             tag="Programming"
@@ -333,7 +356,7 @@ const PostsSection = () => {
           <FeedCard
             withImages
             width={300}
-            $gtMd={{ width: 'calc(33.33% - 12px)' }}
+            $gtMd={{ width: feedCardWidthMd }}
             title="Different React paradigms"
             description="We're gonna talk about different react paradigm and jargons..."
             tag="React"
@@ -343,7 +366,7 @@ const PostsSection = () => {
           <FeedCard
             withImages
             width={300}
-            $gtMd={{ width: 'calc(33.33% - 12px)' }}
+            $gtMd={{ width: feedCardWidthMd }}
             title="Another Post"
             description="Hey this is yet another post I'm putting here for demo purposes..."
             tag="React"
@@ -352,7 +375,7 @@ const PostsSection = () => {
           <FeedCard
             withImages
             width={300}
-            $gtMd={{ width: 'calc(33.33% - 12px)' }}
+            $gtMd={{ width: feedCardWidthMd }}
             title="And Another Post"
             description="I'm out of ideas for dummy posts, Sint labore sit magna ea proident aute..."
             tag="React"

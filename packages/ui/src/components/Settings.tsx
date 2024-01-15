@@ -1,5 +1,5 @@
-import { H2, Separator, XStack, YGroup, YStack, withStaticProperties } from 'tamagui'
-import { styled } from 'tamagui'
+import { H2, Separator, XStack, YGroup, YStack, withStaticProperties, styled } from 'tamagui'
+
 import { SettingItem } from './SettingItem'
 
 const SettingsWrapper = styled(YStack, {

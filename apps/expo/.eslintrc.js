@@ -1,5 +1,5 @@
 /** @type {import("eslint").Linter.Config} */
 module.exports = {
-  extends: ['universe/native', 'custom'],
+  extends: ['custom'],
   ignorePatterns: ['./android', './ios'],
 }

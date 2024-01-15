@@ -7,7 +7,6 @@ import { AuthProviderProps } from 'app/provider/auth'
 import { api } from 'app/utils/api'
 import { NextPage } from 'next'
 import Head from 'next/head'
-
 import 'raf/polyfill'
 import { ReactElement, ReactNode } from 'react'
 import type { SolitoAppProps } from 'solito'

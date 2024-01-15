@@ -5,9 +5,9 @@ import { ThemeProviderProps, useThemeSetting as next_useThemeSetting } from '@ta
 import { StatusBar } from 'expo-status-bar'
 import { createContext, useContext, useEffect, useLayoutEffect, useMemo, useState } from 'react'
 import { AppState, ColorSchemeName, useColorScheme } from 'react-native'
-export const ThemeContext = createContext<
-  (ThemeProviderProps & { current?: string | null }) | null
->(null)
+
+type ThemeContextValue = (ThemeProviderProps & { current?: string | null }) | null
+export const ThemeContext = createContext<ThemeContextValue>(null)
 
 type ThemeName = 'light' | 'dark' | 'system'
 
@@ -35,20 +35,15 @@ export const UniversalThemeProvider = ({ children }: { children: React.ReactNode
   const forceUpdate = useForceUpdate()
 
   const themeContext = useMemo(() => {
-    const set = (val: string) => {
-      setCurrent(val as ThemeName)
-    }
-
     return {
-      set,
       themes: ['light', 'dark'],
-      onChangeTheme: (next: ThemeName) => {
-        setCurrent(next)
+      onChangeTheme: (next: string) => {
+        setCurrent(next as ThemeName)
         forceUpdate()
       },
       current,
       systemTheme,
-    }
+    } satisfies ThemeContextValue
   }, [current, forceUpdate, systemTheme])
 
   return (
@@ -91,7 +86,7 @@ export const useThemeSetting: typeof next_useThemeSetting = () => {
         dark: 'system',
         system: 'light',
       }
-      context.onChangeTheme?.(map[context.current ?? 'system'])
+      context.onChangeTheme?.(map[(context.current as ThemeName) ?? 'system'])
     },
   }
 

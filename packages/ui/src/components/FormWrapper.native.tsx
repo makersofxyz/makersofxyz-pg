@@ -13,7 +13,8 @@ import {
 const useHeaderHeight = () => {
   try {
     return useHeaderHeightOG()
-  } catch (error) {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  } catch (_error) {
     return 0
   }
 }

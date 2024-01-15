@@ -1,6 +1,7 @@
 import { inferRouterInputs, inferRouterOutputs } from '@trpc/server'
-import { createTRPCRouter } from '../trpc'
+
 import { greetingRouter } from './greeting'
+import { createTRPCRouter } from '../trpc'
 export const appRouter = createTRPCRouter({
   greeting: greetingRouter,
 })

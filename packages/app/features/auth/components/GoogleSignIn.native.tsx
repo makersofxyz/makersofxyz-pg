@@ -2,6 +2,7 @@ import { Button } from '@my/ui'
 import { useSupabase } from 'app/utils/supabase/useSupabase'
 import * as WebBrowser from 'expo-web-browser'
 import { useRouter } from 'solito/router'
+
 import { IconGoogle } from './IconGoogle'
 
 export function GoogleSignIn() {
@@ -67,6 +68,7 @@ export function GoogleSignIn() {
       }
     } catch (error) {
       // handle error
+      console.error(error)
     } finally {
       WebBrowser.maybeCompleteAuthSession()
       if (authSuccessful) router.replace('/')
