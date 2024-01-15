@@ -1,7 +1,8 @@
 import { Meta, StoryObj } from '@storybook/react'
-import { CustomToast } from './CustomToast'
 import { useToastController } from '@tamagui/toast'
 import { Button, XStack } from 'tamagui'
+
+import { CustomToast } from './CustomToast'
 
 const meta: Meta<typeof CustomToast> = {
   title: 'ui/Toast',

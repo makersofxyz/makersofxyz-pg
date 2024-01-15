@@ -1,6 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react'
-import { FullscreenSpinner } from './FullscreenSpinner'
 import { YStack } from 'tamagui'
+
+import { FullscreenSpinner } from './FullscreenSpinner'
 
 const meta: Meta<typeof FullscreenSpinner> = {
   title: 'ui/FullscreenSpinner',

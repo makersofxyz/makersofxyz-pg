@@ -6,13 +6,13 @@ type PickByValue<OBJ_T, VALUE_T> = // From https://stackoverflow.com/a/55153000
 type ObjectEntries<OBJ_T> = // From https://stackoverflow.com/a/60142095
   { [K in keyof OBJ_T]: [keyof PickByValue<OBJ_T, OBJ_T[K]>, OBJ_T[K]] }[keyof OBJ_T][]
 
-export const objectKeys = <O extends object>(obj: O) => Object.keys(obj) as Array<keyof O>
+export const objectKeys = <O extends object>(obj: O) => Object.keys(obj) as (keyof O)[]
 
 export function objectEntries<OBJ_T extends ObjectType>(obj: OBJ_T): ObjectEntries<OBJ_T> {
   return Object.entries(obj) as ObjectEntries<OBJ_T>
 }
 
-type EntriesType = [PropertyKey, unknown][] | ReadonlyArray<readonly [PropertyKey, unknown]>
+type EntriesType = [PropertyKey, unknown][] | readonly (readonly [PropertyKey, unknown])[]
 
 // Existing Utils
 type DeepWritable<OBJ_T> = { -readonly [P in keyof OBJ_T]: DeepWritable<OBJ_T[P]> }

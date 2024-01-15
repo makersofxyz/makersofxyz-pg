@@ -1,7 +1,7 @@
 import { Link as SolitoLink, LinkProps as SolitoLinkProps } from 'solito/link'
 import { SizableText, TextProps } from 'tamagui'
 
-export type LinkProps = Omit<SolitoLinkProps, 'passHref' | 'as'> &
+export type LinkProps = Omit<SolitoLinkProps, 'passHref' | 'as' | 'color'> &
   TextProps & {
     target?: string
     rel?: string
