@@ -11,6 +11,7 @@ import {
   YStack,
   useWindowDimensions,
 } from 'tamagui'
+
 import { OnboardingProps } from './Onboarding'
 import { OnboardingControls } from './OnboardingControls'
 
@@ -80,14 +81,12 @@ export const Onboarding = ({ onOnboarded, steps }: OnboardingProps) => {
               )
             })}
           </ScrollView>
-          {
-            <XStack gap={10} jc="center" my="$4">
-              {Array.from(Array(stepsCount)).map((_, idx) => {
-                const isActive = idx === stepIdx
-                return <Point key={idx} active={isActive} onPress={() => setStepIdx(idx)} />
-              })}
-            </XStack>
-          }
+          <XStack gap={10} jc="center" my="$4">
+            {Array.from(Array(stepsCount)).map((_, idx) => {
+              const isActive = idx === stepIdx
+              return <Point key={idx} active={isActive} onPress={() => setStepIdx(idx)} />
+            })}
+          </XStack>
         </YStack>
         <OnboardingControls
           currentIdx={stepIdx}
@@ -117,7 +116,7 @@ export const Background = () => {
   return (
     <YStack pos="absolute" left={0} right={0} top={0} bottom={0} jc="center" ai="center">
       <Circle
-        animation={'lazy'}
+        animation="lazy"
         x={0}
         y={0}
         opacity={1}

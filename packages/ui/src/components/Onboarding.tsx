@@ -10,6 +10,7 @@ import {
   YStack,
   useWindowDimensions,
 } from 'tamagui'
+
 import { OnboardingControls } from './OnboardingControls'
 
 export type OnboardingStepInfo = {
@@ -63,7 +64,7 @@ export const Onboarding = ({ onOnboarded, autoSwipe, steps }: OnboardingProps) =
 
   const panResponder = React.useMemo(() => {
     return PanResponder.create({
-      onMoveShouldSetPanResponderCapture: (e, gesture) => {
+      onMoveShouldSetPanResponderCapture: (_event, gesture) => {
         const THRESHOLD = 100
         if (gesture.dx > THRESHOLD) {
           setStepIdx(Math.max(0, stepIdx - 1))
