@@ -1,5 +1,3 @@
-import { createTsForm, createUniqueFieldSchema } from '@ts-react/form'
-
 import {
   AddressField,
   AddressSchema,
@@ -16,6 +14,7 @@ import {
   TextField,
   Theme,
 } from '@my/ui'
+import { createTsForm, createUniqueFieldSchema } from '@ts-react/form'
 import { ComponentProps } from 'react'
 import { useFormContext } from 'react-hook-form'
 import { z } from 'zod'
@@ -73,7 +72,7 @@ const FormComponent = (props: FormProps) => {
 }
 
 const _SchemaForm = createTsForm(mapping, {
-  FormComponent: FormComponent,
+  FormComponent,
 })
 
 export const SchemaForm: typeof _SchemaForm = ({ ...props }) => {

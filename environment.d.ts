@@ -4,6 +4,7 @@ declare global {
     interface ProcessEnv {
       PORT?: string;
       NODE_ENV: 'development' | 'production' | 'test';
+      SUPABASE_JWT_SECRET: string;
 
       EXPO_PUBLIC_URL: string;
       NEXT_PUBLIC_URL: string;

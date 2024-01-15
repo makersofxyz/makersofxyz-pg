@@ -4,10 +4,6 @@ module.exports = {
     storyStoreV7: false,
   },
   addons: ['@storybook/addon-ondevice-controls'],
-  env: (config) => ({
-    ...config,
-    TAMAGUI_TARGET: 'native',
-  }),
   docs: {
     autodocs: true,
   },

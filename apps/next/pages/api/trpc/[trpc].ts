@@ -1,5 +1,4 @@
-import { appRouter } from '@my/api'
-import { createTRPCContext } from '@my/api'
+import { appRouter, createTRPCContext } from '@my/api'
 import * as trpcNext from '@trpc/server/adapters/next'
 
 // export API handler

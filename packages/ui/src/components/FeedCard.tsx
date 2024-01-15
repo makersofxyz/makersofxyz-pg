@@ -1,3 +1,4 @@
+import { LinearGradient } from '@tamagui/linear-gradient'
 import {
   Avatar,
   Card,
@@ -10,7 +11,6 @@ import {
   XStack,
   YStack,
 } from 'tamagui'
-import { LinearGradient } from '@tamagui/linear-gradient'
 
 // mostly for showing something on home so it's not empty
 export const FeedCard = ({
