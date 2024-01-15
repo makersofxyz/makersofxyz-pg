@@ -1,5 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react'
 import { User } from '@tamagui/lucide-icons'
+
 import { AchievementCard } from './AchievementCard'
 
 const meta: Meta<typeof AchievementCard> = {

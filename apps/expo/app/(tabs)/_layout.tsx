@@ -1,4 +1,4 @@
-import { Avatar, Circle, Theme, YStack, useThemeName } from '@my/ui'
+import { Avatar, Circle, Theme, YStack, useThemeName, validToken } from '@my/ui'
 import { BottomTabNavigationOptions } from '@react-navigation/bottom-tabs'
 import { LinearGradient } from '@tamagui/linear-gradient'
 import { Home, Plus } from '@tamagui/lucide-icons'
@@ -25,8 +25,8 @@ export default function Layout() {
         />
         <Tabs.Screen
           name="_create"
-          listeners={({ navigation }) => ({
-            tabPress: (event) => {
+          listeners={({ navigation }: any) => ({
+            tabPress: (event: any) => {
               event.preventDefault()
               navigation.navigate('create')
             },
@@ -53,7 +53,7 @@ type TabBarIconProps = Parameters<Exclude<BottomTabNavigationOptions['tabBarIcon
 const ProfileTabIcon = ({ color, size }: TabBarIconProps) => {
   const { avatarUrl } = useUser()
   return (
-    <YStack borderWidth="$1" borderColor={color} borderRadius="$10">
+    <YStack borderWidth="$1" borderColor={validToken(color)} borderRadius="$10">
       <Avatar circular p="$1" size={size}>
         <SolitoImage src={avatarUrl} alt="your avatar" width={size} height={size} />
       </Avatar>
