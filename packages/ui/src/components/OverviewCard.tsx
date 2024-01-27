@@ -17,9 +17,9 @@ export const OverviewCard = ({
   ...props
 }: OverviewCardTypes) => {
   return (
-    <Card borderRadius="$0" backgroundColor="transparent" {...props}>
+    <Card br="$0" bg="transparent" miw={200} $gtMd={{ miw: 220, f: 1, fb: 0 }} {...props}>
       <Card.Header f={1} jc="space-between">
-        <H6 fontWeight="400" size="$4" theme="alt2">
+        <H6 size="$4" fow="$1" theme="alt2">
           {title}
         </H6>
         <H2 mt="$2">{value}</H2>

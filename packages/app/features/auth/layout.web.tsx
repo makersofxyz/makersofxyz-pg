@@ -1,4 +1,5 @@
 import { XStack, YStack } from '@my/ui'
+
 import { OnboardingScreen } from './onboarding-screen'
 
 export type AuthLayoutProps = {
@@ -12,7 +13,7 @@ export const AuthLayout = ({ children }: AuthLayoutProps) => {
         <YStack px="$4">{children}</YStack>
       </YStack>
 
-      <YStack $sm={{ display: 'none' }} f={3} fb={0}>
+      <YStack $sm={{ dsp: 'none' }} f={3} fb={0}>
         <OnboardingScreen />
       </YStack>
     </XStack>

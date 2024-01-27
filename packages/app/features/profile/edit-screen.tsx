@@ -7,6 +7,7 @@ import { createParam } from 'solito'
 import { SolitoImage } from 'solito/image'
 import { useRouter } from 'solito/router'
 import { z } from 'zod'
+
 import { UploadAvatar } from '../settings/components/upload-avatar'
 
 const { useParams } = createParam<{ edit_name?: '1'; edit_about?: '1' }>()

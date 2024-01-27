@@ -1,12 +1,23 @@
-import { Button, FormWrapper, H2, Paragraph, SubmitButton, Text, Theme, YStack, isWeb } from '@my/ui'
+import {
+  Button,
+  FormWrapper,
+  H2,
+  Paragraph,
+  SubmitButton,
+  Text,
+  Theme,
+  YStack,
+  isWeb,
+} from '@my/ui'
 import { ChevronLeft } from '@tamagui/lucide-icons'
 import { SchemaForm, formFields } from 'app/utils/SchemaForm'
 import { useSupabase } from 'app/utils/supabase/useSupabase'
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { FormProvider, useForm, useFormContext, useWatch } from 'react-hook-form'
 import { createParam } from 'solito'
 import { Link } from 'solito/link'
 import { z } from 'zod'
+
 import { SocialLogin } from './components/SocialLogin'
 
 const { useParams, useUpdateParams } = createParam<{ email?: string }>()
@@ -31,8 +42,8 @@ export const SignUpScreen = () => {
 
   async function signUpWithEmail({ email, password }: z.infer<typeof SignUpSchema>) {
     const { error } = await supabase.auth.signUp({
-      email: email,
-      password: password,
+      email,
+      password,
       options: {
         // To take user's name other info
         data: {
@@ -75,7 +86,7 @@ export const SignUpScreen = () => {
           renderAfter={({ submit }) => (
             <>
               <Theme inverse>
-                <SubmitButton onPress={() => submit()} borderRadius="$10">
+                <SubmitButton onPress={() => submit()} br="$10">
                   Sign Up
                 </SubmitButton>
               </Theme>
@@ -109,7 +120,7 @@ const SignInLink = () => {
 
   return (
     <Link href={`/sign-in?${new URLSearchParams(email ? { email } : undefined).toString()}`}>
-      <Paragraph textAlign="center" theme="alt1" mt="$2">
+      <Paragraph ta="center" theme="alt1" mt="$2">
         Already signed up? <Text textDecorationLine="underline">Sign in</Text>
       </Paragraph>
     </Link>
@@ -132,7 +143,7 @@ const CheckYourEmail = () => {
         </YStack>
       </FormWrapper.Body>
       <FormWrapper.Footer>
-        <Button themeInverse icon={ChevronLeft} borderRadius="$10" onPress={() => reset()}>
+        <Button themeInverse icon={ChevronLeft} br="$10" onPress={() => reset()}>
           Back
         </Button>
       </FormWrapper.Footer>

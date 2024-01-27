@@ -40,15 +40,15 @@ export const OnboardingControls = ({
         p="$5"
         gap="$5"
         pos="absolute"
-        bottom={0}
-        left={0}
-        right={0}
-        $sm={{ display: 'none' }}
+        b={0}
+        l={0}
+        r={0}
+        $sm={{ dsp: 'none' }}
       >
         <Button
           chromeless
           f={1}
-          borderRadius="$10"
+          br="$10"
           circular
           onPress={() => handleGoPrev()}
           iconAfter={ChevronLeft}
@@ -57,7 +57,7 @@ export const OnboardingControls = ({
         <Button
           chromeless
           f={1}
-          borderRadius="$10"
+          br="$10"
           circular
           onPress={() => handleGoNext()}
           iconAfter={ChevronRight}

@@ -21,7 +21,7 @@ export const GeneralSettingsScreen = () => {
             </YStack>
             <KVTable.Row>
               <KVTable.Key>
-                <SizableText fontWeight="900">Name</SizableText>
+                <SizableText fow="900">Name</SizableText>
               </KVTable.Key>
               <KVTable.Value gap="$4">
                 <SizableText>{profile?.name}</SizableText>
@@ -41,7 +41,7 @@ export const GeneralSettingsScreen = () => {
             </YStack>
             <KVTable.Row>
               <KVTable.Key>
-                <SizableText fontWeight="900">Email</SizableText>
+                <SizableText fow="900">Email</SizableText>
               </KVTable.Key>
               <KVTable.Value gap="$4">
                 <SizableText>{user?.email}</SizableText>
@@ -53,7 +53,7 @@ export const GeneralSettingsScreen = () => {
 
             <KVTable.Row>
               <KVTable.Key>
-                <SizableText fontWeight="900">User ID</SizableText>
+                <SizableText fow="900">User ID</SizableText>
               </KVTable.Key>
               <KVTable.Value>
                 <SizableText>{user?.id}</SizableText>
@@ -67,8 +67,8 @@ export const GeneralSettingsScreen = () => {
 }
 
 const Section = styled(YStack, {
-  borderColor: '$borderColor',
-  borderWidth: 1,
+  boc: '$borderColor',
+  bw: 1,
   p: '$4',
   br: '$4',
 })

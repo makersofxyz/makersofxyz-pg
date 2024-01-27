@@ -1,3 +1,4 @@
+import { LinearGradient } from '@tamagui/linear-gradient'
 import {
   Avatar,
   Card,
@@ -10,7 +11,6 @@ import {
   XStack,
   YStack,
 } from 'tamagui'
-import { LinearGradient } from '@tamagui/linear-gradient'
 
 // mostly for showing something on home so it's not empty
 export const FeedCard = ({
@@ -28,16 +28,16 @@ export const FeedCard = ({
   withImages?: boolean
 } & CardProps) => {
   return (
-    <Card borderRadius="$4" bordered overflow="hidden" {...props}>
+    <Card br="$4" bordered overflow="hidden" {...props}>
       <Card.Header>
         {withImages && (
           <Image
             source={{
               uri: `https://picsum.photos/seed/${title}/1000/500`,
             }}
-            height={150}
+            h={150}
             $sm={{
-              height: 100,
+              h: 100,
             }}
           />
         )}
@@ -48,7 +48,7 @@ export const FeedCard = ({
             </H6>
           )}
 
-          <H4 size="$5" textTransform="capitalize">
+          <H4 size="$5" tt="capitalize">
             {title}
           </H4>
           {!!description && (
@@ -80,9 +80,9 @@ export const FeedCard = ({
 
       <Card.Background>
         <LinearGradient
-          // borderRadius="$4"
-          width="100%"
-          height="100%"
+          // br="$4"
+          w="100%"
+          h="100%"
           colors={['$color2', '$color1']}
           start={[1, 1]}
           end={[0.85, 0]}

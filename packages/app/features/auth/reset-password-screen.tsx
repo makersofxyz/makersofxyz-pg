@@ -1,11 +1,11 @@
 import { Button, FormWrapper, H2, Paragraph, SubmitButton, Text, Theme, YStack } from '@my/ui'
-import { Link } from 'solito/link'
 import { ChevronLeft } from '@tamagui/lucide-icons'
 import { SchemaForm, formFields } from 'app/utils/SchemaForm'
 import { useSupabase } from 'app/utils/supabase/useSupabase'
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { FormProvider, useForm, useFormContext, useWatch } from 'react-hook-form'
 import { createParam } from 'solito'
+import { Link } from 'solito/link'
 import { z } from 'zod'
 
 const { useParams, useUpdateParams } = createParam<{ email?: string }>()
@@ -55,7 +55,7 @@ export const ResetPasswordScreen = () => {
             return (
               <>
                 <Theme inverse>
-                  <SubmitButton onPress={() => submit()} borderRadius="$10">
+                  <SubmitButton onPress={() => submit()} br="$10">
                     Send Link
                   </SubmitButton>
                 </Theme>
@@ -96,7 +96,7 @@ const CheckYourEmail = () => {
         </YStack>
       </FormWrapper.Body>
       <FormWrapper.Footer>
-        <Button themeInverse icon={ChevronLeft} borderRadius="$10" onPress={() => reset()}>
+        <Button themeInverse icon={ChevronLeft} br="$10" onPress={() => reset()}>
           Back
         </Button>
       </FormWrapper.Footer>
@@ -109,7 +109,7 @@ const SignInLink = () => {
 
   return (
     <Link href={`/sign-in?${new URLSearchParams(email ? { email } : undefined)}`}>
-      <Paragraph textAlign="center" theme="alt1">
+      <Paragraph ta="center" theme="alt1">
         Done resetting? <Text textDecorationLine="underline">Sign in</Text>
       </Paragraph>
     </Link>

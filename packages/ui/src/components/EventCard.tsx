@@ -14,19 +14,22 @@ export type EventCardTypes = {
 
 export const EventCard = ({ title, description, action, tags = [], ...props }: EventCardTypes) => {
   return (
-    <Card gap="$2" padded borderRadius="$0" chromeless {...props}>
-      <XStack gap="$2">
-        <H6 size="$5" textTransform="capitalize">
+    <Card gap="$3" p="$5" borderRadius="$0" chromeless {...props}>
+      <XStack gap="$3">
+        <H6 size="$5" tt="capitalize">
           {title}
         </H6>
-        {tags.map((tag) => (
-          <Theme key={tag.text} name={tag.theme}>
-            <Button size="$1" px="$2" br="$10" disabled>
-              {tag.text}
-            </Button>
-          </Theme>
-        ))}
+        <XStack gap="$1">
+          {tags.map((tag) => (
+            <Theme key={tag.text} name={tag.theme}>
+              <Button size="$1" px="$2" br="$10" disabled>
+                {tag.text}
+              </Button>
+            </Theme>
+          ))}
+        </XStack>
       </XStack>
+
       <XStack gap="$1" ai="center">
         <Paragraph>{description}</Paragraph>
       </XStack>

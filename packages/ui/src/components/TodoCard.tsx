@@ -24,7 +24,7 @@ export const TodoCard = ({
   const themeName = useThemeName()
   return (
     <Theme name={props.checked ? 'green' : themeName} forceClassName>
-      <Card backgroundColor="$backgroundStrong" borderRadius="$0">
+      <Card bg="$background" br="$0">
         <Card.Header padded>
           <Label htmlFor={id}>
             <XStack gap="$4">

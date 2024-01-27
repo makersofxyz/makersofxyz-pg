@@ -1,5 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react'
 import { Box, Cog, Milestone, ShoppingCart, Users } from '@tamagui/lucide-icons'
+
 import { Settings } from './Settings'
 
 const meta: Meta<typeof Settings> = {
@@ -12,25 +13,25 @@ type Story = StoryObj<typeof Settings>
 
 export const Basic: Story = {
   render: (props) => (
-    <Settings {...props} width={500}>
+    <Settings {...props} w={500}>
       <Settings.Items>
         <Settings.Group>
-          <Settings.Item icon={Box} accentColor="$green9">
+          <Settings.Item icon={Box} accentTheme="green">
             My Items
           </Settings.Item>
-          <Settings.Item icon={Users} accentColor="$orange9">
+          <Settings.Item icon={Users} accentTheme="orange">
             Refer Your Friends
           </Settings.Item>
-          <Settings.Item icon={Milestone} accentColor="$blue9">
+          <Settings.Item icon={Milestone} accentTheme="blue">
             Address Info
           </Settings.Item>
         </Settings.Group>
 
         <Settings.Group>
-          <Settings.Item icon={ShoppingCart} accentColor="$blue9">
+          <Settings.Item icon={ShoppingCart} accentTheme="blue">
             Purchase History
           </Settings.Item>
-          <Settings.Item icon={Cog} accentColor="$gray9">
+          <Settings.Item icon={Cog} accentTheme="gray">
             Settings
           </Settings.Item>
         </Settings.Group>

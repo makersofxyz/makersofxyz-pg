@@ -1,11 +1,14 @@
 import { Session } from '@supabase/supabase-js'
 import React from 'react'
+
 import { AuthProvider } from './auth'
 import { QueryClientProvider } from './react-query'
 import { SafeAreaProvider } from './safe-area'
 import { TamaguiProvider } from './tamagui'
 import { UniversalThemeProvider } from './theme'
 import { ToastProvider } from './toast'
+
+export { loadThemePromise } from './theme/UniversalThemeProvider'
 
 export function Provider({
   initialSession,

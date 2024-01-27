@@ -1,5 +1,5 @@
 import { Separator, SizableText, YStack, isWeb } from '@my/ui'
-import React from 'react'
+
 import { AppleSignIn } from './AppleSignIn'
 import { GoogleSignIn } from './GoogleSignIn'
 
@@ -27,7 +27,7 @@ function OrSeparator() {
       </YStack>
       <YStack ai="center" jc="center">
         <YStack bc="$background" px="$3">
-          <SizableText theme="alt1" size="$2" textTransform="uppercase" ta="center">
+          <SizableText theme="alt1" size="$2" tt="uppercase" ta="center">
             Or
           </SizableText>
         </YStack>

@@ -11,17 +11,17 @@ export const LegalLayout = ({ children }: LegalLayoutProps) => {
     <YStack f={1}>
       <YStack
         gap="$1"
-        borderWidth="$0"
-        borderBottomColor="$borderColor"
-        borderStyle="solid"
-        borderBottomWidth="$0.5"
+        bw="$0"
+        bbc="$borderColor"
+        bs="solid"
+        bbw="$0.5"
         jc="center"
         px="$4"
-        backgroundColor="$color1"
+        bg="$color1"
         f={1}
         ai="center"
       >
-        <YStack maxWidth={800} f={1}>
+        <YStack maw={800} f={1}>
           {isWeb && (
             <Theme>
               <Button

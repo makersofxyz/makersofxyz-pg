@@ -1,50 +1,62 @@
 import { IconProps } from '@tamagui/helpers-icon'
-import { ListItem, ListItemProps, SizableText, XStack, YGroup, YStack } from 'tamagui'
+import { SizableText, ThemeName, XStack, YGroup, YStack, YStackProps, styled } from 'tamagui'
 
-export type SettingItemProps = {
+export type SettingItemProps = YStackProps & {
   icon: React.FC<IconProps>
   rightLabel?: string
-  /**
-   * native only - not showing colors on native
-   */
-  accentColor?: ListItemProps['backgroundColor']
-  /**
-   * web only - to indicate the current page
-   */
+  accentTheme?: ThemeName
   isActive?: boolean
-} & ListItemProps
+}
 
 export const SettingItem = ({
   icon: Icon,
   children,
   rightLabel,
   isActive,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  accentColor: _, // not used on web - destructuring to avoid passing it through props
+  accentTheme,
   ...props
 }: SettingItemProps) => {
   return (
     <YGroup.Item>
-      <ListItem
-        hoverTheme
-        cursor="pointer"
-        gap="$2"
-        borderRadius="$10"
-        backgroundColor={isActive ? '$backgroundFocus' : 'transparent'}
-        {...props}
-      >
-        <YStack padding="$2" borderRadius="$3">
-          <Icon opacity={0.6} size={18} />
+      <SettingItemFrame isActive={!!isActive} {...props}>
+        <YStack theme={accentTheme} bg="$background" p="$1.5" br="$3">
+          <Icon opacity={0.6} size={16} />
         </YStack>
-        <SizableText flex={1}>{children}</SizableText>
+        <SizableText f={1}>{children}</SizableText>
         {!!rightLabel && (
-          <XStack borderRadius="$10" backgroundColor="$backgroundPress" px="$3" py="$1.5">
-            <SizableText size="$1" textTransform="capitalize">
+          <XStack br="$10" bg="$backgroundPress" px="$3" py="$1.5">
+            <SizableText size="$1" tt="capitalize">
               {rightLabel}
             </SizableText>
           </XStack>
         )}
-      </ListItem>
+      </SettingItemFrame>
     </YGroup.Item>
   )
 }
+
+const SettingItemFrame = styled(XStack, {
+  bg: '$color1',
+  ai: 'center',
+  jc: 'center',
+  p: '$3',
+  cur: 'pointer',
+  gap: '$3',
+  br: '$10',
+
+  variants: {
+    isActive: {
+      true: {
+        bg: '$backgroundFocus',
+      },
+      false: {
+        hoverStyle: {
+          bg: '$backgroundHover',
+        },
+        pressStyle: {
+          bg: '$backgroundPress',
+        },
+      },
+    },
+  } as const,
+})

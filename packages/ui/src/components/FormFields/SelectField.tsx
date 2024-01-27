@@ -16,6 +16,7 @@ import {
   isWeb,
   useThemeName,
 } from 'tamagui'
+
 import { FieldError } from '../FieldError'
 import { Shake } from '../Shake'
 
@@ -57,7 +58,7 @@ export const SelectField = ({
             onValueChange={field.onChange}
             {...props}
           >
-            <Select.Trigger width={180} iconAfter={ChevronDown}>
+            <Select.Trigger w={180} iconAfter={ChevronDown}>
               <Select.Value placeholder="Something" />
             </Select.Trigger>
 
@@ -73,14 +74,8 @@ export const SelectField = ({
             </Adapt>
 
             <Select.Content zIndex={200000}>
-              <Select.ScrollUpButton
-                alignItems="center"
-                justifyContent="center"
-                position="relative"
-                width="100%"
-                height="$3"
-              >
-                <YStack zIndex={10}>
+              <Select.ScrollUpButton ai="center" jc="center" pos="relative" w="100%" h="$3">
+                <YStack zi={10}>
                   <ChevronUp size={20} />
                 </YStack>
                 <LinearGradient
@@ -88,11 +83,11 @@ export const SelectField = ({
                   end={[0, 1]}
                   fullscreen
                   colors={['$background', '$backgroundTransparent']}
-                  borderRadius="$4"
+                  br="$4"
                 />
               </Select.ScrollUpButton>
 
-              <Select.Viewport minWidth={200}>
+              <Select.Viewport miw={200}>
                 <XStack als="flex-start">
                   <Select.Group disabled={disabled} space="$0">
                     {/* <Select.Label>{label}</Select.Label> */}
@@ -109,30 +104,15 @@ export const SelectField = ({
                   </Select.Group>
                   {/* special icon treatment for native */}
                   {native && isWeb && (
-                    <YStack
-                      position="absolute"
-                      right={0}
-                      top={0}
-                      bottom={0}
-                      alignItems="center"
-                      justifyContent="center"
-                      width={'$4'}
-                      pointerEvents="none"
-                    >
+                    <YStack fullscreen ai="center" jc="center" w="$4" pe="none">
                       <ChevronDown size={getFontSize((props.size ?? '$true') as number)} />
                     </YStack>
                   )}
                 </XStack>
               </Select.Viewport>
 
-              <Select.ScrollDownButton
-                alignItems="center"
-                justifyContent="center"
-                position="relative"
-                width="100%"
-                height="$3"
-              >
-                <YStack zIndex={10}>
+              <Select.ScrollDownButton ai="center" jc="center" pos="relative" w="100%" h="$3">
+                <YStack zi={10}>
                   <ChevronDown size={20} />
                 </YStack>
                 <LinearGradient
@@ -140,7 +120,7 @@ export const SelectField = ({
                   end={[0, 1]}
                   fullscreen
                   colors={['$backgroundTransparent', '$background']}
-                  borderRadius="$4"
+                  br="$4"
                 />
               </Select.ScrollDownButton>
             </Select.Content>

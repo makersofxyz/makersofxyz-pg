@@ -1,7 +1,7 @@
 import { H2, Paragraph, SubmitButton, Text, Theme, YStack, isWeb } from '@my/ui'
 import { SchemaForm, formFields } from 'app/utils/SchemaForm'
 import { useSupabase } from 'app/utils/supabase/useSupabase'
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { FormProvider, useForm, useWatch } from 'react-hook-form'
 import { createParam } from 'solito'
 import { Link } from 'solito/link'
@@ -32,8 +32,8 @@ export const SignInScreen = () => {
 
   async function signInWithEmail({ email, password }: z.infer<typeof SignInSchema>) {
     const { error } = await supabase.auth.signInWithPassword({
-      email: email,
-      password: password,
+      email,
+      password,
     })
 
     if (error) {
@@ -70,7 +70,7 @@ export const SignInScreen = () => {
           return (
             <>
               <Theme inverse>
-                <SubmitButton onPress={() => submit()} borderRadius="$10">
+                <SubmitButton onPress={() => submit()} br="$10">
                   Sign In
                 </SubmitButton>
               </Theme>
@@ -103,7 +103,7 @@ const SignUpLink = () => {
   const email = useWatch<z.infer<typeof SignInSchema>>({ name: 'email' })
   return (
     <Link href={`/sign-up?${new URLSearchParams(email ? { email } : undefined).toString()}`}>
-      <Paragraph textAlign="center" theme="alt1">
+      <Paragraph ta="center" theme="alt1">
         Don&apos;t have an account? <Text textDecorationLine="underline">Sign up</Text>
       </Paragraph>
     </Link>

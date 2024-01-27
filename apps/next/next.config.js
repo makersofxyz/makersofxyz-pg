@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
-const { withTamagui } = require('@tamagui/next-plugin')
 const withBundleAnalyzer = require('@next/bundle-analyzer')
+const { withTamagui } = require('@tamagui/next-plugin')
 const { join } = require('path')
 
 const boolVals = {
@@ -21,14 +21,12 @@ const plugins = [
       input: '../../packages/ui/src/themes/theme.ts',
       output: '../../packages/ui/src/themes/theme-generated.ts',
     },
-    config: './tamagui.config.ts',
+    config: '../../packages/ui/src/tamagui.config.ts',
     components: ['tamagui', '@my/ui'],
     importsWhitelist: ['constants.js', 'colors.js'],
     outputCSS: process.env.NODE_ENV === 'production' ? './public/tamagui.css' : null,
     logTimings: true,
     disableExtraction,
-    // experiment - reduced bundle size react-native-web
-    useReactNativeWebLite: false,
     shouldExtract: (path) => {
       if (path.includes(join('packages', 'app'))) {
         return true
@@ -41,8 +39,8 @@ const plugins = [
       'Picker',
       'CheckBox',
       'Touchable',
-      'Animated',
       'FlatList',
+      'Animated',
       'Modal',
     ],
   }),
