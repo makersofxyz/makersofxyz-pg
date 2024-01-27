@@ -1,7 +1,8 @@
 import { Button } from '@my/ui'
 import { useSupabase } from 'app/utils/supabase/useSupabase'
-import { IconApple } from './IconApple'
 import { useRouter } from 'solito/router'
+
+import { IconApple } from './IconApple'
 
 export function AppleSignIn() {
   const router = useRouter()
@@ -21,7 +22,7 @@ export function AppleSignIn() {
   }
 
   return (
-    <Button borderRadius="$10" onPress={() => handleOAuthSignIn()} icon={IconApple}>
+    <Button br="$10" onPress={() => handleOAuthSignIn()} icon={IconApple}>
       Sign in with Apple
     </Button>
   )

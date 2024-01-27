@@ -2,6 +2,7 @@ import { Button } from '@my/ui'
 import { useSupabase } from 'app/utils/supabase/useSupabase'
 import * as WebBrowser from 'expo-web-browser'
 import { useRouter } from 'solito/router'
+
 import { IconGoogle } from './IconGoogle'
 
 export function GoogleSignIn() {
@@ -67,6 +68,7 @@ export function GoogleSignIn() {
       }
     } catch (error) {
       // handle error
+      console.error(error)
     } finally {
       WebBrowser.maybeCompleteAuthSession()
       if (authSuccessful) router.replace('/')
@@ -80,8 +82,8 @@ export function GoogleSignIn() {
       // styles to make it look like the native Apple button on AppleSignIn.native.tsx
       scaleIcon={0.75}
       space="$1.5"
-      backgroundColor="transparent"
-      pressStyle={{ backgroundColor: 'transparent', opacity: 0.6, borderWidth: '$0' }}
+      bg="transparent"
+      pressStyle={{ bg: 'transparent', o: 0.6, bw: '$0' }}
       animation="200ms"
       chromeless
     >

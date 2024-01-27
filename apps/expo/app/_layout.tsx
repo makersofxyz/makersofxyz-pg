@@ -1,13 +1,10 @@
 import { Session } from '@supabase/supabase-js'
-import { Provider } from 'app/provider'
+import { Provider, loadThemePromise } from 'app/provider'
 import { supabase } from 'app/utils/supabase/client.native'
 import { useFonts } from 'expo-font'
 import { SplashScreen, Stack } from 'expo-router'
 import { useCallback, useEffect, useState } from 'react'
 import { View } from 'react-native'
-// import { LogBox } from 'react-native'
-
-// LogBox.ignoreAllLogs()
 
 SplashScreen.preventAutoHideAsync()
 
@@ -17,6 +14,7 @@ export default function HomeLayout() {
     InterBold: require('@tamagui/font-inter/otf/Inter-Bold.otf'),
   })
 
+  const [themeLoaded, setThemeLoaded] = useState(false)
   const [sessionLoadAttempted, setSessionLoadAttempted] = useState(false)
   const [initialSession, setInitialSession] = useState<Session | null>(null)
   useEffect(() => {
@@ -31,13 +29,20 @@ export default function HomeLayout() {
         setSessionLoadAttempted(true)
       })
   }, [])
+
+  useEffect(() => {
+    loadThemePromise.then(() => {
+      setThemeLoaded(true)
+    })
+  }, [])
+
   const onLayoutRootView = useCallback(async () => {
     if (fontLoaded && sessionLoadAttempted) {
       await SplashScreen.hideAsync()
     }
   }, [fontLoaded, sessionLoadAttempted])
 
-  if (!fontLoaded || !sessionLoadAttempted) {
+  if (!themeLoaded || !fontLoaded || !sessionLoadAttempted) {
     return null
   }
 

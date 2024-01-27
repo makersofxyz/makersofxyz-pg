@@ -19,7 +19,8 @@
       "distribution": "internal",
       "channel": "development",
       "env": {
-        "APP_ENV": "development"
+        "APP_ENV": "development",
+        "NODE_ENV": "development"
       },
       "android": {
         "buildType": "apk"
@@ -41,7 +42,8 @@
     },
     "production": {
       "env": {
-        "TAMAGUI_TARGET": "native"
+        "APP_ENV": "production",
+        "NODE_ENV": "production"
       },
       "channel": "production"
     }

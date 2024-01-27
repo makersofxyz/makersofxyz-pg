@@ -12,24 +12,19 @@ export const Banner = ({
 } & CardProps) => {
   const [hover, setHover] = useState(false)
   return (
-    <Card
-      {...props}
-      borderRadius="$4"
-      onHoverIn={() => setHover(true)}
-      onHoverOut={() => setHover(false)}
-    >
-      <Card.Header padded scale={hover ? 1.01 : 1} animation="bouncy">
+    <Card {...props} br="$4" onHoverIn={() => setHover(true)} onHoverOut={() => setHover(false)}>
+      <Card.Header padded scale={hover ? 1.01 : 1} animation="bouncy" gap="$2">
         {children}
       </Card.Header>
       <Card.Background>
-        <Card.Background borderRadius="$4">
+        <Card.Background br="$4">
           <LinearGradient
             scale={4}
             x={hover ? -300 : 50}
             animation="bouncy"
-            borderRadius="$2"
-            width="100%"
-            height="100%"
+            br="$2"
+            w="100%"
+            h="100%"
             colors={colors}
             start={[0, 0]}
             end={[1, 1]}
@@ -43,10 +38,10 @@ export const Banner = ({
               pr="$5"
               pt="$3.5"
               animation="bouncy"
-              enterStyle={{ x: -6, opacity: 0 }}
-              exitStyle={{ x: -6, opacity: 0 }}
+              enterStyle={{ x: -6, o: 0 }}
+              exitStyle={{ x: -6, o: 0 }}
               x={0}
-              opacity={0.9}
+              o={0.9}
             >
               <ChevronRight size={20} />
             </YStack>

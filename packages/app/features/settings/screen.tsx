@@ -5,12 +5,9 @@ import { redirect } from 'app/utils/redirect'
 import { useSupabase } from 'app/utils/supabase/useSupabase'
 import { usePathname } from 'app/utils/usePathname'
 import { useLink } from 'solito/link'
+
 import rootPackageJson from '../../../../package.json'
 import packageJson from '../../package.json'
-
-const brandColors = {
-  twitter: '#1DA1F2',
-}
 
 export const SettingsScreen = () => {
   const media = useMedia()
@@ -24,9 +21,9 @@ export const SettingsScreen = () => {
             <Settings.Group $gtSm={{ space: '$2' }}>
               <Settings.Item
                 icon={Cog}
-                isActive={pathname === '/settings' || pathname === 'settings/general'}
+                isActive={pathname === 'settings/general'}
                 {...useLink({ href: media.sm ? '/settings/general' : '/settings' })}
-                accentColor="$green9"
+                accentTheme="green"
               >
                 General
               </Settings.Item>
@@ -34,7 +31,7 @@ export const SettingsScreen = () => {
                 icon={Lock}
                 isActive={pathname === '/settings/change-password'}
                 {...useLink({ href: '/settings/change-password' })}
-                accentColor="$green9"
+                accentTheme="green"
               >
                 Change Password
               </Settings.Item>
@@ -42,26 +39,18 @@ export const SettingsScreen = () => {
                 icon={Mail}
                 isActive={pathname === '/settings/change-email'}
                 {...useLink({ href: '/settings/change-email' })}
-                accentColor="$green9"
+                accentTheme="green"
               >
                 Change Email
               </Settings.Item>
-              {/* <Settings.Item
-                icon={Bell}
-                isActive={pathname === '/settings/notifications'}
-                {...useLink({ href: '/settings/notifications' })}
-                accentColor="$orange9"
-              >
-                Notifications
-              </Settings.Item> */}
             </Settings.Group>
-            <Separator borderColor="$color3" mx="$-4" borderWidth="$0.25" />
+            {isWeb && <Separator boc="$color3" mx="$-4" bw="$0.25" />}
             <Settings.Group>
               <Settings.Item
                 icon={Book}
                 isActive={pathname === '/privacy-policy'}
                 {...useLink({ href: '/privacy-policy' })}
-                accentColor="$purple9"
+                accentTheme="purple"
               >
                 Privacy Policy
               </Settings.Item>
@@ -69,7 +58,7 @@ export const SettingsScreen = () => {
                 icon={Book}
                 isActive={pathname === '/terms-of-service'}
                 {...useLink({ href: '/terms-of-service' })}
-                accentColor="$purple9"
+                accentTheme="purple"
               >
                 Terms Of Service
               </Settings.Item>
@@ -77,22 +66,22 @@ export const SettingsScreen = () => {
               {!isWeb && (
                 // isWeb is a constant so this isn't really a conditional hook
                 // eslint-disable-next-line react-hooks/rules-of-hooks
-                <Settings.Item icon={Info} {...useLink({ href: '/about' })} accentColor="$blue9">
+                <Settings.Item icon={Info} {...useLink({ href: '/about' })} accentTheme="blue">
                   About
                 </Settings.Item>
               )}
             </Settings.Group>
-            <Separator borderColor="$color3" mx="$-4" borderWidth="$0.25" />
+            {isWeb && <Separator boc="$color3" mx="$-4" bw="$0.25" />}
             <Settings.Group>
               <Settings.Item
                 icon={Twitter}
                 onPress={() => redirect('https://twitter.com/tamagui_js')}
-                accentColor={brandColors.twitter}
+                accentTheme="blue"
               >
                 Our Twitter
               </Settings.Item>
             </Settings.Group>
-            <Separator borderColor="$color3" mx="$-4" borderWidth="$0.25" />
+            {isWeb && <Separator boc="$color3" mx="$-4" bw="$0.25" />}
             <Settings.Group>
               <SettingsThemeAction />
               <SettingsItemLogoutAction />
@@ -115,19 +104,7 @@ const SettingsThemeAction = () => {
   const { toggle, current } = useThemeSetting()
 
   return (
-    <Settings.Item
-      icon={Moon}
-      accentColor="$blue9"
-      onPress={toggle}
-      rightLabel={current}
-      // <Switch
-      //   size="$4"
-      //   checked={resolvedTheme === 'dark'}
-      //   onCheckedChange={() => set(resolvedTheme === 'dark' ? 'light' : 'dark')}
-      // >
-      //   <Switch.Thumb animation="100ms" />
-      // </Switch>
-    >
+    <Settings.Item icon={Moon} accentTheme="blue" onPress={toggle} rightLabel={current}>
       Theme
     </Settings.Item>
   )
@@ -137,7 +114,7 @@ const SettingsItemLogoutAction = () => {
   const supabase = useSupabase()
 
   return (
-    <Settings.Item icon={LogOut} accentColor="$red9" onPress={() => supabase.auth.signOut()}>
+    <Settings.Item icon={LogOut} accentTheme="red" onPress={() => supabase.auth.signOut()}>
       Log Out
     </Settings.Item>
   )

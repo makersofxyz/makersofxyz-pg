@@ -1,13 +1,14 @@
 import { Meta, StoryObj } from '@storybook/react'
-import { TodoCard } from './TodoCard'
 import { YStack } from 'tamagui'
+
+import { TodoCard } from './TodoCard'
 
 const meta: Meta<typeof TodoCard> = {
   title: 'ui/TodoCard',
   parameters: { layout: 'centered' },
   component: TodoCard,
   render: (props) => (
-    <YStack width={400}>
+    <YStack w={400}>
       <TodoCard {...props} />
     </YStack>
   ),

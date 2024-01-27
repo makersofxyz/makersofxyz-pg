@@ -2,6 +2,9 @@
   "compilerOptions": {
     "baseUrl": ".",
     "rootDir": ".",
+    "paths": {
+      "@my/*": ["packages/*"]
+    },
     "importHelpers": true,
     "allowJs": false,
     "allowSyntheticDefaultImports": true,
@@ -9,11 +12,11 @@
     "esModuleInterop": true,
     "preserveSymlinks": true,
     "incremental": true,
-    "jsx": "react-jsx",
-    "module": "system",
+    "module": "ESNext",
     "moduleResolution": "node",
+    "forceConsistentCasingInFileNames": true,
     "noEmitOnError": false,
-    "noImplicitAny": false,
+    "noImplicitAny": true,
     "noImplicitReturns": false,
     "noUnusedLocals": false,
     "noUnusedParameters": false,
@@ -22,13 +25,15 @@
     "preserveConstEnums": true,
     // DONT DO THIS so jsdoc will remain
     "removeComments": false,
+    "strict": true,
     "skipLibCheck": true,
     "typeRoots": ["node_modules/@types", "environment.d.ts"],
     "sourceMap": false,
-    "strictNullChecks": true,
-    "target": "es2020",
+    "target": "ESNext",
     "types": ["node"],
-    "lib": ["dom", "esnext"],
+    "jsx": "react-jsx",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "resolveJsonModule": true,
     "plugins": [
       {
         // docs: https://github.com/nderscore/tamagui-typescript-plugin#readme

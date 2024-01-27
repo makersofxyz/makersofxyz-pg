@@ -9,11 +9,11 @@ const Wrapper = forwardRef<TamaguiElement, YStackProps>(function Wrapper(props, 
     <YStack
       ref={ref}
       gap="$4"
-      flex={1}
+      f={1}
       jc="center"
       $gtSm={{
-        width: '100%',
-        maxWidth: 600,
+        w: '100%',
+        maw: 600,
         als: 'center',
       }}
       // $gtSm={{ width: 500, mx: 'auto' }}

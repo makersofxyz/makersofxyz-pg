@@ -16,11 +16,16 @@ import {
   YStack,
   isWeb,
   useMedia,
+  validToken,
+  TamaguiConfig,
 } from '@my/ui'
-import { ArrowRight, DollarSign, Edit2, User, Users } from '@tamagui/lucide-icons'
+import { Platform } from 'react-native'
+import { ArrowRight, DollarSign, Pencil, User, Users } from '@tamagui/lucide-icons'
 import { api } from 'app/utils/api'
 import React from 'react'
 import { useLink } from 'solito/link'
+
+type x = TamaguiConfig['onlyAllowShorthands']
 
 const defaultAuthors = [
   {
@@ -39,9 +44,9 @@ export function HomeScreen() {
   return (
     <XStack maw={1480} als="center" f={1}>
       <ScrollView f={3} fb={0}>
-        <YStack gap="$6" pt="$5" pb="$8">
+        <YStack gap="$3" pt="$5" pb="$8">
           <Greetings />
-          <YStack gap="$8">
+          <YStack gap="$6">
             <AchievementsSection />
             <OverviewSection />
             <PostsSection />
@@ -58,7 +63,7 @@ export function HomeScreen() {
 
 const EventCards = () => {
   return (
-    <ScrollView f={1} fb={0} $md={{ display: 'none' }}>
+    <ScrollView f={1} fb={0} $md={{ dsp: 'none' }}>
       <YStack separator={<Separator />}>
         <YStack>
           <EventCard
@@ -103,7 +108,7 @@ const EventCards = () => {
         </YStack>
         <YStack p="$3">
           <Theme name="blue_alt1">
-            <Banner {...useLink({ href: '/' })} cursor="pointer">
+            <Banner {...useLink({ href: '/' })} cur="pointer">
               <H4>Upgrade Now!</H4>
               <Paragraph size="$2" mt="$1">
                 Upgrade to access exclusive features and more!
@@ -113,7 +118,7 @@ const EventCards = () => {
         </YStack>
         <YStack>
           <TodoCard label="Contribute to OSS" checked={false} />
-          <TodoCard label="Learn about Tamagui's latest features" checked={true} />
+          <TodoCard label="Learn about Tamagui's latest features" checked />
           <TodoCard label="Upgrade to the new Expo version" checked={false} />
           <TodoCard label="Do the dishes" checked={false} />
         </YStack>
@@ -122,11 +127,27 @@ const EventCards = () => {
   )
 }
 
+const halfMinusSpace = validToken(
+  Platform.select({
+    web: 'calc(50% - 12px)',
+    native: '53%',
+  })
+)
+
+const quarterMinusSpace = validToken(
+  Platform.select({
+    web: 'calc(25% - 12px)',
+    native: '21%',
+  })
+)
+
 const AchievementsSection = () => {
   return (
     <YStack gap="$4">
       <XStack px="$4.5" ai="center" gap="$2" jc="space-between" mb="$4">
-        <H4 fontWeight="400">Getting Started</H4>
+        <H4 theme="alt1" fow="400">
+          Getting Started
+        </H4>
         <Theme name="alt2">
           <Button size="$2" chromeless {...useLink({ href: '/' })} iconAfter={ArrowRight}>
             All Achievements
@@ -135,15 +156,15 @@ const AchievementsSection = () => {
       </XStack>
 
       <ScrollAdapt>
-        <XStack px="$4" flexWrap="wrap" flex={1} gap="$3">
+        <XStack px="$4" fw="wrap" f={1} gap="$3">
           <Theme name="green">
             <AchievementCard
-              width={300}
+              w={300}
               $gtMd={{
-                width: 'calc(50% - 12px)',
+                w: halfMinusSpace,
               }}
               $gtLg={{
-                width: 'calc(25% - 12px)',
+                w: quarterMinusSpace,
               }}
               icon={DollarSign}
               title="Make your first 100K"
@@ -156,12 +177,12 @@ const AchievementsSection = () => {
           </Theme>
           <Theme name="blue">
             <AchievementCard
-              width={300}
+              w={300}
               $gtMd={{
-                width: 'calc(50% - 12px)',
+                w: halfMinusSpace,
               }}
               $gtLg={{
-                width: 'calc(25% - 12px)',
+                w: quarterMinusSpace,
               }}
               icon={User}
               title="Build your community"
@@ -174,14 +195,14 @@ const AchievementsSection = () => {
           </Theme>
           <Theme name="orange">
             <AchievementCard
-              width={300}
+              w={300}
               $gtMd={{
-                width: 'calc(50% - 12px)',
+                w: halfMinusSpace,
               }}
               $gtLg={{
-                width: 'calc(25% - 12px)',
+                w: quarterMinusSpace,
               }}
-              icon={Edit2}
+              icon={Pencil}
               title="Set up your profile"
               progress={{ current: 2, full: 3, label: 'steps completed' }}
               action={{
@@ -192,12 +213,12 @@ const AchievementsSection = () => {
           </Theme>
           <Theme name="pink">
             <AchievementCard
-              width={300}
+              w={300}
               $gtMd={{
-                width: 'calc(50% - 12px)',
+                w: halfMinusSpace,
               }}
               $gtLg={{
-                width: 'calc(25% - 12px)',
+                w: quarterMinusSpace,
               }}
               icon={Users}
               title="Refer 5 friends"
@@ -218,7 +239,7 @@ const OverviewSection = () => {
   return (
     <YStack gap="$4">
       <XStack px="$4.5" ai="center" gap="$2" jc="space-between" mb="$4">
-        <H4 fontWeight="400">Overview</H4>
+        <H4 fow="400">Overview</H4>
         <Theme name="alt2">
           <Button size="$2" chromeless {...useLink({ href: '/' })} iconAfter={ArrowRight}>
             View All Stats
@@ -227,28 +248,12 @@ const OverviewSection = () => {
       </XStack>
 
       <ScrollAdapt>
-        <XStack flexWrap="wrap" ai="flex-start" jc="flex-start" px="$4" gap="$8" mb="$4">
-          <OverviewCard
-            $gtMd={{ minWidth: 200, flex: 1, flexBasis: 0 }}
-            $md={{ width: 150 }}
-            title="MRR"
-            value="$18,908"
-            badgeText="+0.5%"
-            badgeState="success"
-          />
+        <XStack fw="wrap" ai="flex-start" jc="flex-start" px="$4" gap="$8" mb="$4">
+          <OverviewCard title="MRR" value="$18,908" badgeText="+0.5%" badgeState="success" />
+
+          <OverviewCard title="ARR" value="$204,010" badgeText="+40.5%" badgeState="success" />
 
           <OverviewCard
-            $gtMd={{ minWidth: 200, flex: 1, flexBasis: 0 }}
-            $md={{ width: 150 }}
-            title="ARR"
-            value="$204,010"
-            badgeText="+40.5%"
-            badgeState="success"
-          />
-
-          <OverviewCard
-            $gtMd={{ minWidth: 200, flex: 1, flexBasis: 0 }}
-            $md={{ width: 150 }}
             title="Today's new users"
             value="4 Users"
             badgeText="+25%"
@@ -256,42 +261,29 @@ const OverviewSection = () => {
           />
 
           <OverviewCard
-            $gtMd={{ minWidth: 200, flex: 1, flexBasis: 0 }}
-            $md={{ width: 150 }}
             title="Weekly Post Views"
             value="30,104"
             badgeText="-2%"
             badgeState="failure"
           />
-
-          {/* <OverviewCard
-            $gtMd={{ minWidth: 200, flex: 1, flexBasis: 0 }}
-            $md={{ width: 150 }}
-            title="This week's new users"
-            value="14 Users"
-            badgeText="-2%"
-            badgeState="failure"
-          />
-
-          <OverviewCard
-            $gtMd={{ minWidth: 200, flex: 1, flexBasis: 0 }}
-            $md={{ width: 150 }}
-            title="Monthly Post Views"
-            value="150,104"
-            badgeText="+1%"
-            badgeState="success"
-          /> */}
         </XStack>
       </ScrollAdapt>
     </YStack>
   )
 }
 
+const feedCardWidthMd = validToken(
+  Platform.select({
+    web: 'calc(33.33% - 12px)',
+    native: '32%',
+  })
+)
+
 const PostsSection = () => {
   return (
     <YStack gap="$4">
       <XStack px="$4.5" ai="center" gap="$2" jc="space-between" mb="$4">
-        <H4 fontWeight="400">Latest Posts</H4>
+        <H4 fow="400">Latest Posts</H4>
         <Theme name="alt2">
           <Button size="$2" chromeless {...useLink({ href: '/' })} iconAfter={ArrowRight}>
             View All Posts
@@ -299,11 +291,11 @@ const PostsSection = () => {
         </Theme>
       </XStack>
       <ScrollAdapt>
-        <XStack px="$4" gap="$4" mb="$4" jc="flex-start" flexWrap="wrap">
+        <XStack px="$4" gap="$4" mb="$4" jc="flex-start" fw="wrap">
           <FeedCard
             withImages
-            width={300}
-            $gtMd={{ width: 'calc(33.33% - 12px)' }}
+            w={300}
+            $gtMd={{ w: feedCardWidthMd }}
             title="Why lorem ipsum look bad"
             description="Maybe it's just me - I'll just write out some dummy text just ignore the text tyvm..."
             tag="Design"
@@ -312,8 +304,8 @@ const PostsSection = () => {
 
           <FeedCard
             withImages
-            width={300}
-            $gtMd={{ width: 'calc(33.33% - 12px)' }}
+            w={300}
+            $gtMd={{ w: feedCardWidthMd }}
             title="Why you should use Tamagui"
             description="Tamagui is the best way to develop performant cross-platform apps with one codebase..."
             tag="React"
@@ -322,8 +314,8 @@ const PostsSection = () => {
 
           <FeedCard
             withImages
-            width={300}
-            $gtMd={{ width: 'calc(33.33% - 12px)' }}
+            w={300}
+            $gtMd={{ w: feedCardWidthMd }}
             title="Merits of functional programming"
             description="What is FP anyways? let's talk about it and learn about it's pros and cons..."
             tag="Programming"
@@ -332,8 +324,8 @@ const PostsSection = () => {
 
           <FeedCard
             withImages
-            width={300}
-            $gtMd={{ width: 'calc(33.33% - 12px)' }}
+            w={300}
+            $gtMd={{ w: feedCardWidthMd }}
             title="Different React paradigms"
             description="We're gonna talk about different react paradigm and jargons..."
             tag="React"
@@ -342,8 +334,8 @@ const PostsSection = () => {
 
           <FeedCard
             withImages
-            width={300}
-            $gtMd={{ width: 'calc(33.33% - 12px)' }}
+            w={300}
+            $gtMd={{ w: feedCardWidthMd }}
             title="Another Post"
             description="Hey this is yet another post I'm putting here for demo purposes..."
             tag="React"
@@ -351,8 +343,8 @@ const PostsSection = () => {
           />
           <FeedCard
             withImages
-            width={300}
-            $gtMd={{ width: 'calc(33.33% - 12px)' }}
+            w={300}
+            $gtMd={{ w: feedCardWidthMd }}
             title="And Another Post"
             description="I'm out of ideas for dummy posts, Sint labore sit magna ea proident aute..."
             tag="React"
@@ -378,10 +370,8 @@ function ScrollAdapt({ children }: { children: React.ReactNode }) {
 const Greetings = () => {
   const greetingQuery = api.greeting.greet.useQuery()
   return (
-    <YStack gap="$2">
-      <H2 px="$4" my="$2">
-        {greetingQuery.data}
-      </H2>
-    </YStack>
+    <H2 px="$4" my="$2">
+      {greetingQuery.data || '-'}
+    </H2>
   )
 }

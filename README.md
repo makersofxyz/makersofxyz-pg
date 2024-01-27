@@ -1,10 +1,4 @@
-⚠⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️️
-
-Please remember that Takeout is closed source and you should not make this code available in any public form!
-
-**Please note**: we've had a number of people create public repos on accident with Takeout. This isn't allowed per the license! Please be careful to keep the source private.
-
-⚠⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️️
+⚠️️ **Please note**: Takeout is closed source for now. We've had a number of people create public repos on accident. Please be careful to keep the source private as per the license.
 
 # Tamagui's Takeout Starter
 
@@ -21,6 +15,7 @@ yarn create tamagui --template takeout-starter
 the `yarn create tamagui --template takeout-starter` command has a requirement on `gh`
 
 `gh` setup:
+
 1. [gh install](https://cli.github.com/)
 1. `gh auth login`
 1. select ` https` from the menu
@@ -54,7 +49,7 @@ Please reference [Supabase's documentation](https://supabase.com/docs/guides/sel
 
 ## Development
 
-Development scripts:
+### Development scripts
 
 - Web: `yarn web`
 - iOS: `yarn ios`
@@ -62,14 +57,23 @@ Development scripts:
 
 NOTE: When using tRPC, even if you just want to develop on native, you need to have the web server running to be able to make tRPC requests.
 
-Storybook scripts:
+### EAS dev builds
+
+In the apps/expo folder you can use EAS and a few helpful scripts:
+
+- `yarn eas:build:dev:simulator:android` for android
+- `yarn eas:build:dev:simulator:ios` for ios
+
+Add `--local` to build locally.
+
+### Storybook scripts
 
 - Storybook Web: `yarn storybook:web`
 - Storybook iOS: `yarn storybook:ios`
 - Storybook Android: `yarn storybook:android`
 - Publish to Chromatic: `yarn chromatic` (Need to set your token first in `apps/storybook/package.json -> scripts -> chromatic`)
 
-Code generation script:
+### Code generation script
 
 - Component: `yarn gen component`
 - Screen: `yarn gen screen`
@@ -182,7 +186,11 @@ Icons are populated from [icones](https://icones.js.org)
 
 ## How Authentication is Handled
 
-Authentication is handled by Supabase Auth. Email and password auth is included in the starter but you can get OAuth to work too. Getting OAuth to work on web is as easy as it gets but on native, you will need to manually get the OAuth credentials, and then feed them to the Supabase session. See [this article](https://dev.to/fedorish/google-sign-in-using-supabase-and-react-native-expo-14jf) for more info on how to handle native OAuth with Supabase.
+Authentication is handled by Supabase Auth. Email and password auth is included in the starter but you can get OAuth to work too.
+
+Check emails that are sent to you locally like the auth confirmation using InBucket at http://localhost:54324 once your Supabase is running.
+
+Getting OAuth to work on web is as easy as it gets but on native, you will need to manually get the OAuth credentials, and then feed them to the Supabase session. See [this article](https://dev.to/fedorish/google-sign-in-using-supabase-and-react-native-expo-14jf) for more info on how to handle native OAuth with Supabase.
 
 ### Guarding Pages on Web
 
@@ -281,13 +289,6 @@ You may potentially want to have the native module transpiled for the next app. 
 ## Deploying to Vercel
 
 - Root: `apps/next`
-- Install command to be `yarn set version 3.6 && yarn install` in `vercel.json`.
-  Note: currently there's a bug where `takeout` Vercel builds break using `yarn 4`
-  ```json
-  {
-    "installCommand": "yarn set version 3.6 && yarn install"
-  }
-  ```
 - Build command: leave default setting
 - Output dir: leave default setting
 

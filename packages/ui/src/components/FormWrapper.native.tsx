@@ -13,7 +13,8 @@ import {
 const useHeaderHeight = () => {
   try {
     return useHeaderHeightOG()
-  } catch (error) {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  } catch (_error) {
     return 0
   }
 }
@@ -39,14 +40,13 @@ const Wrapper = forwardRef<TamaguiElement, YStackProps>(function Wrapper(props, 
         }}
         ref={ref}
         gap="$4"
-        flex={1}
+        f={1}
         jc="center"
         $gtSm={{
-          width: '100%',
-          maxWidth: 600,
+          w: '100%',
+          maw: 600,
           als: 'center',
         }}
-        // $gtSm={{ width: 500, mx: 'auto' }}
         $sm={{ jc: 'space-between' }}
         {...props}
       />
@@ -84,7 +84,7 @@ const Footer = forwardRef<TamaguiElement, YStackProps>(function Footer(props, re
         px="$4"
         gap="$4"
         // reverse the direction so that the primary button is on the bottom of the screen on mobile
-        flexDirection="column-reverse"
+        fd="column-reverse"
         {...props}
       />
     </KeyboardAvoidingView>

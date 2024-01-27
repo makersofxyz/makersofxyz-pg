@@ -8,10 +8,10 @@ const KVTableRow = (props: XStackProps) => {
   return (
     <XStack
       $sm={{
-        flexDirection: 'column',
+        fd: 'column',
       }}
       gap="$3"
-      flexWrap="wrap"
+      fw="wrap"
       {...props}
     />
   )
@@ -20,9 +20,9 @@ const KVTableRow = (props: XStackProps) => {
 const KVTableKey = (props: YStackProps) => {
   return (
     <YStack
-      width="23%"
+      w="23%"
       $sm={{
-        width: '100%',
+        w: '100%',
       }}
       {...props}
     />
@@ -32,11 +32,11 @@ const KVTableKey = (props: YStackProps) => {
 const KVTableValue = (props: XStackProps) => {
   return (
     <XStack
-      width="72%"
+      w="72%"
       $sm={{
-        width: '100%',
+        w: '100%',
       }}
-      flexWrap="wrap"
+      fw="wrap"
       {...props}
     />
   )

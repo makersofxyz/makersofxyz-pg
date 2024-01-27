@@ -4,6 +4,7 @@ import { supabase } from 'app/utils/supabase/client.native'
 import { router, useSegments } from 'expo-router'
 import { createContext, useEffect, useState } from 'react'
 import { Platform } from 'react-native'
+
 import { AuthProviderProps } from './AuthProvider'
 import { AuthStateChangeHandler } from './AuthStateChangeHandler'
 
