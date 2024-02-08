@@ -1,22 +1,24 @@
 // temp: ignore bundle error
-process.env.TAMAGUI_IGNORE_BUNDLE_ERRORS = "solito/link,moti"
+process.env.TAMAGUI_IGNORE_BUNDLE_ERRORS = 'solito/link,moti'
 
-module.exports = function (api) {
+module.exports = (api) => {
   api.cache(false)
   return {
     presets: [['babel-preset-expo', { jsxRuntime: 'automatic' }]],
     plugins: [
-      ["module:react-native-dotenv", {
-        "envName": "APP_ENV",
-        "moduleName": "@env",
-        "path": "../../.env",
-        "blocklist": null,
-        "allowlist": null,
-        "safe": false,
-        "allowUndefined": true,
-        "verbose": false
-      }],
-      require.resolve('expo-router/babel'),
+      [
+        'module:react-native-dotenv',
+        {
+          envName: 'APP_ENV',
+          moduleName: '@env',
+          path: '../../.env',
+          blocklist: null,
+          allowlist: null,
+          safe: false,
+          allowUndefined: true,
+          verbose: false,
+        },
+      ],
       [
         require.resolve('babel-plugin-module-resolver'),
         {
@@ -33,21 +35,16 @@ module.exports = function (api) {
       ...(process.env.EAS_BUILD_PLATFORM === 'android'
         ? []
         : [
-          [
-            '@tamagui/babel-plugin',
-            {
-              components: ['@my/ui', 'tamagui'],
-              config: './tamagui.config.ts',
-              disable: true
-            },
-          ],
-        ]),
-      [
-        'transform-inline-environment-variables',
-        {
-          include: 'TAMAGUI_TARGET',
-        },
-      ],
+            [
+              '@tamagui/babel-plugin',
+              {
+                components: ['@my/ui', 'tamagui'],
+                config: '../../packages/ui/src/tamagui.config.ts',
+                disable: true,
+              },
+            ],
+          ]),
+      ['transform-inline-environment-variables', {}],
     ],
   }
 }

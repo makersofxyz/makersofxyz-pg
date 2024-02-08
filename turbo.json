@@ -11,8 +11,11 @@
       "persistent": true
     },
     "lint": {},
+    "//#check:type": {},
+    "lint:fix": {},
     "clean": {
       "cache": false
-    }
+    },
+    "check-circular-deps": {}
   }
 }

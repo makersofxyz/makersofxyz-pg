@@ -1,10 +1,4 @@
-⚠⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️️
-
-Please remember that Takeout is closed source and you should not make this code available in any public form!
-
-**Please note**: we've had a number of people create public repos on accident with Takeout. This isn't allowed per the license! Please be careful to keep the source private.
-
-⚠⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️️
+⚠️️ **Please note**: Takeout is closed source for now. We've had a number of people create public repos on accident. Please be careful to keep the source private as per the license.
 
 # Tamagui's Takeout Starter
 
@@ -21,6 +15,7 @@ yarn create tamagui --template takeout-starter
 the `yarn create tamagui --template takeout-starter` command has a requirement on `gh`
 
 `gh` setup:
+
 1. [gh install](https://cli.github.com/)
 1. `gh auth login`
 1. select ` https` from the menu
@@ -32,6 +27,10 @@ To rename the project you can search the workspace for the word `myapp` and repl
 If you prefer, you may also run [react-native-rename](https://github.com/junedomingo/react-native-rename) from `/apps/expo` to rename the react-native references.
 
 If you're getting issues with the /android or /ios directories when setting up the starter, you can safely remove them and re-generate them using `yarn ios` and `yarn android`.
+
+## Environment
+
+Note that Cocoapods 1.15 has a [breaking bug](https://github.com/CocoaPods/CocoaPods/issues/12226). We recommend using version 1.14.3.
 
 ## Included packages
 
@@ -54,7 +53,7 @@ Please reference [Supabase's documentation](https://supabase.com/docs/guides/sel
 
 ## Development
 
-Development scripts:
+### Development scripts
 
 - Web: `yarn web`
 - iOS: `yarn ios`
@@ -62,14 +61,26 @@ Development scripts:
 
 NOTE: When using tRPC, even if you just want to develop on native, you need to have the web server running to be able to make tRPC requests.
 
-Storybook scripts:
+### EAS dev builds
+
+> [!IMPORTANT]  
+> You need to update your `owner` inside `apps/expo/app.json` to your own username
+
+In the apps/expo folder you can use EAS and a few helpful scripts:
+
+- `yarn eas:build:dev:simulator:android` for android
+- `yarn eas:build:dev:simulator:ios` for ios
+
+Add `--local` to build locally.
+
+### Storybook scripts
 
 - Storybook Web: `yarn storybook:web`
 - Storybook iOS: `yarn storybook:ios`
 - Storybook Android: `yarn storybook:android`
 - Publish to Chromatic: `yarn chromatic` (Need to set your token first in `apps/storybook/package.json -> scripts -> chromatic`)
 
-Code generation script:
+### Code generation script
 
 - Component: `yarn gen component`
 - Screen: `yarn gen screen`
@@ -182,7 +193,11 @@ Icons are populated from [icones](https://icones.js.org)
 
 ## How Authentication is Handled
 
-Authentication is handled by Supabase Auth. Email and password auth is included in the starter but you can get OAuth to work too. Getting OAuth to work on web is as easy as it gets but on native, you will need to manually get the OAuth credentials, and then feed them to the Supabase session. See [this article](https://dev.to/fedorish/google-sign-in-using-supabase-and-react-native-expo-14jf) for more info on how to handle native OAuth with Supabase.
+Authentication is handled by Supabase Auth. Email and password auth is included in the starter but you can get OAuth to work too.
+
+Check emails that are sent to you locally like the auth confirmation using InBucket at http://localhost:54324 once your Supabase is running.
+
+Getting OAuth to work on web is as easy as it gets but on native, you will need to manually get the OAuth credentials, and then feed them to the Supabase session. See [this article](https://dev.to/fedorish/google-sign-in-using-supabase-and-react-native-expo-14jf) for more info on how to handle native OAuth with Supabase.
 
 ### Guarding Pages on Web
 
@@ -281,13 +296,6 @@ You may potentially want to have the native module transpiled for the next app. 
 ## Deploying to Vercel
 
 - Root: `apps/next`
-- Install command to be `yarn set version 3.6 && yarn install` in `vercel.json`.
-  Note: currently there's a bug where `takeout` Vercel builds break using `yarn 4`
-  ```json
-  {
-    "installCommand": "yarn set version 3.6 && yarn install"
-  }
-  ```
 - Build command: leave default setting
 - Output dir: leave default setting
 
@@ -301,16 +309,12 @@ EAS has already been configured for you, but you still need to do the following:
 
 ### Initial EAS Setup
 
-1. edit `apps/expo/app.json` update:
+1. edit `apps/expo/app.json` and update:
    1. `owner`
    1. `projectId`
 
-## FAQs
+## FAQ
 
 - I get the error `network request failed` when trying to signin or signup for the app
 
 This error is likely caused my not having Supabase setup correctly and running in docker.
-
-- I'm trying to run my project with `expo go`
-
-`takeout` is not compatible with `expo go` at this time. You'll need to run the project with a local development build, outlined above.
