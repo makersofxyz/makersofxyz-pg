@@ -50,19 +50,19 @@ export const NavTabs = (props: TabsProps) => {
         {intentAt && (
           <TabsRovingIndicator
             key="intent-indicator"
-            borderRadius="$4"
-            width={intentAt.width}
-            height={intentAt.height - 8}
+            br="$4"
+            w={intentAt.width}
+            h={intentAt.height - 8}
             x={intentAt.x}
             y={intentAt.y + 4}
-            $sm={{ display: 'none' }}
+            $sm={{ dsp: 'none' }}
           />
         )}
       </AnimatePresence>
       <AnimatePresence>
         {activeAt && (
           <TabsRovingIndicator
-            zIndex={1}
+            zi={1}
             key="active-indicator"
             theme="active"
             active
@@ -111,15 +111,15 @@ const Tab = (props: TabsTabProps) => (
 
 const TabsRovingIndicator = ({ active, ...props }: { active?: boolean } & StackProps) => (
   <Stack
-    position="absolute"
-    backgroundColor="$color5"
+    pos="absolute"
+    bg="$color5"
     animation="100ms"
-    opacity={1}
+    o={1}
     enterStyle={{
-      opacity: 0,
+      o: 0,
     }}
     exitStyle={{
-      opacity: 0,
+      o: 0,
     }}
     {...(active && {
       backgroundColor: '$color9',

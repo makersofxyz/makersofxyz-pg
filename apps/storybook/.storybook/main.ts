@@ -28,7 +28,7 @@ const config: StorybookConfig = {
     name: '@storybook/nextjs',
     options: {
       builder: {
-        useSWC: false,
+        useSWC: true,
       },
     },
   },
@@ -41,10 +41,6 @@ const config: StorybookConfig = {
       },
     },
   },
-  env: (config) => ({
-    ...config,
-    TAMAGUI_TARGET: 'web',
-  }),
   docs: {
     autodocs: true,
   },

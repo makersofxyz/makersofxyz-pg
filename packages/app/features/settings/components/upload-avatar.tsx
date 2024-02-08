@@ -26,7 +26,6 @@ export const UploadAvatar = ({ children }: { children: React.ReactNode }) => {
     try {
       if (pickerResult.canceled) {
         // upload canceled
-        return
       } else {
         if (!user) return
         const image = pickerResult.assets[0]
@@ -56,7 +55,7 @@ export const UploadAvatar = ({ children }: { children: React.ReactNode }) => {
             upsert: true,
           })
         if (result.error) {
-          console.log(result.error)
+          console.error(result.error)
           throw new Error(result.error.message)
         }
 
@@ -74,45 +73,22 @@ export const UploadAvatar = ({ children }: { children: React.ReactNode }) => {
       console.error(e)
 
       alert(
-        'Upload failed.' +
-          (process.env.NODE_ENV !== 'production'
+        `Upload failed.${
+          process.env.NODE_ENV !== 'production'
             ? ' NOTE: Make sure you have created a public bucket with name `avatars`. You can do it either from your Supabase dashboard (http://localhost:54323/project/default/storage/buckets/avatars) or using the seed.sql file.'
-            : '')
+            : ''
+        }`
       )
     }
   }
 
   return (
-    <YStack
-      position="relative"
-      alignSelf="flex-start"
-      flexShrink={1}
-      onPress={() => pickImage()}
-      cursor="pointer"
-    >
+    <YStack pos="relative" als="flex-start" fs={1} onPress={() => pickImage()} cur="pointer">
       {children}
-      <YStack
-        position="absolute"
-        left={0}
-        right={0}
-        top={0}
-        bottom={0}
-        jc="center"
-        ai="center"
-        zIndex={100}
-      >
-        <YStack
-          backgroundColor="black"
-          opacity={0.3}
-          borderRadius="$10"
-          position="absolute"
-          left={0}
-          right={0}
-          top={0}
-          bottom={0}
-        />
-        <YStack position="absolute" left={0} right={0} top={0} bottom={0} jc="center" ai="center">
-          <Upload color="white" />
+      <YStack fullscreen jc="center" ai="center" zi={100}>
+        <YStack bg="black" o={0.3} br="$10" fullscreen />
+        <YStack fullscreen jc="center" ai="center">
+          <Upload col="white" />
         </YStack>
       </YStack>
     </YStack>
